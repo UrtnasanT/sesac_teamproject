@@ -1,0 +1,149 @@
+@import url(../reset.css);
+
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu+Mono&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  background-color: #f5f5f1;
+  font-family: "Ubuntu Mono", monospace;
+  font-weight: 400;
+}
+
+.logo {
+  text-align: center;
+  margin-top: -20px;
+}
+
+.book-shelf:hover {
+  cursor: pointer;
+  
+  .book-shelf__book {
+    animation: book-bounce 0.4s ease;
+    animation-iteration-count: 1;
+  }
+  
+  .book-shelf__book--two {
+    animation-delay: 0.04s;
+  }
+
+  .book-shelf__book--three {
+    animation-delay: 0.08s;
+  }
+  
+  .book-shelf__shelf {
+    animation: shelf-lift 0.4s ease;
+    animation-iteration-count: 1;
+    transform-origin: 50% 50%;
+  }
+}
+
+
+.container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  height: 500px;
+  gap: 10px;
+
+  > div {
+    flex: 0 0 120px;
+    border-radius: 0.5rem;
+    transition: 0.5s ease-in-out;
+    cursor: pointer;
+    box-shadow: 1px 5px 15px #1e0e3e;
+    position: relative;
+    overflow: hidden;
+
+    &:nth-of-type(1) {
+      background: url("../../img/main/littlePiga.jpg")
+        no-repeat 50% / cover;
+    }
+    &:nth-of-type(2) {
+      background: url("https://littletiger.co.uk/wp-content/uploads/2023/07/SF11-Dream-Shield-56277_C-1.jpg")
+        no-repeat 50% / cover;
+    }
+    &:nth-of-type(3) {
+      background: url("https://littletiger.co.uk/wp-content/uploads/2023/10/Meg2020212FAll20Your20Tomorrows_PB_COVER_Booksonix.jpg")
+        no-repeat 50% / cover;
+    }
+    &:nth-of-type(4) {
+      background: url("https://littletiger.co.uk/wp-content/uploads/2022/10/Stripes2020182FStripes2020222F9781788950657-16.jpg")
+        no-repeat 50% / cover;
+    }
+    &:nth-of-type(5) {
+      background: url("https://littletiger.co.uk/wp-content/uploads/2022/11/Stripes2020182FStripes2020202FLuna_Cover-11.jpg")
+        no-repeat 50% / cover;
+    }
+    &:nth-of-type(6) {
+      background: url("https://littletiger.co.uk/wp-content/uploads/2023/01/Stripes2020182FStripes2020232FRailway20Kitten20Cover-11.jpg")
+        no-repeat 50% / cover;
+    }
+    &:nth-of-type(7) {
+      background: url("https://littletiger.co.uk/wp-content/uploads/2023/04/Stripes2020182FStripes2020202FNight20Train_Cover.jpg")
+        no-repeat 50% / cover;
+    }
+
+    .content {
+      font-size: 1.5rem;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      padding: 15px;
+      opacity: 0;
+      flex-direction: column;
+      height: 100%;
+      justify-content: flex-end;
+      background: rgb(2, 2, 46);
+      background: linear-gradient(
+        0deg,
+        rgba(2, 2, 46, 0.6755077030812324) 0%,
+        rgba(255, 255, 255, 0) 100%
+      );
+      transform: translatey(100%);
+      transition: opacity 0.5s ease-in-out, transform 0.5s 0.2s;
+      visibility: hidden;
+
+      span {
+        display: block;
+        margin-top: 20px;
+        font-size: 1rem;
+      }
+    }
+
+    &:hover {
+      flex: 0 0 400px;
+      box-shadow: 1px 3px 15px #7645d8;
+      transform: translatey(-30px);
+    }
+
+    &:hover .content {
+      opacity: 1;
+      transform: translatey(0%);
+      visibility: visible;
+    }
+  }
+}
+
+
+@keyframes book-bounce {
+  0% { transform: translateY(0); }
+  40% { transform: translateY(-10px); }
+  80% { transform: translateY(0); }
+  100% { transform: translateY(0); }
+}
+
+@keyframes shelf-lift {
+  0% { transform: translateY(0) rotate(0); }
+  20% { transform: translateY(-4px) rotate(10deg); }
+  40% { transform: translateY(-4px) rotate(0); }
+  40% { transform: translateY(-4px) rotate(-10deg); }
+  80% { transform: translateY(0); }
+  100% { transform: translateY(0); }
+}
