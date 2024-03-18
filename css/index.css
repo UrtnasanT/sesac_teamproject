@@ -1,0 +1,92 @@
+@import './utils.css';
+
+body {
+  margin: 0;
+  padding: 0;
+  /* background-color: #9cd2f6; */
+  background-color: rgb(255, 249, 226);
+  height: 100vh;
+}
+
+.container > img {
+  position: absolute;
+  width: 20vw;
+  padding-top: 50px;
+  padding-left: 50px;
+}
+
+p {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  width: 100vw;
+  height: 100vh;
+}
+
+.header {
+  background-color: white;
+  width: 100%;
+  height: 50px;
+  position: fixed;
+}
+
+.text {
+  width: 100%;
+  padding-top: 50px;
+  height: calc(30vh - 50px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.text > span {
+  font-family: 'Cafe24Ssurround';
+  width: 50%;
+  font-size: 40px;
+}
+
+.content {
+  width: 100%;
+  height: 70vh;
+  display: flex;
+}
+
+.left,
+.right {
+  width: 50%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 3;
+}
+
+/* .content img {
+  width: 70%;
+} */
+
+.wolf {
+  position: absolute;
+  bottom: 0;
+  width: 30vw;
+}
+
+.house {
+  position: absolute;
+  bottom: 5vh;
+  width: 40vw;
+}
+
+.grass {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+}
+
+.grass > img {
+  width: 100%;
+  vertical-align: bottom;
+  z-index: 0;
+}
