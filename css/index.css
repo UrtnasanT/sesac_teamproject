@@ -1,11 +1,11 @@
-@import './utils.css';
+@import "./utils.css";
 
 /* body 초기화 */
 body {
   margin: 0;
   padding: 0;
-  /* background-color: #9cd2f6; */
-  background-color: rgb(255, 249, 226);
+  background-color: #badef6;
+  /* background-color: rgb(255, 249, 226); */
   height: 100vh;
 }
 
@@ -48,9 +48,11 @@ p {
 
 /* 자막 안 */
 .text > span {
-  font-family: 'Cafe24Ssurround';
+  font-family: "EF_jejudoldam";
   width: 50%;
-  font-size: 40px;
+  padding-top: 16vh;
+  font-size: 44px;
+  line-height: 7vh;
 }
 
 /* ---- content ------ */
@@ -78,13 +80,15 @@ p {
 .content .left .wolf {
   position: absolute;
   bottom: 0;
-  width: 30vw;
+  width: 28vw;
+  left: 16vw;
 }
 
 .content .right .house {
   position: absolute;
-  bottom: 5vh;
-  width: 40vw;
+  bottom: 4vh;
+  width: 32vw;
+  right: 14vw;
 }
 
 .content .grass {
