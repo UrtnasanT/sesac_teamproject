@@ -1,5 +1,6 @@
 @import './utils.css';
 
+/* body 초기화 */
 body {
   margin: 0;
   padding: 0;
@@ -8,13 +9,7 @@ body {
   height: 100vh;
 }
 
-.container > img {
-  position: absolute;
-  width: 20vw;
-  padding-top: 50px;
-  padding-left: 50px;
-}
-
+/* p 태그 초기화 */
 p {
   margin: 0;
   padding: 0;
@@ -25,6 +20,15 @@ p {
   height: 100vh;
 }
 
+/* 구름(임시)  */
+.container > img {
+  position: absolute;
+  width: 20vw;
+  padding-top: 50px;
+  padding-left: 50px;
+}
+
+/* header 영역 */
 .header {
   background-color: white;
   width: 100%;
@@ -32,6 +36,7 @@ p {
   position: fixed;
 }
 
+/* 자막 영역 */
 .text {
   width: 100%;
   padding-top: 50px;
@@ -41,18 +46,21 @@ p {
   justify-content: center;
 }
 
+/* 자막 안 */
 .text > span {
   font-family: 'Cafe24Ssurround';
   width: 50%;
   font-size: 40px;
 }
 
+/* ---- content ------ */
 .content {
   width: 100%;
   height: 70vh;
   display: flex;
 }
 
+/* content안의 left, right */
 .left,
 .right {
   width: 50%;
@@ -67,26 +75,28 @@ p {
   width: 70%;
 } */
 
-.wolf {
+.content .left .wolf {
   position: absolute;
   bottom: 0;
   width: 30vw;
 }
 
-.house {
+.content .right .house {
   position: absolute;
   bottom: 5vh;
   width: 40vw;
 }
 
-.grass {
+.content .grass {
   width: 100%;
   position: absolute;
   bottom: 0;
 }
 
-.grass > img {
+.content .grass > img {
   width: 100%;
   vertical-align: bottom;
   z-index: 0;
 }
+
+/* ----  /content ------ */
