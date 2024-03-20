@@ -23,9 +23,9 @@ p {
 /* 구름(임시)  */
 .container > img {
   position: absolute;
-  width: 20vw;
-  padding-top: 50px;
-  padding-left: 50px;
+  width: 15vw;
+  padding-top: 100px;
+  padding-left: 100px;
 }
 
 /* header 영역 */
