@@ -1,20 +1,15 @@
 @import "./utils.css";
 
+/* body 초기화 */
 body {
   margin: 0;
   padding: 0;
-  /* background-color: #f7f6df; */
-  background-color: #e7e9ee;
+  background-color: #badef6;
+  /* background-color: rgb(255, 249, 226); */
   height: 100vh;
 }
 
-.container > img {
-  position: absolute;
-  width: 20vw;
-  padding-top: 50px;
-  padding-left: 50px;
-}
-
+/* p 태그 초기화 */
 p {
   margin: 0;
   padding: 0;
@@ -25,6 +20,15 @@ p {
   height: 100vh;
 }
 
+/* 구름(임시)  */
+.container > img {
+  position: absolute;
+  width: 15vw;
+  padding-top: 100px;
+  padding-left: 100px;
+}
+
+/* header 영역 */
 .header {
   background-color: rgb(255, 255, 255, 0.5);
   width: 100%;
@@ -32,6 +36,7 @@ p {
   position: fixed;
 }
 
+/* 자막 영역 */
 .text {
   width: 100%;
   height: calc(30vh - 50px);
@@ -40,22 +45,23 @@ p {
   justify-content: center;
 }
 
+/* 자막 안 */
 .text > span {
-  /* font-family: 'Cafe24Ssurround'; */
   font-family: "EF_jejudoldam";
-  /* font-family: "Katuri"; */
-  padding-top: 20vh;
   width: 50%;
+  padding-top: 16vh;
   font-size: 44px;
   line-height: 7vh;
 }
 
+/* ---- content ------ */
 .content {
   width: 100%;
   height: 70vh;
   display: flex;
 }
 
+/* content안의 left, right */
 .left,
 .right {
   width: 50%;
@@ -66,32 +72,31 @@ p {
   z-index: 3;
 }
 
-.wolf {
+.content .left .wolf {
   position: absolute;
   bottom: 0;
   width: 28vw;
-  left: 18vw;
+  left: 16vw;
 }
 
-.pig {
+.content .right .house {
   position: absolute;
-  bottom: 2vh;
-  width: 17vw;
-  right: 28vw;
+  bottom: 4vh;
+  width: 32vw;
+  right: 14vw;
 }
 
-.grass {
+.content .grass {
   width: 100%;
   position: absolute;
   bottom: 0;
 }
 
-.grass > img {
+.content .grass > img {
   width: 100%;
   vertical-align: bottom;
   z-index: 0;
 }
-
 .vibration {
   animation: vibration 0.1s infinite;
 }
