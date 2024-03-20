@@ -6,6 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="./css/index.css" />
+    <!-- <script src="/js/TheThreeLittlePigs.json"></script> -->
+    <!-- <script type="module" src="/js/fetch.js"></script> -->
+    <script type="module" src="./js/fetch.js"></script>
+    <script type="module" src="./js/changeScene.js"></script>
   </head>
   <body>
     <div class="container">
@@ -15,16 +19,16 @@
 
       <!-- 자막 -->
       <div class="text">
-        <span>첫째 돼지 집에 배고픈 늑대가 다가와서 문을 똑똑 두드리며 말했어요.</span>
+        <span id="json-data"></span>
       </div>
 
       <!-- content -->
       <div class="content">
         <!-- left 영역 -->
-        <div class="left"><img class="wolf" src="./img/wolf_blow.png" alt="" /></div>
+        <div class="left"><img id="left" class="wolf" src="./img/pig1_default.png" alt="" /></div>
 
         <!-- right 영역 -->
-        <div class="right"><img class="house" src="./img/house_straw.png" alt="" /></div>
+        <div class="right"><img id="right" class="house" src="./img/house_straw.png" alt="" /></div>
 
         <!-- 배경 잔디 영역 -->
         <div class="grass">

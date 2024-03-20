@@ -48,9 +48,10 @@ p {
 
 /* 자막 안 */
 .text > span {
+  text-align: center;
   font-family: 'Cafe24Ssurround';
-  width: 50%;
-  font-size: 40px;
+  width: 60%;
+  font-size: 30px;
 }
 
 /* ---- content ------ */
