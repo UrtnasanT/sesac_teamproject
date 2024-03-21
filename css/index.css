@@ -4,8 +4,8 @@
 body {
   margin: 0;
   padding: 0;
-  /* background-color: #9cd2f6; */
-  background-color: rgb(255, 249, 226);
+  background-color: #badef6;
+  /* background-color: rgb(255, 249, 226); */
   height: 100vh;
 }
 
@@ -23,9 +23,9 @@ p {
 /* 구름(임시)  */
 .container > img {
   position: absolute;
-  width: 20vw;
-  padding-top: 50px;
-  padding-left: 50px;
+  width: 15vw;
+  padding-top: 100px;
+  padding-left: 100px;
 }
 
 /* header 영역 */
@@ -48,10 +48,11 @@ p {
 
 /* 자막 안 */
 .text > span {
-  text-align: center;
-  font-family: 'Cafe24Ssurround';
-  width: 60%;
-  font-size: 30px;
+  font-family: 'EF_jejudoldam';
+  width: 50%;
+  padding-top: 16vh;
+  font-size: 44px;
+  line-height: 7vh;
 }
 
 /* ---- content ------ */
@@ -79,13 +80,15 @@ p {
 .content .left .wolf {
   position: absolute;
   bottom: 0;
-  width: 30vw;
+  width: 28vw;
+  left: 16vw;
 }
 
 .content .right .house {
   position: absolute;
-  bottom: 5vh;
-  width: 40vw;
+  bottom: 4vh;
+  width: 32vw;
+  right: 14vw;
 }
 
 .content .grass {
