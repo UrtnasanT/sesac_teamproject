@@ -1,78 +1,73 @@
 const container = document.querySelector(".container");
-const images = document.querySelectorAll(".container img");
 
 let isDragging = false;
 let startX;
 let startScrollLeft;
 let maxScrollLeft;
+let targetScrollLeft = 0; // 스크롤 목표 위치
+let isScrolling = false; // 스크롤 중인지 여부
 
-container.addEventListener("mousemove", (e) => {
-  if (e.buttons !== 1) return; // 마우스 버튼이 눌려있지 않으면 종료
-  if (!isDragging) {
-    isDragging = true;
-    startX = e.pageX;
-    startScrollLeft = container.scrollLeft;
-    maxScrollLeft = container.scrollWidth - container.clientWidth;
-  }
+// 마우스 드래그로 스크롤
+container.addEventListener("mousedown", (e) => {
+  isDragging = true;
+  startX = e.pageX;
+  startScrollLeft = container.scrollLeft;
+  maxScrollLeft = container.scrollWidth - container.clientWidth;
+});
+
+document.addEventListener("mousemove", (e) => {
+  if (!isDragging) return;
 
   e.preventDefault();
   const movementX = e.pageX - startX;
   const newScrollLeft = startScrollLeft - movementX;
   container.scrollLeft = Math.min(maxScrollLeft, Math.max(0, newScrollLeft));
-  const constrainedMovementX = container.scrollLeft - startScrollLeft;
-  moveImages(constrainedMovementX);
+
+  // 마우스 드래그 중에도 부드러운 스크롤 효과를 적용하기 위해 targetScrollLeft 값을 조절합니다.
+  targetScrollLeft = container.scrollLeft;
 });
 
+// 드래그 종료
 document.addEventListener("mouseup", () => {
   isDragging = false;
 });
 
-document.addEventListener("wheel", (e) => {
+// 마우스 휠로 스크롤
+container.addEventListener("wheel", (e) => {
   e.preventDefault();
-  const delta = Math.sign(e.deltaY);
-  const newScrollLeft = container.scrollLeft + delta * 50;
-  if (newScrollLeft < 0 || newScrollLeft > maxScrollLeft) return;
-  container.scrollLeft = newScrollLeft;
-  const constrainedMovementX = container.scrollLeft - startScrollLeft;
-  moveImages(constrainedMovementX);
+  targetScrollLeft += Math.sign(e.deltaY) * 20 * 2; // 스크롤 속도를 느리게 조정
+  startSmoothScroll();
 });
 
-// 이미지가 스크롤 방향에 따라 움직이는 함수
-function moveImages(constrainedMovementX) {
-  // 이미지가 움직일 수 있는 최소와 최대 위치 설정
-  const minMovement = -100; // 왼쪽으로 움직일 수 있는 최대 거리
-  const maxMovement = 100; // 오른쪽으로 움직일 수 있는 최대 거리
+// 부드러운 스크롤 실행
+function startSmoothScroll() {
+  if (!isScrolling) {
+    requestAnimationFrame(smoothScroll);
+  }
+  isScrolling = true;
+}
 
-  // 이동 거리를 제한하여 이미지가 특정 너비 내에서만 움직이도록 함
-  const clampedMovementX = Math.max(
-    minMovement,
-    Math.min(maxMovement, constrainedMovementX)
-  );
-
-  images.forEach((image) => {
-    // 호버된 요소인 경우에는 이동 효과를 제거합니다.
-    if (!image.parentElement.classList.contains("hovered")) {
-      image.style.transform = `translateX(calc(-50% ${clampedMovementX}px))`;
-    }
-  });
-
-  // 스크롤이 끝에 도달했을 때 새로운 콘텐츠를 로드하는 로직 추가
-  if (container.scrollLeft === maxScrollLeft) {
-    // 여기에 새로운 콘텐츠를 로드하는 코드를 작성합니다.
-    // 새로운 이미지를 가져오거나 기타 동작을 수행할 수 있습니다.
-    console.log("End of scroll reached. Load more content here.");
+// 부드러운 스크롤 처리
+function smoothScroll() {
+  const diff = targetScrollLeft - container.scrollLeft;
+  const ease = 0.1; // 이동을 완화시키기 위한 계수
+  container.scrollLeft += diff * ease; // 스크롤 이동 속도를 조절
+  if (Math.abs(diff) > 0.5) {
+    requestAnimationFrame(smoothScroll);
+  } else {
+    isScrolling = false;
   }
 }
 
-// 호버된 요소에 대한 이벤트 리스너 추가
-document.querySelectorAll(".container > div").forEach((item) => {
-  item.addEventListener("mouseenter", () => {
-    // 호버된 요소에 대한 클래스 추가
-    item.classList.add("hovered");
-  });
-
-  item.addEventListener("mouseleave", () => {
-    // 호버가 해제되면 클래스 제거
-    item.classList.remove("hovered");
-  });
+// 스크롤 이벤트에 대한 핸들러
+window.addEventListener("scroll", function () {
+  var scrollPosition = window.scrollY;
+  document.getElementById("scrollPosition").textContent = scrollPosition + "px";
 });
+
+// 스크롤 이벤트에 대한 핸들러
+container.addEventListener("scroll", function () {
+  var scrollPosition = container.scrollLeft; // 스크롤 위치를 container.scrollLeft로 변경
+  document.getElementById("scrollPosition").textContent = scrollPosition + "px";
+});
+

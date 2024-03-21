@@ -7,8 +7,9 @@
 
 
 body {
+  width: 100%;
+  max-width: 1200px;
   height: 100%;
-  display: grid;
   place-items: center;
   background-color: #f5f5f1;
   font-family: "Ubuntu Mono", monospace;
@@ -28,62 +29,24 @@ header {
   color: gray;
   font-size: 30px;
 }
-.wrap {
-  width: 100%;
-  max-width: 1200px;
-  height: 500px;
-  position: absolute;
-  /* background-color: blue; */
-  top: 30%;
-}
 
 .container {
+  max-width: 1280px;
   width: 100%;
-  position: relative;
-  width: 100%;
-  display: flex;
-  height: 500px;
-  gap: 20px;
-  padding: 50px;
+  height: 80%;
+  padding: 80px 300px;
   overflow-x: auto;
+  gap: 300px;
   display: flex;
   justify-content: center;
   align-items: center;
   perspective: 1200px;
-
-  /* > .contentWrap {
-    flex: 0 0 250px;
-    border-radius: 0.5rem;
-    transition: 0.5s ease-in-out;
-    cursor: pointer;
-    box-shadow: 1px 5px 15px #1e0e3e;
-    position: relative;
-    overflow: hidden;
-    display: flex;
-
-    > img {
-      width: 250px;
-    }
-
-    .content {
-
-      span {
-        display: block;
-        margin-top: 20px;
-      }
-    }
-
-    &:hover {
-      box-shadow: 1px 3px 15px #7645d8;
-      transform: translatey(-30px);
-    }
-
-    &:hover .content {
-      opacity: 1;
-      transform: translatey(0%);
-      visibility: visible;
-    }
-  } */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: red;
+  transform-style: flat;
 }
 
 .book {
@@ -93,6 +56,16 @@ header {
   cursor: pointer;
   backface-visibility: visible;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  margin: 0 10px;
+  transform: translatey(0px);
+  transition: all .5s ease-in-out;
+
+
+
+  &:hover {
+      transform: translatey(-50px);
+      transition: all .5s ease-in-out;
+    }
 }
 
 .book img {
@@ -107,7 +80,7 @@ header {
   height: 100%;
   top: 0; left: 0;
   transform-origin: left center;
-  transition: transform .5s ease-in-out, box-shadow .35s ease-in-out;
+  transition: transform 1s ease-in-out, box-shadow .35s ease-in-out;
 }
 
 .front img, .back img {
@@ -153,37 +126,37 @@ header {
 
 .book:hover .front {
   transform: rotateY(-160deg) scale(1.1);
-  box-shadow: 0 1em 3em 0 rgba(0, 0, 0, .2);
+  box-shadow: 0 1em 2em 0 rgba(0, 0, 0, .2);
 }
 
 .book:hover .page1 {
   transform: rotateY(-150deg) scale(1.1);
-  box-shadow: 0 1em 3em 0 rgba(0, 0, 0, .2);
+  box-shadow: 0 1em 2em 0 rgba(0, 0, 0, .2);
 }
 
 .book:hover .page2 {
   transform: rotateY(-30deg) scale(1.1);
-  box-shadow: 0 1em 3em 0 rgba(0, 0, 0, .2);
+  box-shadow: 0 1em 2em 0 rgba(0, 0, 0, .2);
 }
 
 .book:hover .page3 {
   transform: rotateY(-140deg) scale(1.1);
-  box-shadow: 0 1em 3em 0 rgba(0, 0, 0, .2);
+  box-shadow: 0 1em 2em 0 rgba(0, 0, 0, .2);
 }
 
 .book:hover .page4 {
   transform: rotateY(-40deg) scale(1.1);
-  box-shadow: 0 1em 3em 0 rgba(0, 0, 0, .2);
+  box-shadow: 0 1em 2em 0 rgba(0, 0, 0, .2);
 }
 
 .book:hover .page5 {
   transform: rotateY(-130deg) scale(1.1);
-  box-shadow: 0 1em 3em 0 rgba(0, 0, 0, .2);
+  box-shadow: 0 1em 2em 0 rgba(0, 0, 0, .2);
 }
 
 .book:hover .page6 {
   transform: rotateY(-50deg) scale(1.1);
-  box-shadow: 0 1em 3em 0 rgba(0, 0, 0, .2);
+  box-shadow: 0 1em 2em 0 rgba(0, 0, 0, .2);
 }
 
 .book:hover .back {
@@ -195,27 +168,52 @@ header {
   top: 40%;
   left: 20%;
   opacity: 1;
-  transition: all 2s ease-in;
+  transition: all 1s ease-in-out;
 }
 
 .page5 .title {
   position: absolute;
-  top: 80%;
+  top: 40%;
+  left: 20%;
   opacity: 0;
+  transition: all .5s ease-in-out;
+
 }
 
 .book:hover .synopsys {
   transform: scaleX(1);
+  transform: scale(1);
   position: absolute;
   top: 1%;
   line-height: 2;
   padding: 25px;
-  transition: all 2s ease-in;
+  transition: all 1s ease-in-out;
   opacity: 1;
 }
 
 .page6 .synopsys {
   transform: scaleX(-1);
+  transform: scale(0);
+  position: absolute;
+  top: 40%;
+  padding: 25px;
+  line-height: 0;
   font-size: 10px;
   opacity: 0;
+  transition: all .5s ease-in-out;
+}
+
+.scrollInfo {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  left: 50%;
+}
+
+.scrollInfoText {
+  font-size: 14px;
 }
