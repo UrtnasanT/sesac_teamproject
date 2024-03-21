@@ -82,6 +82,8 @@ p {
   bottom: 4vh;
   width: 24vw;
   left: 16vw;
+  /* animation: fadein 2.5s; */
+  animation: fadeInLeft 1s;
 }
 
 .content .right .house {
@@ -109,7 +111,6 @@ p {
 
 /* ----  /content ------ */
 
-
 /* 떨리는 효과 애니메이션 */
 
 .vibration {
@@ -122,5 +123,27 @@ p {
   }
   to {
     transform: rotate(-1deg);
+  }
+}
+
+/* 페이드 인 */
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* 왼쪽에서 오른쪽으로 */
+@keyframes fadeInLeft {
+  0% {
+    opacity: 0;
+    transform: translate3d(-100%, 0, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translateZ(0);
   }
 }
