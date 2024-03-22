@@ -92,16 +92,13 @@ p {
 
 .content .left .wolf {
   position: absolute;
-  bottom: 7vh;
-  width: 40vw;
-  left: 29vw;
+  bottom: 4vh;
+  width: 48vw;
+  left: 26vw;
 }
 
 .content .right .house {
-  position: absolute;
-  bottom: 4vh;
-  width: 32vw;
-  right: 14vw;
+  display: none;
 }
 
 .content .grass {
@@ -119,26 +116,7 @@ p {
 /* ----  /content ------ */
 
 .bird {
-  position: absolute;
-  overflow: hidden;
-  width: 100vw;
-  height: 100vh;
-}
-
-.bird img {
-  width: 6vw;
-  padding-top: 34vh;
-  animation: move 3.4s linear infinite;
-}
-
-/* 날아다니는 새 */
-@keyframes move {
-  0% {
-    transform: translateX(0vw);
-  }
-  100% {
-    transform: translateX(100vw);
-  }
+  display: none;
 }
 
 /* 떠다니는 구름 */
