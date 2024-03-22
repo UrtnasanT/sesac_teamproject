@@ -30,16 +30,16 @@ p {
 }
 
 .cloud2 {
-    top: 10vw;
-    margin-left: 40vw;
-    z-index: -3;
-  }
-  
-  .cloud3 {
-    top: 3vw;
-    margin-left: 80vw;
-    z-index: -3;
-  }
+  top: 10vw;
+  margin-left: 39vw;
+  z-index: -3;
+}
+
+.cloud3 {
+  top: 3vw;
+  margin-left: 70vw;
+  z-index: -3;
+}
 
 /* header 영역 */
 .header {
@@ -120,19 +120,21 @@ p {
 
 .bird {
   position: absolute;
+  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
 }
 
 .bird img {
   width: 6vw;
   padding-top: 34vh;
-  animation: move 8s infinite;
+  animation: move 3.4s linear infinite;
 }
 
 /* 날아다니는 새 */
 @keyframes move {
   0% {
     transform: translateX(0vw);
-    transition-timing-function: cubic-bezier(1, 0.2, 0.8, 0.2, 1);
   }
   100% {
     transform: translateX(100vw);
