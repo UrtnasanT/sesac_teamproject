@@ -42,10 +42,9 @@ document.addEventListener("wheel", (e) => {
     startSmoothScroll();
   } else {
     // 호버 중일 때는 contentSynopsys의 스크롤 동작
-    e.preventDefault();
     contentSynopsys.scrollTop += Math.sign(e.deltaY) * 10;
   }
-});
+}, { passive: false }); // passive 속성을 false로 설정
 
 // 부드러운 스크롤 실행
 function startSmoothScroll() {
@@ -91,31 +90,83 @@ books.forEach((book) => {
 window.onload = function () {
   // book 클래스를 가진 요소들을 모두 선택
   var books = document.querySelectorAll(".book");
+  var container = document.querySelector(".container");
+
+  // 스크롤인포 이미지 생성 및 추가
+  var scrollInfo = document.querySelector(".scrollInfo");
+  for (var i = 0; i < books.length; i++) {
+    var img = document.createElement("img");
+    img.className = "scrollspy";
+    img.src = i === 0 ? "./img/main/pencil1.png" : "./img/main/pencil2.png";
+    img.alt = "스크롤상태표시";
+    scrollInfo.appendChild(img);
+  }
+
+  var scrollInfoImages = document.querySelectorAll(".scrollspy");
 
   // 각각의 book 클래스를 가진 요소에 대해 처리
   books.forEach(function (book, index) {
-    // 새로운 이미지 요소 생성
-    var img = document.createElement("img");
-    img.className = "scrollspy"; // 클래스 지정
-    img.src = "./img/main/pencil2.png"; // 기본 이미지 경로 지정
-    img.alt = "스크롤상태표시"; // alt 속성 설정
-
     // 호버 이벤트 리스너 추가
     book.addEventListener("mouseenter", function () {
       // 호버되면 해당 순서에 맞는 스크롤스파이 이미지로 변경
-      img.src = `./img/main/pencil3.png`;
+      scrollInfoImages[index].src = `./img/main/pencil3.png`;
+      scrollInfoImages[index].style.transform = "scale(1.3)"; // 스케일 변경
     });
 
     book.addEventListener("mouseleave", function () {
-      // 호버 해제 시 다시 기본 이미지로 변경
-      img.src = "./img/main/pencil2.png";
+      // 호버 해제 시 다시 기본 이미지로 변경하고 스케일 원래대로 조정
+      scrollInfoImages[index].src =
+        index === 0 ? "./img/main/pencil1.png" : "./img/main/pencil2.png";
+      scrollInfoImages[index].style.transform = "scale(1)"; // 스케일 원래대로 변경
+    });
+  });
+
+  // 스크롤 이벤트 추가
+  container.addEventListener("scroll", function () {
+    // container 요소의 중앙 좌표
+    var containerCenterX =
+      container.getBoundingClientRect().left + container.offsetWidth / 2;
+
+    // 가장 가까운 book 요소를 찾기 위한 변수 초기화
+    var closestBook = null;
+    var closestDistance = Infinity;
+
+    // book 요소를 순회하며 container 중앙에 가장 가까운 요소 찾기
+    books.forEach(function (book) {
+      // book 요소의 중앙 좌표
+      var rect = book.getBoundingClientRect();
+      var bookCenterX = (rect.left + rect.right) / 2;
+
+      // container 중앙과의 거리 계산
+      var distance = Math.abs(containerCenterX - bookCenterX);
+
+      // 현재 book 요소가 이전에 확인한 가장 가까운 요소보다 더 가까울 때
+      if (distance < closestDistance) {
+        closestBook = book;
+        closestDistance = distance;
+      }
     });
 
-    // 생성된 이미지를 footer 요소의 마지막 자식으로 추가
-    var footer = document.querySelector(".scrollInfo");
-    footer.appendChild(img);
+    // 모든 scrollInfo 이미지 변경
+    scrollInfoImages.forEach(function (img, index) {
+      // 현재 가장 가까운 book 요소의 인덱스와 같으면 pencil1 이미지로 변경
+      if (books[index] === closestBook) {
+        img.src = `./img/main/pencil1.png`;
+        img.style.transform = "scale(1.3)"; // 스케일 변경
+      } else {
+        // 그렇지 않으면 해당 순서에 맞는 pencil1 또는 pencil2 이미지로 변경
+        img.src =
+          index === 0 ? "./img/main/pencil1.png" : "./img/main/pencil2.png";
+        img.style.transform = "scale(1)"; // 스케일 원래대로 변경
+      }
+    });
   });
 };
+
+
+
+
+
 
 
 
