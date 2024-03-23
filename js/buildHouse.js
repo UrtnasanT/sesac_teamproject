@@ -12,15 +12,18 @@ function appendObject(sceneNum) {
       newImg.src = './img/straw.png';
       newImg.id = 'object';
       newText.id = 'instruction';
-
       break;
     case 3:
+      newImg.src = './img/straw.png';
+      newImg.id = 'object';
       break;
     case 4:
-      // 이미지 변경 로직 추가
+      newImg.src = './img/tree.png';
+      newImg.id = 'object';
       break;
     case 5:
-      // 이미지 변경 로직 추가
+      newImg.src = './img/brick.png';
+      newImg.id = 'object';
       break;
 
     default:
@@ -31,50 +34,32 @@ function appendObject(sceneNum) {
   let leftDiv = document.querySelector('.left'); // 이미지를 추가할 위치
   leftDiv.appendChild(newImg); // 이미지 삽입
   //   leftDiv.appendChild(newText); // 이미지 삽입
-  dragAndDrop(); // event 매개변수 제거
 }
 
-// drag and drop event
-// 드래그 시작시 실행되는 함수
-function dragStart(event) {
-  // 드래그 대상 요소를 dataTransfer에 추가
-  event.dataTransfer.setData('text/plain', event.target.id);
-}
+document.addEventListener('DOMContentLoaded', function () {
+  var objectImg = document.getElementById('object');
+  var rightImg = document.getElementById('right_img');
 
-// 드래그된 요소가 드롭 대상 위로 올라갈 때 실행되는 함수
-function dragOver(event) {
-  event.preventDefault(); // 기본 동작 막기
-}
+  objectImg.addEventListener('dragstart', function (event) {
+    event.dataTransfer.setData('text', event.target.id);
+  });
 
-// 드래그된 요소가 드롭 대상 위에서 놓여질 때 실행되는 함수
-function drop(event) {
-  event.preventDefault(); // 기본 동작 막기
-  // 드래그된 요소의 id를 가져옴
-  const draggedId = event.dataTransfer.getData('text/plain');
-  // 해당 id를 가진 요소를 찾아서 가져옴
-  const draggedElement = document.getElementById(draggedId);
+  rightImg.addEventListener('dragover', function (event) {
+    event.preventDefault();
+  });
 
-  // 드롭 대상인 .right 영역에 드래그된 요소를 추가
-  const rightArea = document.querySelector('.right');
-  rightArea.appendChild(draggedElement);
-}
+  rightImg.addEventListener('drop', function (event) {
+    event.preventDefault();
+    var data = event.dataTransfer.getData('text');
+    var draggedElement = document.getElementById(data);
 
-function dragAndDrop() {
-  console.log('dragAndDrop 함수 실행');
-  // left_img와 right_img에 드래그 앤 드롭 이벤트 추가
-  const leftImg = document.getElementById('left_img');
-  const rightImg = document.getElementById('right_img');
-
-  leftImg.setAttribute('draggable', true);
-  rightImg.setAttribute('draggable', true);
-
-  leftImg.addEventListener('dragstart', dragStart);
-  rightImg.addEventListener('dragstart', dragStart);
-
-  // right 영역에 드롭 이벤트 추가
-  const rightArea = document.querySelector('.right');
-  rightArea.addEventListener('dragover', dragOver);
-  rightArea.addEventListener('drop', drop);
-}
+    // If the dragged element is the object image
+    if (draggedElement && draggedElement.id === 'object') {
+      // Show the right image by setting display to 'inline'
+      rightImg.style.opacity = 1;
+      // Change the src attribute of the right image to the object image's src
+    }
+  });
+});
 
 export { appendObject };
