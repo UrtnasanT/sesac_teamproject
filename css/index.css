@@ -57,7 +57,7 @@ p {
   padding-top: 16vh;
   font-size: 32px;
   line-height: 7vh;
-  z-index: 3;
+  z-index: 5;
   text-align: center;
 }
 
@@ -66,6 +66,7 @@ p {
   width: 100%;
   height: 70vh;
   display: flex;
+  position: relative;
 }
 
 /* content안의 left, right */
@@ -74,7 +75,7 @@ p {
   width: 50%;
   /* position: relative; */
   display: flex;
-  align-items: flex-end;
+  /* align-items: flex-end; */
   justify-content: center;
   z-index: 3;
 }
@@ -84,13 +85,14 @@ p {
 } */
 
 .wolf {
-  /* position: absolute; */
+  position: absolute;
   width: 28vw;
+  bottom: 0;
   left: 16vw;
 }
 
 .house {
-  /* position: absolute; */
+  position: absolute;
   bottom: 4vh;
   width: 32vw;
   right: 14vw;

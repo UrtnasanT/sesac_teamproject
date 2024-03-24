@@ -36,30 +36,27 @@ function appendObject(sceneNum) {
   //   leftDiv.appendChild(newText); // 이미지 삽입
 }
 
-document.addEventListener('DOMContentLoaded', function () {
-  var objectImg = document.getElementById('object');
-  var rightImg = document.getElementById('right_img');
+// document.addEventListener('DOMContentLoaded', function () {
+//   var objectImg = document.getElementById('object');
+//   var rightImg = document.getElementById('right_img');
 
-  objectImg.addEventListener('dragstart', function (event) {
-    event.dataTransfer.setData('text', event.target.id);
-  });
+//   objectImg.addEventListener('dragstart', function (event) {
+//     event.dataTransfer.setData('text', event.target.id);
+//   });
 
-  rightImg.addEventListener('dragover', function (event) {
-    event.preventDefault();
-  });
+//   rightImg.addEventListener('dragover', function (event) {
+//     event.preventDefault();
+//   });
 
-  rightImg.addEventListener('drop', function (event) {
-    event.preventDefault();
-    var data = event.dataTransfer.getData('text');
-    var draggedElement = document.getElementById(data);
+//   rightImg.addEventListener('drop', function (event) {
+//     event.preventDefault();
+//     var data = event.dataTransfer.getData('text');
+//     var draggedElement = document.getElementById(data);
 
-    // If the dragged element is the object image
-    if (draggedElement && draggedElement.id === 'object') {
-      // Show the right image by setting display to 'inline'
-      rightImg.style.opacity = 1;
-      // Change the src attribute of the right image to the object image's src
-    }
-  });
-});
+//     if (draggedElement && draggedElement.id === 'object') {
+//       rightImg.style.opacity = 1;
+//     }
+//   });
+// });
 
 export { appendObject };
