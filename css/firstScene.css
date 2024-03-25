@@ -1,0 +1,96 @@
+@import './utils.css';
+
+/* 구름(임시)  */
+.container > img {
+  position: absolute;
+  width: 15vw;
+  padding-top: 100px;
+  padding-left: 140px;
+  animation: motion 2s linear 0s infinite alternate;
+}
+
+.cloud2 {
+  top: 10vw;
+  margin-left: 39vw;
+  z-index: -3;
+}
+
+.cloud3 {
+  top: 3vw;
+  margin-left: 70vw;
+  z-index: -3;
+}
+
+/* content안의 left, right */
+.left,
+.right {
+  width: 50%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 3;
+}
+
+/* .content img {
+  width: 70%;
+} */
+
+.content .left .wolf {
+  position: absolute;
+  bottom: 7vh;
+  width: 40vw;
+  left: 29vw;
+}
+
+.content .right .house {
+  display: none;
+}
+
+.content .grass {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+}
+
+.content .grass > img {
+  width: 100%;
+  vertical-align: bottom;
+  z-index: 0;
+}
+
+/* ----  /content ------ */
+
+.bird {
+  position: absolute;
+  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
+}
+
+.bird img {
+  width: 6vw;
+  padding-top: 34vh;
+  animation: move 3.4s linear infinite;
+}
+
+/* 날아다니는 새 */
+@keyframes move {
+  0% {
+    transform: translateX(0vw);
+  }
+  100% {
+    transform: translateX(100vw);
+  }
+}
+
+/* 떠다니는 구름 */
+@keyframes motion {
+  0% {
+    margin-top: 0px;
+    transition-timing-function: cubic-bezier(1, 0.2, 0.8, 0.2, 1);
+  }
+  100% {
+    margin-top: 14px;
+  }
+}

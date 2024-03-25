@@ -1,23 +1,26 @@
 import { fetchJsonAndDisplayData } from './fetch.js';
 import { appendObject } from './buildHouse.js';
 
-const btn_back = document.getElementById('btn_back');
-const btn_next = document.getElementById('btn_next');
+function backNext() {
+  const btn_back = document.getElementById('btn_back');
+  const btn_next = document.getElementById('btn_next');
 
-let sceneNum = 1;
+  let sceneNum = 1;
 
-btn_back.onclick = function changeBackScene() {
-  console.log('back_btn');
-  sceneNum--;
-  changeScene(sceneNum);
-};
+  btn_back.onclick = function changeBackScene() {
+    console.log('back_btn');
+    sceneNum--;
+    changeScene(sceneNum);
+  };
 
-btn_next.onclick = function changeNexkScene() {
-  sceneNum++;
-  changeScene(sceneNum);
-};
+  btn_next.onclick = function changeNexkScene() {
+    sceneNum++;
+    changeScene(sceneNum);
+  };
+}
 
 function changeScene(sceneNum) {
+  sceneNum = 1;
   fetchJsonAndDisplayData(sceneNum); // 자막 불러오기
   appendObject(sceneNum); // build-house 씬 오브젝트 추가
   changeImg(sceneNum); // 이미지 변경
@@ -29,10 +32,12 @@ function changeImg(sceneNum) {
   let imgRight = document.querySelector('.right img');
 
   imgLeft.src = '';
+  console.log('씬넘버', sceneNum);
 
   switch (sceneNum) {
     case 1:
-      imgLeft.src = './img/pig1_straw.png';
+      changeStyle('firstScene');
+      imgLeft.src = './img/pigs_default.png';
       break;
     case 2:
       changeStyle('buildHouse');
@@ -50,6 +55,11 @@ function changeImg(sceneNum) {
       imgRight.src = './img/house_tree.png';
       break;
     case 5:
+      changeStyle('buildHouse');
+      imgLeft.src = './img/pig3_birck_no.png';
+      imgRight.src = './img/house_bric.png';
+      break;
+    case 12:
       changeStyle('buildHouse');
       imgLeft.src = './img/pig3_birck_no.png';
       imgRight.src = './img/house_bric.png';
@@ -87,3 +97,4 @@ function changeJs(js) {
 }
 
 changeScene();
+backNext();
