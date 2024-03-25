@@ -1,12 +1,13 @@
 .content .left #object {
-  width: 20%;
-  margin-bottom: 100px;
+  position: absolute;
+  width: 15%;
+  bottom: 10vh;
 }
 
 .wolf {
   animation: fadeInLeft 1s;
   margin-bottom: 60px;
-  margin-left: 200px;
+  margin-left: 120px;
 }
 
 #right_img {

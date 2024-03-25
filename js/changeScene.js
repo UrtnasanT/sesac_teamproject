@@ -2,7 +2,7 @@ import { fetchJsonAndDisplayData } from './fetch.js';
 import { appendObject } from './buildHouse.js';
 
 function changeScene() {
-  const sceneNum = 15; // 원하는 scene 숫자를 여기에 설정
+  const sceneNum = 16; // 원하는 scene 숫자를 여기에 설정
   fetchJsonAndDisplayData(sceneNum); // 자막 불러오기
   appendObject(sceneNum); // build-house 씬 오브젝트 추가
   changeImg(sceneNum); // 이미지 변경
@@ -43,6 +43,11 @@ function changeImg(sceneNum) {
       changeStyle('rideSmokeStack');
       imgLeft.src = './img/wolf_default.png';
       imgRight.src = './img/house_bric.png';
+      break;
+    case 16:
+      changeStyle('burntWolf');
+      imgLeft.src = './img/pig_back2.png';
+      imgRight.src = './img/boil_pot1.png';
       break;
 
     default:
