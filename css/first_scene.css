@@ -1,11 +1,10 @@
-@import './utils.css';
+@import "./utils.css";
 
 /* body 초기화 */
 body {
   margin: 0;
   padding: 0;
-  background-color: #87d1f7;
-  /* background-color: #badef6; */
+  background-color: #badef6;
   /* background-color: rgb(255, 249, 226); */
   height: 100vh;
 }
@@ -26,8 +25,20 @@ p {
   position: absolute;
   width: 15vw;
   padding-top: 100px;
-  padding-left: 100px;
-  z-index: 1;
+  padding-left: 140px;
+  animation: motion 2s linear 0s infinite alternate;
+}
+
+.cloud2 {
+  top: 10vw;
+  margin-left: 39vw;
+  z-index: -3;
+}
+
+.cloud3 {
+  top: 3vw;
+  margin-left: 70vw;
+  z-index: -3;
 }
 
 /* header 영역 */
@@ -50,15 +61,11 @@ p {
 
 /* 자막 안 */
 .text > span {
-  /* color: rgb(248, 248, 234); */
-  color: rgb(37, 34, 9);
-  font-family: 'EF_jejudoldam';
-  width: 60%;
+  font-family: "EF_jejudoldam";
+  width: 50%;
   padding-top: 16vh;
-  font-size: 32px;
+  font-size: 44px;
   line-height: 7vh;
-  z-index: 5;
-  text-align: center;
 }
 
 /* ---- content ------ */
@@ -66,16 +73,15 @@ p {
   width: 100%;
   height: 70vh;
   display: flex;
-  /* position: relative; */
 }
 
 /* content안의 left, right */
 .left,
 .right {
   width: 50%;
-  /* position: relative; */
+  position: relative;
   display: flex;
-  /* align-items: flex-end; */
+  align-items: center;
   justify-content: center;
   z-index: 3;
 }
@@ -84,14 +90,14 @@ p {
   width: 70%;
 } */
 
-.wolf {
+.content .left .wolf {
   position: absolute;
-  width: 28vw;
-  bottom: 0;
-  left: 16vw;
+  bottom: 7vh;
+  width: 40vw;
+  left: 29vw;
 }
 
-.house {
+.content .right .house {
   position: absolute;
   bottom: 4vh;
   width: 32vw;
@@ -110,3 +116,38 @@ p {
   z-index: 0;
 }
 
+/* ----  /content ------ */
+
+.bird {
+  position: absolute;
+  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
+}
+
+.bird img {
+  width: 6vw;
+  padding-top: 34vh;
+  animation: move 3.4s linear infinite;
+}
+
+/* 날아다니는 새 */
+@keyframes move {
+  0% {
+    transform: translateX(0vw);
+  }
+  100% {
+    transform: translateX(100vw);
+  }
+}
+
+/* 떠다니는 구름 */
+@keyframes motion {
+  0% {
+    margin-top: 0px;
+    transition-timing-function: cubic-bezier(1, 0.2, 0.8, 0.2, 1);
+  }
+  100% {
+    margin-top: 14px;
+  }
+}
