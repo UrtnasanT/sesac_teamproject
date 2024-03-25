@@ -1,5 +1,42 @@
-// # fadein으로 늑대와 돼지 등장, 3초 후 떠는 돼지
+function appendObject(sceneNum) {
+  //   console.log('appendObject 실행');
+  // 새로운 이미지 태그 생성
 
-const pigTremble = document.getElementById("right_img");
+  let newImg = document.createElement("img");
+  let newBtn = document.createElement("div");
+  newImg.src = "./img/pig_tremble.png";
+  newImg.id = "pig_right2";
+  newBtn.className = "button";
+  // 원하는 위치에 새로운 이미지 삽입
+  // 이미지를 추가할 위치
 
-setTimeout(() => pigTremble.classList.add("vibration"), 3000);
+  // 원하는 위치에 새로운 이미지 삽입
+  // 이미지를 추가할 위치
+  let rightDiv = document.querySelector(".right");
+
+  rightDiv.appendChild(newImg);
+  rightDiv.appendChild(newBtn);
+
+  let escapeBtn = document.querySelector(".button");
+  escapeBtn.innerHTML = `<p class="btnText">도망가기</p>
+  <div class="btnTwo">
+    <p class="btnText2">GO!</p>
+  </div>`;
+
+  tremblePig();
+}
+
+function tremblePig() {
+  // # fadein으로 늑대와 돼지 등장, 3초 후 떠는 돼지
+
+  // const pigTremble = document.getElementById("right_img");
+  const pigTremble = document.querySelector("#right_img");
+  const pigTremble2 = document.querySelector("#pig_right2");
+
+
+  setTimeout(() => pigTremble.classList.add("vibration"), 3000);
+  setTimeout(() => pigTremble2.classList.add("vibration"), 3000);
+  setTimeout(() => pigTremble2.classList.add("vibration"), 3000);
+}
+
+appendObject();
