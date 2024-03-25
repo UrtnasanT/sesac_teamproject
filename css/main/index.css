@@ -30,9 +30,10 @@ header {
 }
 
 .container {
+  max-width: 500px;
   width: 100%;
   height: 600px;
-  padding: 200px 500px 50px 500px;
+  padding: 200px 1500px 50px 1500px;
   overflow-x: auto;
   gap: 300px;
   display: flex;
@@ -43,7 +44,6 @@ header {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  transform-style: flat;
 }
 
 .content {
@@ -101,6 +101,10 @@ header {
   top: 0; left: 0;
   transform-origin: left center;
   transition: transform 1s ease-in-out, box-shadow .35s ease-in-out;
+}
+
+.front {
+  box-shadow: 8px 8px 20px rgba(0, 0, 0, 0.5);
 }
 
 .front img, .back img {

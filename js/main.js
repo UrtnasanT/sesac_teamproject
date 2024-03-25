@@ -97,7 +97,7 @@ window.onload = function () {
   for (var i = 0; i < books.length; i++) {
     var img = document.createElement("img");
     img.className = "scrollspy";
-    img.src = i === 0 ? "./img/main/pencil1.png" : "./img/main/pencil2.png";
+    img.src = "./img/main/pencil2.png"; // 모든 이미지를 pencil2로 설정
     img.alt = "스크롤상태표시";
     scrollInfo.appendChild(img);
   }
@@ -115,8 +115,7 @@ window.onload = function () {
 
     book.addEventListener("mouseleave", function () {
       // 호버 해제 시 다시 기본 이미지로 변경하고 스케일 원래대로 조정
-      scrollInfoImages[index].src =
-        index === 0 ? "./img/main/pencil1.png" : "./img/main/pencil2.png";
+      scrollInfoImages[index].src = `./img/main/pencil2.png`;
       scrollInfoImages[index].style.transform = "scale(1)"; // 스케일 원래대로 변경
     });
   });
@@ -154,21 +153,10 @@ window.onload = function () {
         img.src = `./img/main/pencil1.png`;
         img.style.transform = "scale(1.3)"; // 스케일 변경
       } else {
-        // 그렇지 않으면 해당 순서에 맞는 pencil1 또는 pencil2 이미지로 변경
-        img.src =
-          index === 0 ? "./img/main/pencil1.png" : "./img/main/pencil2.png";
+        // 그렇지 않으면 해당 순서에 맞는 pencil2 이미지로 변경
+        img.src = `./img/main/pencil2.png`;
         img.style.transform = "scale(1)"; // 스케일 원래대로 변경
       }
     });
   });
 };
-
-
-
-
-
-
-
-
-
-
