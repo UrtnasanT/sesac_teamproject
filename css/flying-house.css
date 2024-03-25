@@ -14,7 +14,9 @@
   animation: flyAway 4s ease forwards;
 }
 
-
+.container {
+  overflow: hidden;
+}
 
 /* @keyframes moveRightUp {
   0% {
