@@ -1,0 +1,24 @@
+.content .left .wolf {
+  transform: scaleX(-1);
+  left: 450px;
+  bottom: 100px;
+}
+
+.wolf {
+  position: absolute;
+  height: 350px;
+  animation: crash 0.8s linear 1;
+}
+
+@keyframes crash {
+  50% {
+    left: 400px;
+  }
+  100% {
+    /* left: calc(100% - 50px); */
+    left: 700px;
+    bottom: 200px;
+  }
+  /* 100% {
+    left: 200px; /* Move the object back to the left }*/
+}
