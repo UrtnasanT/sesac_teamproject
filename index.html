@@ -6,7 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="./css/index.css" />
-    <link rel="stylesheet" href="./css/flying-house.css">
+
+    <link rel="stylesheet" id="changeStyle" href="" />
+    <!-- <script src="/js/TheThreeLittlePigs.json"></script> -->
+    <!-- <script type="module" src="/js/fetch.js"></script> -->
+    <script type="module" src="./js/fetch.js"></script>
+    <script type="module" src="./js/changeScene.js"></script>
+    <script type="module" src="./js/buildHouse.js"></script>
+    <script type="module" src="./js/burntWolf.js"></script>
+
   </head>
   <body>
     <div class="container">
@@ -16,7 +24,9 @@
 
       <!-- 자막 -->
       <div class="text">
-        <span>“ 늑대는 후~~~~ 불어서 첫째 돼지의 집을 휙 날려 버렸어요 ! ”</span>
+
+        <span id="json-data"></span>
+
       </div>
 
       <!-- content -->
@@ -33,9 +43,11 @@
 
         <!-- 배경 잔디 영역 -->
         <div class="grass">
-          <img src="./img/grass.png" alt="" />
+          <img src="./img/background_2.png" alt="" />
         </div>
       </div>
+      <button type="button" id="btn_back">이전</button>
+      <button type="button" id="btn_next">다음</button>
     </div>
     <script src="./js/index.js"></script>
     <script src="./js/flying-house.js"></script>
