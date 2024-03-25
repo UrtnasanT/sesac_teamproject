@@ -1,10 +1,11 @@
-@import "./utils.css";
+@import './utils.css';
 
 /* body 초기화 */
 body {
   margin: 0;
   padding: 0;
-  background-color: #badef6;
+  background-color: #87d1f7;
+  /* background-color: #badef6; */
   /* background-color: rgb(255, 249, 226); */
   height: 100vh;
 }
@@ -26,6 +27,7 @@ p {
   width: 15vw;
   padding-top: 100px;
   padding-left: 100px;
+  z-index: 1;
 }
 
 /* header 영역 */
@@ -48,11 +50,15 @@ p {
 
 /* 자막 안 */
 .text > span {
-  font-family: "EF_jejudoldam";
-  width: 50%;
+  /* color: rgb(248, 248, 234); */
+  color: rgb(37, 34, 9);
+  font-family: 'EF_jejudoldam';
+  width: 60%;
   padding-top: 16vh;
-  font-size: 44px;
+  font-size: 32px;
   line-height: 7vh;
+  z-index: 5;
+  text-align: center;
 }
 
 /* ---- content ------ */
@@ -60,15 +66,16 @@ p {
   width: 100%;
   height: 70vh;
   display: flex;
+  /* position: relative; */
 }
 
 /* content안의 left, right */
 .left,
 .right {
   width: 50%;
-  position: relative;
+  /* position: relative; */
   display: flex;
-  align-items: center;
+  /* align-items: flex-end; */
   justify-content: center;
   z-index: 3;
 }
@@ -77,14 +84,14 @@ p {
   width: 70%;
 } */
 
-.content .left .wolf {
+.wolf {
   position: absolute;
-  bottom: 0;
   width: 28vw;
+  bottom: 0;
   left: 16vw;
 }
 
-.content .right .house {
+.house {
   position: absolute;
   bottom: 4vh;
   width: 32vw;
@@ -103,4 +110,3 @@ p {
   z-index: 0;
 }
 
-/* ----  /content ------ */
