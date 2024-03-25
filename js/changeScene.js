@@ -1,11 +1,15 @@
 import { fetchJsonAndDisplayData } from './fetch.js';
 import { appendObject } from './buildHouse.js';
 
+window.onload = function () {
+  let sceneNum = 1;
+  changeScene(sceneNum);
+  backNext();
+};
+
 function backNext() {
   const btn_back = document.getElementById('btn_back');
   const btn_next = document.getElementById('btn_next');
-
-  let sceneNum = 1;
 
   btn_back.onclick = function changeBackScene() {
     console.log('back_btn');
@@ -20,7 +24,6 @@ function backNext() {
 }
 
 function changeScene(sceneNum) {
-  sceneNum = 1;
   fetchJsonAndDisplayData(sceneNum); // 자막 불러오기
   appendObject(sceneNum); // build-house 씬 오브젝트 추가
   changeImg(sceneNum); // 이미지 변경
@@ -97,4 +100,3 @@ function changeJs(js) {
 }
 
 changeScene();
-backNext();
