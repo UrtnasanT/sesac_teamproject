@@ -1,0 +1,50 @@
+.ending {
+  position: absolute;
+  bottom: 50%;
+  left: 10%;
+  transform: translate(-10%, -20%) scale(0.3);
+}
+
+.house {
+  position: absolute;
+  bottom: 50%;
+  left: 15%;
+  transform: translate(-40%, -15%) scale(0.4);
+}
+
+.home2 {
+  width: 100%;
+  position: absolute;
+  bottom: 0%;
+  right: 5%;
+  transform: translate(10%, 10%) scale(0.7);
+}
+
+.end_pigs {
+  position: absolute;
+  width:  100%;
+  left: -50%;
+  bottom: 10%;
+  transform: translate(0%, -20%);
+  animation: danceAnimation 1s infinite ease-in-out;
+}
+
+@keyframes danceAnimation {
+  0% {
+    transform: translateY(0%);
+  }
+  50% {
+    transform: translateY(10%);
+  }
+  75% {
+    transform: translateY(0%);
+  }
+  100% {
+    transform: translateY(0%);
+  }
+}
+
+canvas {
+    background-color: #070816;
+    border: 3px solid rgb(208, 255, 253)
+}

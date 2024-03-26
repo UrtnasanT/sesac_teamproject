@@ -7,6 +7,7 @@ window.onload = function () {
   backNext(sceneNum);
 };
 
+
 function backNext(sceneNum) {
   const btn_back = document.getElementById('btn_back');
   const btn_next = document.getElementById('btn_next');
@@ -19,6 +20,12 @@ function backNext(sceneNum) {
 
   btn_next.onclick = function changeNexkScene() {
     sceneNum++;
+    changeScene(sceneNum);
+  };
+
+  const btn_final = document.getElementById("btn_final");
+  btn_final.onclick = function changeFinalScene() {
+    sceneNum = 17;
     changeScene(sceneNum);
   };
 }
@@ -39,57 +46,63 @@ function changeImg(sceneNum) {
 
   switch (sceneNum) {
     case 1:
-      changeStyle('firstScene');
-      imgLeft.src = './img/pigs_default.png';
+      changeStyle("firstScene");
+      imgLeft.src = "./img/pigs_default.png";
       break;
     case 2:
-      changeStyle('momAppear');
-      imgLeft.src = './img/pig_mom.png';
-      imgRight.src = './img/house_straw.png';
+      changeStyle("momAppear");
+      imgLeft.src = "./img/pig_mom.png";
+      imgRight.src = "./img/house_straw.png";
       break;
     case 3:
-      changeStyle('buildHouse');
-      imgLeft.src = './img/pig1_straw_no.png';
-      imgRight.src = './img/house_straw.png';
+      changeStyle("buildHouse");
+      imgLeft.src = "./img/pig1_straw_no.png";
+      imgRight.src = "./img/house_straw.png";
       break;
     case 4:
-      changeStyle('buildHouse');
-      imgLeft.src = './img/pig2_tree_no.png';
-      imgRight.src = './img/house_tree.png';
+      changeStyle("buildHouse");
+      imgLeft.src = "./img/pig2_tree_no.png";
+      imgRight.src = "./img/house_tree.png";
       break;
     case 6:
-      changeStyle('buildHouse');
-      imgLeft.src = './img/pig3_birck_no.png';
-      imgRight.src = './img/house_bric.png';
+      changeStyle("buildHouse");
+      imgLeft.src = "./img/pig3_birck_no.png";
+      imgRight.src = "./img/house_bric.png";
       break;
     case 7:
       // 노트하는 장면
-      changeStyle('knock');
-      changeJs('vibration');
-      imgLeft.src = './img/wolf_default.png';
-      imgRight.src = './img/house_straw.png';
+      changeStyle("knock");
+      changeJs("vibration");
+      imgLeft.src = "./img/wolf_default.png";
+      imgRight.src = "./img/house_straw.png";
       break;
     case 8:
       // 돼지 집 날리는 장면
-      changeStyle('flyingHouse');
-      changeJs('flyingHouse');
-      imgLeft.src = './img/wolf_blow.png';
-      imgRight.src = './img/house_straw.png';
+      changeStyle("flyingHouse");
+      changeJs("flyingHouse");
+      imgLeft.src = "./img/wolf_blow.png";
+      imgRight.src = "./img/house_straw.png";
       break;
     case 12:
-      changeStyle('buildHouse');
-      imgLeft.src = './img/pig3_birck_no.png';
-      imgRight.src = './img/house_bric.png';
+      changeStyle("buildHouse");
+      imgLeft.src = "./img/pig3_birck_no.png";
+      imgRight.src = "./img/house_bric.png";
       break;
     case 15:
-      changeStyle('rideSmokeStack');
-      imgLeft.src = './img/wolf_default.png';
-      imgRight.src = './img/house_bric.png';
+      changeStyle("rideSmokeStack");
+      imgLeft.src = "./img/wolf_default.png";
+      imgRight.src = "./img/house_bric.png";
       break;
     case 16:
-      changeStyle('burntWolf');
-      imgLeft.src = './img/pig_back2.png';
-      imgRight.src = './img/boil_pot1.png';
+      changeStyle("burntWolf");
+      imgLeft.src = "./img/pig_back2.png";
+      imgRight.src = "./img/boil_pot1.png";
+      break;
+    case 17:
+      changeStyle("finalScene");
+      changeJs("finalScene");
+      imgLeft.src = "./img/house_bric.png";
+      imgRight.src = "./img/house_bric.png";
       break;
 
     default:
