@@ -3,7 +3,7 @@ const vibration = (target) => {
 
   setTimeout(function () {
     target.classList.remove('vibration');
-  }, 400);
+  }, 100);
 };
 
 // 이미지 클릭 시 애니메이션 실행
