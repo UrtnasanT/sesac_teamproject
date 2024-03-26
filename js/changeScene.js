@@ -62,6 +62,12 @@ function changeImg(sceneNum) {
       imgLeft.src = './img/pig3_birck_no.png';
       imgRight.src = './img/house_bric.png';
       break;
+    case 7:
+      changeStyle('knock');
+      changeJs('vibration');
+      imgLeft.src = './img/wolf_default.png';
+      imgRight.src = './img/house_straw.png';
+      break;
     case 12:
       changeStyle('buildHouse');
       imgLeft.src = './img/pig3_birck_no.png';
@@ -92,11 +98,24 @@ function changeStyle(css) {
 }
 
 // js 파일 변경
+// function changeJs(js) {
+//   console.log('changeJS');
+//   let js_link = document.getElementById('changeJS');
+//   if (js_link) {
+//     js_link.src = './js/' + js + '.js';
+//   }
+// }
 function changeJs(js) {
-  let js_link = document.getElementById('changeJS');
-  if (js_link) {
-    js_link.href = './js/' + css + '.js';
-  }
+  console.log('changeJS');
+  let jsUrl = './' + js + '.js';
+
+  import(jsUrl)
+    .then(() => {
+      console.log(jsUrl + ' loaded successfully');
+    })
+    .catch((error) => {
+      console.error('Error loading ' + jsUrl + ':', error);
+    });
 }
 
 changeScene();

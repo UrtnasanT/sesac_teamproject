@@ -1,13 +1,4 @@
-@import "./utils.css";
-
-/* body 초기화 */
-body {
-  margin: 0;
-  padding: 0;
-  background-color: #badef6;
-  /* background-color: rgb(255, 249, 226); */
-  height: 100vh;
-}
+@import './utils.css';
 
 /* p 태그 초기화 */
 p {
@@ -25,20 +16,7 @@ p {
   position: absolute;
   width: 15vw;
   padding-top: 100px;
-  padding-left: 140px;
-  animation: motion 2s linear 0s infinite alternate;
-}
-
-.cloud2 {
-  top: 10vw;
-  margin-left: 39vw;
-  z-index: -3;
-}
-
-.cloud3 {
-  top: 3vw;
-  margin-left: 70vw;
-  z-index: -3;
+  padding-left: 100px;
 }
 
 /* header 영역 */
@@ -47,25 +25,6 @@ p {
   width: 100%;
   height: 50px;
   position: fixed;
-}
-
-/* 자막 영역 */
-.text {
-  width: 100%;
-  padding-top: 50px;
-  height: calc(30vh - 50px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-/* 자막 안 */
-.text > span {
-  font-family: "EF_jejudoldam";
-  width: 50%;
-  padding-top: 16vh;
-  font-size: 44px;
-  line-height: 7vh;
 }
 
 /* ---- content ------ */
@@ -93,13 +52,21 @@ p {
 .content .left .wolf {
   position: absolute;
   bottom: 4vh;
-  width: 48vw;
-  left: 26vw;
-  animation: fadein 2s;
+  width: 24vw;
+  left: 16vw;
+  /* animation: fadein 2.5s; */
+  animation: fadeInLeft 1s;
 }
 
 .content .right .house {
-  display: none;
+  position: absolute;
+  bottom: 4vh;
+  width: 32vw;
+  right: 14vw;
+}
+
+#right_img:hover {
+  cursor: url('../img/cursor2.png'), auto;
 }
 
 .content .grass {
@@ -116,27 +83,39 @@ p {
 
 /* ----  /content ------ */
 
-.bird {
-  display: none;
+/* 떨리는 효과 애니메이션 */
+
+.vibration {
+  animation: vibration 0.1s infinite;
 }
 
-/* 떠다니는 구름 */
-@keyframes motion {
-  0% {
-    margin-top: 0px;
-    transition-timing-function: cubic-bezier(1, 0.2, 0.8, 0.2, 1);
+@keyframes vibration {
+  from {
+    transform: rotate(1deg);
   }
-  100% {
-    margin-top: 14px;
+  to {
+    transform: rotate(-1deg);
   }
 }
 
-/* 페이드인 */
+/* 페이드 인 */
 @keyframes fadein {
   from {
     opacity: 0;
   }
   to {
     opacity: 1;
+  }
+}
+
+/* 왼쪽에서 오른쪽으로 */
+@keyframes fadeInLeft {
+  0% {
+    opacity: 0;
+    transform: translate3d(-100%, 0, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translateZ(0);
   }
 }
