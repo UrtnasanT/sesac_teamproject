@@ -6,6 +6,23 @@ function appendObject(sceneNum) {
   // 새로운 창 생성
   let newText = document.createElement('span');
 
+  let leftDiv = document.querySelector('.left'); // 이미지를 추가할 위치
+  let rightDiv = document.querySelector('.right');
+
+  let existingImagesLeft = leftDiv.querySelectorAll('#object');
+  let existingImagesRight = rightDiv.querySelectorAll('#object');
+  let existingImagesRight2 = rightDiv.querySelectorAll('#object_wolf');
+
+  existingImagesLeft.forEach((image) => {
+    leftDiv.removeChild(image);
+  });
+  existingImagesRight.forEach((image) => {
+    rightDiv.removeChild(image);
+  });
+  existingImagesRight2.forEach((image) => {
+    rightDiv.removeChild(image);
+  });
+
   switch (sceneNum) {
     case 1:
       break;
@@ -41,8 +58,7 @@ function appendObject(sceneNum) {
   }
 
   // 원하는 위치에 새로운 이미지 삽입
-  let leftDiv = document.querySelector('.left'); // 이미지를 추가할 위치
-  let rightDiv = document.querySelector('.right');
+
   leftDiv.appendChild(newImg); // 이미지 삽입
   rightDiv.appendChild(newImg2);
   //   leftDiv.appendChild(newText); // 텍스트 삽입

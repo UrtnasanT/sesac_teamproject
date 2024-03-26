@@ -4,10 +4,10 @@ import { appendObject } from './buildHouse.js';
 window.onload = function () {
   let sceneNum = 1;
   changeScene(sceneNum);
-  backNext();
+  backNext(sceneNum);
 };
 
-function backNext() {
+function backNext(sceneNum) {
   const btn_back = document.getElementById('btn_back');
   const btn_next = document.getElementById('btn_next');
 
@@ -43,6 +43,7 @@ function changeImg(sceneNum) {
       imgLeft.src = './img/pigs_default.png';
       break;
     case 2:
+      // 엄마 돼지 나오는 걸로 변경
       changeStyle('buildHouse');
       imgLeft.src = './img/pig1_straw_no.png';
       imgRight.src = './img/house_straw.png';
@@ -58,6 +59,12 @@ function changeImg(sceneNum) {
       imgRight.src = './img/house_tree.png';
       break;
     case 5:
+      // 설계도 장면으로 변경
+      changeStyle('buildHouse');
+      imgLeft.src = './img/pig3_birck_no.png';
+      imgRight.src = './img/house_bric.png';
+      break;
+    case 6:
       changeStyle('buildHouse');
       imgLeft.src = './img/pig3_birck_no.png';
       imgRight.src = './img/house_bric.png';
