@@ -1,30 +1,11 @@
 @import './utils.css';
 
-/* p 태그 초기화 */
-p {
-  margin: 0;
-  padding: 0;
-}
-
-.container {
-  width: 100vw;
-  height: 100vh;
-}
-
 /* 구름(임시)  */
 .container > img {
   position: absolute;
   width: 15vw;
   padding-top: 100px;
   padding-left: 100px;
-}
-
-/* header 영역 */
-.header {
-  background-color: white;
-  width: 100%;
-  height: 50px;
-  position: fixed;
 }
 
 /* ---- content ------ */
@@ -118,4 +99,11 @@ p {
     opacity: 1;
     transform: translateZ(0);
   }
+}
+
+#pig_right1 {
+  display: none;
+}
+#pig_right2 {
+  display: none;
 }

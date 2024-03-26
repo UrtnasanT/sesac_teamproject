@@ -17,7 +17,15 @@ function appendObject(sceneNum) {
   // 이미지를 추가할 위치
   let rightDiv = document.querySelector('.right');
 
-  rightDiv.innerHTML = '';
+  let existingImages1 = rightDiv.querySelectorAll('#pig_right1');
+  let existingImages2 = rightDiv.querySelectorAll('#pig_right2');
+
+  existingImages1.forEach((image) => {
+    rightDiv.removeChild(image);
+  });
+  existingImages2.forEach((image) => {
+    rightDiv.removeChild(image);
+  });
 
   rightDiv.appendChild(newImg1);
   rightDiv.appendChild(newBtn);
@@ -31,13 +39,32 @@ function appendObject(sceneNum) {
   tremblePig();
 }
 
-function tremblePig() {
-  // # fadein으로 늑대와 돼지 등장, 3초 후 떠는 돼지
+// function tremblePig() {
+//   // # fadein으로 늑대와 돼지 등장, 3초 후 떠는 돼지
 
-  // const pigTremble = document.getElementById("right_img");
+//   // const pigTremble = document.getElementById("right_img");
+//   const pigTremble = document.querySelector('#pig_right1');
+
+//   setTimeout(() => pigTremble.classList.add('vibration'), 2000);
+
+//   let escapeBtn = document.querySelector('.button');
+// }
+
+function tremblePig() {
   const pigTremble = document.querySelector('#pig_right1');
 
-  setTimeout(() => pigTremble.classList.add('vibration'), 2000);
+  // 2초 후에 vibration 클래스 추가
+  setTimeout(() => {
+    pigTremble.classList.add('vibration');
+  }, 2000);
+
+  // 버튼 요소 선택
+  const escapeBtn = document.querySelector('.button');
+
+  // escapeBtn 버튼 클릭 시 애니메이션 종료
+  escapeBtn.addEventListener('click', () => {
+    pigTremble.classList.remove('vibration');
+  });
 }
 
 appendObject();

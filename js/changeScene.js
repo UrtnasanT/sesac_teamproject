@@ -63,7 +63,7 @@ function changeImg(sceneNum) {
       imgRight.src = './img/house_bric.png';
       break;
     case 7:
-      // 노트하는 장면
+      // 노크하는 장면
       changeStyle('knock');
       changeJs('vibration');
       imgLeft.src = './img/wolf_default.png';
@@ -82,6 +82,13 @@ function changeImg(sceneNum) {
       changeJs('pigTremble1');
       imgLeft.src = './img/wolf_drooling.png';
       imgRight.src = './img/house_straw.png';
+      break;
+    case 10:
+      // 둘째 집 노크하는 장면
+      changeStyle('knock');
+      changeJs('vibration');
+      imgLeft.src = './img/wolf_default.png';
+      imgRight.src = './img/house_tree.png';
       break;
     case 12:
       changeStyle('buildHouse');
