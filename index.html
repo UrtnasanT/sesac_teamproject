@@ -5,23 +5,29 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="./css/pig_tremble.css" />
-    <script defer src="./js/tremble.js"></script>
+    <link rel="stylesheet" href="./css/index.css" />
+
+    <link rel="stylesheet" id="changeStyle" href="" />
+    <!-- <script src="/js/TheThreeLittlePigs.json"></script> -->
+    <!-- <script type="module" src="/js/fetch.js"></script> -->
+    <script type="module" src="./js/fetch.js"></script>
+    <script type="module" src="./js/changeScene.js"></script>
+    <script type="module" src="./js/buildHouse.js"></script>
+    <script type="module" src="./js/burntWolf.js"></script>
   </head>
   <body>
     <div class="container">
       <!-- header -->
-      <div class="header">
-      </div>
 
-      <!-- <img src="./img/cloud.png" alt="" /> -->
+      <div class="header">header</div>
+      <img class="cloud1" src="../img/cloud.png" alt="" />
+      <img class="cloud2" src="../img/cloud.png" alt="" />
+      <img class="cloud3" src="../img/cloud.png" alt="" />
+      <!-- <div class="bird"><img src="../img/bird1.png" alt="" /></div> -->
 
       <!-- 자막 -->
       <div class="text">
-        <span
-          >첫째 돼지 집에 배고픈 늑대가 다가와서 문을 똑똑 두드리며
-          말했어요.</span
-        >
+        <span id="json-data"></span>
       </div>
 
       <!-- content -->
@@ -31,7 +37,7 @@
           <img
             id="left_img"
             class="wolf pig_left pigs boil-pot ending"
-            src="./img/wolf_drooling.png"
+            src="./img/wolf_blow.png"
             alt=""
           />
         </div>
@@ -41,16 +47,18 @@
           <img
             id="right_img"
             class="house house_straw house_tree pig_right mom"
-            src="./img/pig_tremble.png"
+            src="./img/house_straw.png"
             alt=""
           />
         </div>
 
         <!-- 배경 잔디 영역 -->
         <div class="grass">
-          <!-- <img src="./img/grass.png" alt="" /> -->
+          <img src="./img/background2.png" alt="" />
         </div>
       </div>
+      <button type="button" id="btn_back">이전</button>
+      <button type="button" id="btn_next">다음</button>
     </div>
   </body>
 </html>

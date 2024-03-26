@@ -1,68 +1,5 @@
 @import "./utils.css";
 
-/* body 초기화 */
-body {
-  margin: 0;
-  padding: 0;
-  height: 100vh;
-  background: url("../img/bg5.png") no-repeat center;
-  background-size: cover;
-}
-
-/* p 태그 초기화 */
-p {
-  margin: 0;
-  padding: 0;
-}
-
-.container {
-  width: 100vw;
-  height: 100vh;
-}
-
-/* 구름(임시)  */
-.container > img {
-  position: absolute;
-  width: 15vw;
-  padding-top: 100px;
-  padding-left: 100px;
-}
-
-/* header 영역 */
-.header {
-  /* background-color: rgb(255, 255, 255); */
-  width: 100%;
-  height: 50px;
-  position: fixed;
-  text-align: center;
-}
-
-/* 자막 영역 */
-.text {
-  width: 100%;
-  padding-top: 50px;
-  height: calc(30vh - 50px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-/* 자막 안 */
-.text > span {
-  font-family: "EF_jejudoldam";
-  width: 50%;
-  padding-top: 16vh;
-  font-size: 44px;
-  line-height: 7vh;
-}
-
-/* ---- content ------ */
-.content {
-  width: 100%;
-  height: 70vh;
-  display: flex;
-}
-
 /* content안의 left, right */
 .left,
 .right {
@@ -88,6 +25,10 @@ p {
 }
 
 .pig_right {
+  display: none;
+}
+
+#pig_right1 {
   position: absolute;
   bottom: 4vh;
   width: 16vw;
@@ -100,18 +41,6 @@ p {
   bottom: 4vh;
   left: 22vw;
   width: 16vw;
-}
-
-.content .grass {
-  width: 100%;
-  position: absolute;
-  bottom: 0;
-}
-
-.content .grass > img {
-  width: 100%;
-  vertical-align: bottom;
-  z-index: 0;
 }
 
 /* ----  /content ------ */
