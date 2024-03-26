@@ -12,7 +12,7 @@ function backNext(sceneNum) {
   const btn_next = document.getElementById('btn_next');
 
   btn_back.onclick = function changeBackScene() {
-    console.log('back_btn');
+    // console.log('back_btn');
     sceneNum--;
     changeScene(sceneNum);
   };
@@ -57,7 +57,7 @@ function changeImg(sceneNum) {
       imgLeft.src = './img/pig2_tree_no.png';
       imgRight.src = './img/house_tree.png';
       break;
-    case 5:
+    case 6:
       changeStyle('buildHouse');
       imgLeft.src = './img/pig3_birck_no.png';
       imgRight.src = './img/house_bric.png';
