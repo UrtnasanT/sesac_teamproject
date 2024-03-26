@@ -1,0 +1,35 @@
+.content .left {
+  transform: scaleX(-1);
+}
+
+.content .left #object {
+  position: absolute;
+  width: 15%;
+  bottom: 10vh;
+  left: 5vw;
+}
+
+#right_img {
+  margin-bottom: 50px;
+  z-index: 6;
+}
+
+#object_wolf {
+  position: absolute;
+  width: 25vw;
+  right: 18vw;
+  z-index: 5;
+}
+
+.animate {
+  animation: upAndDown 0.5s ease-in-out 0s infinite alternate;
+}
+
+@keyframes upAndDown {
+  0% {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(20vh);
+  }
+}

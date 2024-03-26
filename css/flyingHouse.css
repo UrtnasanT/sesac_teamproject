@@ -14,9 +14,10 @@
   animation: flyAway 4s ease forwards;
 }
 
-.container {
+/* button 가려놔서 hidden 해놨는데 수정하기 */
+/* .container {
   overflow: hidden;
-}
+} */
 
 /* @keyframes moveRightUp {
   0% {
