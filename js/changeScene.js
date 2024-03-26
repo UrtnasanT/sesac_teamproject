@@ -77,7 +77,7 @@ function changeImg(sceneNum) {
       imgRight.src = './img/house_straw.png';
       break;
     case 9:
-      // 돼지 집 날리는 장면
+      // 날라가서 떠는 장면
       changeStyle('pigTremble1');
       changeJs('pigTremble1');
       imgLeft.src = './img/wolf_drooling.png';
@@ -88,6 +88,13 @@ function changeImg(sceneNum) {
       changeStyle('knock');
       changeJs('vibration');
       imgLeft.src = './img/wolf_default.png';
+      imgRight.src = './img/house_tree.png';
+      break;
+    case 11:
+      // 돼지 집 날리는 장면
+      changeStyle('flyingHouse');
+      changeJs('flyingHouse');
+      imgLeft.src = './img/wolf_blow.png';
       imgRight.src = './img/house_tree.png';
       break;
     case 12:
