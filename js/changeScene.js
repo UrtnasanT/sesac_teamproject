@@ -12,14 +12,17 @@ function backNext(sceneNum) {
   const btn_next = document.getElementById('btn_next');
 
   btn_back.onclick = function changeBackScene() {
-    // console.log('back_btn');
-    sceneNum--;
-    changeScene(sceneNum);
+    if (sceneNum > 1) {
+      sceneNum--;
+      changeScene(sceneNum);
+    }
   };
 
-  btn_next.onclick = function changeNexkScene() {
-    sceneNum++;
-    changeScene(sceneNum);
+  btn_next.onclick = function changeNextScene() {
+    if (sceneNum < 20) {
+      sceneNum++;
+      changeScene(sceneNum);
+    }
   };
 }
 
@@ -113,12 +116,14 @@ function changeImg(sceneNum) {
       break;
     case 14:
       // 셋쨰 돼지 후 불기
+      changeStyle('none');
       imgLeft.src = './img/wolf_blow.png';
       imgRight.src = './img/house_brick.png';
       break;
     case 15:
       // 셋째 집 부딪히는 장면
-      imgLeft.src = './img/wolf_default.png';
+      changeStyle('wolfCrash');
+      imgLeft.src = './img/wolf_crash.png';
       imgRight.src = './img/house_brick.png';
       break;
     case 16:
