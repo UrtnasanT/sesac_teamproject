@@ -1,6 +1,5 @@
 /* font */
-
-/* 카페24 써라운드 */
+/* 카페 써라운드24 */
 
 @font-face {
   font-family: "Cafe24Ssurround";
@@ -19,27 +18,4 @@
   font-style: normal;
 }
 
-/* 엄마 까투리체 */
 
-@font-face {
-  font-family: 'Katuri';
-  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_13@1.0/Katuri.woff') format('woff');
-  font-weight: normal;
-  font-style: normal;
-}
-
-/* 베이글팻 */
-
-@font-face {
-  font-family: 'BagelFatOne-Regular';
-  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_JAMO@1.0/BagelFatOne-Regular.woff2') format('woff2');
-  font-weight: normal;
-  font-style: normal;
-}
-
-/* 던파 비트체 */
-
-@font-face{
-  font-family:'bitbit';
-  src:url('//cdn.df.nexon.com/img/common/font/DNFBitBit-Regular.woff'),url('//cdn.df.nexon.com/img/common/font/DNFBitBit-Regular.woff2') ;
-}

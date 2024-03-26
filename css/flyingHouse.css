@@ -1,0 +1,34 @@
+@keyframes flyAway {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  50% {
+    transform: translate(20%) rotate(10deg);
+  }
+  100% {
+    transform: translate(200%, -200%) rotate(45deg);
+  }
+}
+
+.house.flying {
+  animation: flyAway 4s ease forwards;
+}
+
+/* button 가려놔서 hidden 해놨는데 수정하기 */
+/* .container {
+  overflow: hidden;
+} */
+
+/* @keyframes moveRightUp {
+  0% {
+    transform: translateX(0) translateY(0) scale(1) rotate(0deg);
+  }
+  100% {
+    transform: translateX(50vw) translateY(-50vh) scale(0.8) rotate(360deg);
+  }
+}
+
+.content .right .house {
+  animation: moveRightUp 5s linear infinite;
+  transform-origin: top right;
+} */
