@@ -20,7 +20,6 @@ function appendObject(sceneNum) {
   rightDiv.innerHTML = "";
 
   rightDiv.appendChild(newImg1);
-  rightDiv.appendChild(newImg2);
   rightDiv.appendChild(newBtn);
 
   let escapeBtn = document.querySelector(".button");

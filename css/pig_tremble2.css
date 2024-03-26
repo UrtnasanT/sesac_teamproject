@@ -32,11 +32,11 @@
   position: absolute;
   bottom: 4vh;
   width: 16vw;
-  right: 26vw;
+  right: 19.5vw;
 }
 
 #pig_right2 {
-  /* display: none; */
+  display: none;
   position: absolute;
   bottom: 4vh;
   left: 22vw;
