@@ -100,3 +100,10 @@ p {
   z-index: 0;
 }
 
+#btn_back {
+  position: absolute;
+}
+#btn_next {
+  position: absolute;
+  left: 50px;
+}
