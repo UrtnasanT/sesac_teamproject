@@ -1,4 +1,24 @@
-@import './utils.css';
+@import "./utils.css";
+
+/* body 초기화 */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #badef6;
+  /* background-color: rgb(255, 249, 226); */
+  height: 100vh;
+}
+
+/* p 태그 초기화 */
+p {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  width: 100vw;
+  height: 100vh;
+}
 
 /* 구름(임시)  */
 .container > img {
@@ -8,15 +28,44 @@
   padding-left: 140px;
   animation: motion 2s linear 0s infinite alternate;
 }
+
 .cloud2 {
   top: 10vw;
   margin-left: 39vw;
   z-index: -3;
 }
+
 .cloud3 {
   top: 3vw;
   margin-left: 70vw;
   z-index: -3;
+}
+
+/* header 영역 */
+.header {
+  background-color: white;
+  width: 100%;
+  height: 50px;
+  position: fixed;
+}
+
+/* 자막 영역 */
+.text {
+  width: 100%;
+  padding-top: 50px;
+  height: calc(30vh - 50px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 자막 안 */
+.text > span {
+  font-family: "EF_jejudoldam";
+  width: 50%;
+  padding-top: 16vh;
+  font-size: 44px;
+  line-height: 7vh;
 }
 
 /* ---- content ------ */
@@ -25,6 +74,7 @@
   height: 70vh;
   display: flex;
 }
+
 /* content안의 left, right */
 .left,
 .right {
@@ -35,9 +85,11 @@
   justify-content: center;
   z-index: 3;
 }
+
 /* .content img {
   width: 70%;
 } */
+
 .content .left .wolf {
   position: absolute;
   bottom: 4vh;
@@ -45,23 +97,29 @@
   left: 26vw;
   animation: fadein 2s;
 }
+
 .content .right .house {
   display: none;
 }
+
 .content .grass {
   width: 100%;
   position: absolute;
   bottom: 0;
 }
+
 .content .grass > img {
   width: 100%;
   vertical-align: bottom;
   z-index: 0;
 }
+
 /* ----  /content ------ */
+
 .bird {
   display: none;
 }
+
 /* 떠다니는 구름 */
 @keyframes motion {
   0% {
@@ -72,6 +130,7 @@
     margin-top: 14px;
   }
 }
+
 /* 페이드인 */
 @keyframes fadein {
   from {
