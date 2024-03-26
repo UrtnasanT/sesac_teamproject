@@ -4,10 +4,10 @@ import { appendObject } from './buildHouse.js';
 window.onload = function () {
   let sceneNum = 1;
   changeScene(sceneNum);
-  backNext();
+  backNext(sceneNum);
 };
 
-function backNext() {
+function backNext(sceneNum) {
   const btn_back = document.getElementById('btn_back');
   const btn_next = document.getElementById('btn_next');
 
@@ -43,8 +43,8 @@ function changeImg(sceneNum) {
       imgLeft.src = './img/pigs_default.png';
       break;
     case 2:
-      changeStyle('buildHouse');
-      imgLeft.src = './img/pig1_straw_no.png';
+      changeStyle('momAppear');
+      imgLeft.src = './img/pig_mom.png';
       imgRight.src = './img/house_straw.png';
       break;
     case 3:
