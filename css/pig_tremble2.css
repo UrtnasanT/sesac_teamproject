@@ -1,0 +1,122 @@
+@import "./utils.css";
+
+/* content안의 left, right */
+.left,
+.right {
+  width: 50%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 3;
+}
+
+/* .content img {
+  width: 70%;
+} */
+
+.content .left .wolf {
+  position: absolute;
+  bottom: 2vh;
+  width: 26vw;
+  left: 18vw;
+  /* fadein animation */
+  animation: fadein 1s;
+}
+
+.pig_right {
+  display: none;
+}
+
+#pig_right1 {
+  position: absolute;
+  bottom: 4vh;
+  width: 16vw;
+  right: 19.5vw;
+}
+
+#pig_right2 {
+  display: none;
+  position: absolute;
+  bottom: 4vh;
+  left: 22vw;
+  width: 16vw;
+}
+
+/* ----  /content ------ */
+
+/* 떨리는 효과 애니메이션 */
+.vibration {
+  animation: vibration 0.1s infinite;
+}
+
+@keyframes vibration {
+  from {
+    transform: rotate(1deg);
+  }
+  to {
+    transform: rotate(-1deg);
+  }
+}
+
+/* 페이드 인 */
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.button {
+  border: 5px solid rgb(101, 74, 74);
+  font-family: "bitbit";
+  letter-spacing: 3px;
+  position: relative;
+  box-shadow: 0 5px 16px -10px rgba(0, 0, 0, 1);
+  /* background: #3d4c53; */
+  background: rgb(163, 123, 53);
+  margin: 20px auto;
+  bottom: 5vh;
+  right: 2vw;
+  width: 190px;
+  height: 70px;
+  overflow: hidden;
+  text-align: center;
+  transition: 0.2s;
+  cursor: pointer;
+  border-radius: 50px;
+}
+
+.btnTwo {
+  position: absolute;
+  width: 200px;
+  height: 100px;
+  margin-top: -70px;
+  padding-top: 2px;
+  background: #dbb64a;
+  left: -250px;
+  transition: 0.3s;
+}
+.btnText {
+  color: black;
+  font-size: 24px;
+  margin-top: 22px;
+  transition: 0.3s;
+}
+.btnText2 {
+  font-size: 22px;
+  margin-top: 43px;
+  margin-right: -140px;
+  color: black;
+}
+.button:hover .btnTwo {
+  /*When hovering over .button change .btnTwo*/
+  left: -130px;
+}
+.button:hover .btnText {
+  /*When hovering over .button change .btnText*/
+  margin-left: 65px;
+}
