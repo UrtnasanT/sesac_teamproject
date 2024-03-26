@@ -60,7 +60,7 @@ function changeImg(sceneNum) {
     case 6:
       changeStyle('buildHouse');
       imgLeft.src = './img/pig3_birck_no.png';
-      imgRight.src = './img/house_bric.png';
+      imgRight.src = './img/house_brick.png';
       break;
     case 7:
       // 노크하는 장면
@@ -98,17 +98,39 @@ function changeImg(sceneNum) {
       imgRight.src = './img/house_tree.png';
       break;
     case 12:
-      changeStyle('buildHouse');
-      imgLeft.src = './img/pig3_birck_no.png';
-      imgRight.src = './img/house_bric.png';
+      // 날라가서 떠는 장면
+      changeStyle('pigTremble2');
+      changeJs('pigTremble2');
+      imgLeft.src = './img/wolf_drooling.png';
+      imgRight.src = './img/house_straw.png';
+      break;
+    case 13:
+      // 셋째 집 노크하는 장면
+      changeStyle('knock');
+      changeJs('vibration');
+      imgLeft.src = './img/wolf_default.png';
+      imgRight.src = './img/house_brick.png';
+      break;
+    case 14:
+      // 셋쨰 돼지 후 불기
+      imgLeft.src = './img/wolf_blow.png';
+      imgRight.src = './img/house_brick.png';
       break;
     case 15:
-      changeStyle('rideSmokeStack');
+      // 셋째 집 부딪히는 장면
       imgLeft.src = './img/wolf_default.png';
-      imgRight.src = './img/house_bric.png';
+      imgRight.src = './img/house_brick.png';
       break;
     case 16:
+      // 화나서 굴뚝 가는 늑대
+      changeStyle('rideSmokeStack');
+      imgLeft.src = './img/wolf_default.png';
+      imgRight.src = './img/house_brick.png';
+      break;
+    case 17:
+      // 앗 뜨거 늑대
       changeStyle('burntWolf');
+      changeJs('burntWolf');
       imgLeft.src = './img/pig_back2.png';
       imgRight.src = './img/boil_pot1.png';
       break;

@@ -33,3 +33,14 @@
     transform: translateY(20vh);
   }
 }
+
+#pig_right1 {
+  display: none;
+}
+#pig_right2 {
+  display: none;
+}
+
+.button {
+  display: none;
+}

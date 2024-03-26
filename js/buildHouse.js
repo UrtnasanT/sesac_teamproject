@@ -42,7 +42,7 @@ function appendObject(sceneNum) {
       newImg.src = './img/brick.png';
       newImg.id = 'object';
       break;
-    case 16:
+    case 17:
       newImg.src = './img/fire.png';
       newImg.id = 'object';
       newImg2.src = './img/wolf_burn.png';
