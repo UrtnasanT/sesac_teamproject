@@ -1,12 +1,16 @@
+/* font */
 /* 카페 써라운드24 */
+
 @font-face {
-  font-family: 'Cafe24Ssurround';
-  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24Ssurround.woff') format('woff');
+  font-family: "Cafe24Ssurround";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24Ssurround.woff")
+    format("woff");
   font-weight: normal;
   font-style: normal;
 }
 
 /* 제주돌담체 */
+
 @font-face {
   font-family: 'EF_jejudoldam';
   src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2210-EF@1.0/EF_jejudoldam.woff2') format('woff2');
@@ -14,10 +18,4 @@
   font-style: normal;
 }
 
-/* 베이글팻 */
-@font-face {
-  font-family: 'BagelFatOne-Regular';
-  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_JAMO@1.0/BagelFatOne-Regular.woff2') format('woff2');
-  font-weight: normal;
-  font-style: normal;
-}
+
