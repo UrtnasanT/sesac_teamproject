@@ -95,6 +95,7 @@ p {
   bottom: 4vh;
   width: 48vw;
   left: 26vw;
+  animation: fadein 2s;
 }
 
 .content .right .house {
@@ -127,5 +128,15 @@ p {
   }
   100% {
     margin-top: 14px;
+  }
+}
+
+/* 페이드인 */
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }
