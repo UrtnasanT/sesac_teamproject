@@ -63,9 +63,17 @@ function changeImg(sceneNum) {
       imgRight.src = './img/house_bric.png';
       break;
     case 7:
+      // 노트하는 장면
       changeStyle('knock');
       changeJs('vibration');
       imgLeft.src = './img/wolf_default.png';
+      imgRight.src = './img/house_straw.png';
+      break;
+    case 8:
+      // 돼지 집 날리는 장면
+      changeStyle('flyingHouse');
+      changeJs('flyingHouse');
+      imgLeft.src = './img/wolf_blow.png';
       imgRight.src = './img/house_straw.png';
       break;
     case 12:

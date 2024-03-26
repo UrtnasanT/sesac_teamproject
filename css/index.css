@@ -4,8 +4,7 @@
 body {
   margin: 0;
   padding: 0;
-  background-color: #87d1f7;
-  /* background-color: #badef6; */
+  background-color: #badef6;
   /* background-color: rgb(255, 249, 226); */
   height: 100vh;
 }
@@ -27,7 +26,6 @@ p {
   width: 15vw;
   padding-top: 100px;
   padding-left: 100px;
-  z-index: 1;
 }
 
 /* header 영역 */
@@ -36,6 +34,7 @@ p {
   width: 100%;
   height: 50px;
   position: fixed;
+  z-index: 5;
 }
 
 /* 자막 영역 */
@@ -50,15 +49,11 @@ p {
 
 /* 자막 안 */
 .text > span {
-  /* color: rgb(248, 248, 234); */
-  color: rgb(37, 34, 9);
   font-family: 'EF_jejudoldam';
-  width: 60%;
+  width: 50%;
   padding-top: 16vh;
-  font-size: 32px;
+  font-size: 44px;
   line-height: 7vh;
-  z-index: 5;
-  text-align: center;
 }
 
 /* ---- content ------ */
@@ -66,16 +61,15 @@ p {
   width: 100%;
   height: 70vh;
   display: flex;
-  /* position: relative; */
 }
 
 /* content안의 left, right */
 .left,
 .right {
   width: 50%;
-  /* position: relative; */
+  position: relative;
   display: flex;
-  /* align-items: flex-end; */
+  align-items: center;
   justify-content: center;
   z-index: 3;
 }
@@ -84,18 +78,19 @@ p {
   width: 70%;
 } */
 
-.wolf {
+.content .left .wolf {
   position: absolute;
-  width: 28vw;
   bottom: 0;
+  width: 28vw;
   left: 16vw;
 }
 
-.house {
+.content .right .house {
   position: absolute;
   bottom: 4vh;
   width: 32vw;
   right: 14vw;
+  overflow: hidden;
 }
 
 .content .grass {
