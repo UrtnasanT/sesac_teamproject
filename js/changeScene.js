@@ -76,6 +76,13 @@ function changeImg(sceneNum) {
       imgLeft.src = './img/wolf_blow.png';
       imgRight.src = './img/house_straw.png';
       break;
+    case 9:
+      // 돼지 집 날리는 장면
+      changeStyle('pigTremble1');
+      changeJs('pigTremble1');
+      imgLeft.src = './img/wolf_drooling.png';
+      imgRight.src = './img/house_straw.png';
+      break;
     case 12:
       changeStyle('buildHouse');
       imgLeft.src = './img/pig3_birck_no.png';
