@@ -16,13 +16,10 @@ function filterDataBySceneNumber(data, sceneNumber) {
 
 function displayDataWithLineBreaks(data) {
   const jsonDataDiv = document.getElementById("json-data");
-  const jsonDataVoice = {};
 
   jsonDataDiv.innerHTML = ''; // 초기화
 
   data.forEach((item) => {
-    jsonDataVoice.value = item.content;
-    
     const sceneDiv = document.createElement('div');
     // "\n"을 <br> 태그로 치환하여 줄바꿈 처리
     const contentWithLineBreaks = item.content.replace(/\n/g, '<br>');
