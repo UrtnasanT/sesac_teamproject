@@ -6,17 +6,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="./css/index.css" />
-    <link rel="stylesheet" href="./css/flying-house.css" />
+
+    <link rel="stylesheet" id="changeStyle" href="" />
+    <!-- <script src="/js/TheThreeLittlePigs.json"></script> -->
+    <!-- <script type="module" src="/js/fetch.js"></script> -->
+    <script id="changeJS" type="module" src=""></script>
+    <script type="module" src="./js/fetch.js"></script>
+    <script type="module" src="./js/changeScene.js"></script>
+    <script type="module" src="./js/buildHouse.js"></script>
+    <script type="module" src="./js/burntWolf.js"></script>
+    <script type="module" src="./js/flyingHouse.js"></script>
   </head>
   <body>
     <div class="container">
       <!-- header -->
       <div class="header">header</div>
-      <img src="./img/cloud.png" alt="" />
+      <img class="cloud1" src="../img/cloud.png" alt="" />
+      <img class="cloud2" src="../img/cloud.png" alt="" />
+      <img class="cloud3" src="../img/cloud.png" alt="" />
+      <!-- <div class="bird"><img src="../img/bird1.png" alt="" /></div> -->
 
       <!-- 자막 -->
       <div class="text">
-        <span>“ 늑대는 후~~~~ 불어서 첫째 돼지의 집을 휙 날려 버렸어요 ! ”</span>
+        <span id="json-data"></span>
       </div>
 
       <!-- content -->
@@ -37,7 +49,5 @@
         </div>
       </div>
     </div>
-    <script src="./js/index.js"></script>
-    <script src="./js/flying-house.js"></script>
   </body>
 </html>
