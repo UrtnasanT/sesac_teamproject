@@ -38,7 +38,7 @@ document.addEventListener("mouseup", () => {
 document.addEventListener("wheel", (e) => {
   if (!isHovering) {
     e.preventDefault();
-    targetScrollLeft += Math.sign(e.deltaY) * 50; // 스크롤 속도를 느리게 조정
+    targetScrollLeft += Math.sign(e.deltaY) * 60; // 스크롤 속도를 느리게 조정
     startSmoothScroll();
   } else {
     // 호버 중일 때는 contentSynopsys의 스크롤 동작
