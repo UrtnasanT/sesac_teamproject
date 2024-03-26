@@ -1,4 +1,4 @@
-@import "./utils.css";
+@import './utils.css';
 
 /* body 초기화 */
 body {
@@ -30,16 +30,16 @@ p {
 
 /* header 영역 */
 .header {
-  background-color: white;
+  background-color: rgb(255, 255, 255, 0.5);
   width: 100%;
-  height: 50px;
+  height: 70px;
   position: fixed;
+  z-index: 5;
 }
 
 /* 자막 영역 */
 .text {
   width: 100%;
-  padding-top: 50px;
   height: calc(30vh - 50px);
   display: flex;
   align-items: center;
@@ -48,7 +48,7 @@ p {
 
 /* 자막 안 */
 .text > span {
-  font-family: "EF_jejudoldam";
+  font-family: 'EF_jejudoldam';
   width: 50%;
   padding-top: 16vh;
   font-size: 44px;
@@ -73,10 +73,6 @@ p {
   z-index: 3;
 }
 
-/* .content img {
-  width: 70%;
-} */
-
 .content .left .wolf {
   position: absolute;
   bottom: 0;
@@ -89,6 +85,7 @@ p {
   bottom: 4vh;
   width: 32vw;
   right: 14vw;
+  overflow: hidden;
 }
 
 .content .grass {
@@ -102,5 +99,3 @@ p {
   vertical-align: bottom;
   z-index: 0;
 }
-
-/* ----  /content ------ */
