@@ -1,13 +1,4 @@
-@import "./utils.css";
-
-/* body 초기화 */
-body {
-  margin: 0;
-  padding: 0;
-  background-color: #badef6;
-  /* background-color: rgb(255, 249, 226); */
-  height: 100vh;
-}
+@import './utils.css';
 
 /* p 태그 초기화 */
 p {
@@ -34,25 +25,6 @@ p {
   width: 100%;
   height: 50px;
   position: fixed;
-}
-
-/* 자막 영역 */
-.text {
-  width: 100%;
-  padding-top: 50px;
-  height: calc(30vh - 50px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-/* 자막 안 */
-.text > span {
-  font-family: "EF_jejudoldam";
-  width: 50%;
-  padding-top: 16vh;
-  font-size: 44px;
-  line-height: 7vh;
 }
 
 /* ---- content ------ */
@@ -94,7 +66,7 @@ p {
 }
 
 #right_img:hover {
-  cursor: url("../img/cursor2.png"), auto;
+  cursor: url('../img/cursor2.png'), auto;
 }
 
 .content .grass {
