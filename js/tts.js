@@ -1,7 +1,9 @@
 var voices = [];
 var isPaused = false; // 음성 재생이 일시정지되었는지 여부를 나타내는 변수
+var isMuted = false; // 음소거 여부를 나타내는 변수
 var utterThis = new SpeechSynthesisUtterance();
 var volumeRange = document.getElementById("volumeRange");
+var muteButton = document.getElementById("muteButton"); // 음소거 버튼 가져오기
 
 function setVoiceList() {
   voices = window.speechSynthesis.getVoices();
@@ -51,6 +53,14 @@ function speech(txt) {
   utterThis.lang = lang;
   utterThis.pitch = 1;
   utterThis.rate = 1;
+
+  // 음소거 상태에 따라 볼륨 설정
+  if (isMuted) {
+    utterThis.volume = 0; // 음소거 상태일 때 볼륨을 0으로 설정
+  } else {
+    // 음소거 상태가 아닐 때 볼륨은 슬라이더에서 가져온 값으로 설정
+    utterThis.volume = parseFloat(volumeRange.value);
+  }
 
   window.speechSynthesis.cancel(); // 이전 음성 중지
   window.speechSynthesis.speak(utterThis); // 새로운 음성 재생
@@ -103,4 +113,23 @@ volumeRange.addEventListener("input", function (event) {
   utterThis.volume = volume;
   window.speechSynthesis.cancel();
   window.speechSynthesis.speak(utterThis);
+});
+
+// 음소거 버튼 클릭 이벤트 처리
+muteButton.addEventListener("click", function () {
+  if (!isMuted) {
+    // 음소거 상태가 아니라면 음소거로 변경
+    window.speechSynthesis.cancel(); // 현재 음성 중지
+    isPaused = false; // 음소거 상태일 때는 일시정지 상태도 해제
+    utterThis.volume = 0;
+    isMuted = true;
+    muteButton.innerText = "음소거 해제";
+  } else {
+    // 음소거 상태라면 음소거 해제
+    utterThis.volume = parseFloat(volumeRange.value);
+    isMuted = false;
+    muteButton.innerText = "음소거";
+    // 음소거가 해제되면 다시 음성을 처음부터 재생
+    tts();
+  }
 });

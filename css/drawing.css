@@ -11,23 +11,46 @@ body {
   padding: 0;
 }
 
-.container {
-  /* display: none; */
+#left_img {
+  width: 22vw;
+  bottom: 20.5vh;
+  left: 30.6vw;
+}
+
+#right_img {
+  width: 22vw;
+  bottom: 12vh;
+  right: 32vw;
 }
 
 #canvas_container {
   width: 100vw;
+  position: absolute;
+  top: 14vw;
+  z-index: 5;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  visibility: hidden; /* 초기에는 숨겨진 상태로 설정 */
 }
 
 #text {
-  font-size: 50px;
+  font-size: 28px;
   position: absolute;
-  top: 9vh;
+  top: 21vh;
+  margin-left: 6vw;
   font-family: "EF_jejudoldam";
-  color: rgb(241, 141, 74);
-  /* animation:  */
+  color: rgb(0, 0, 0);
+}
+
+#complete_btn {
+  width: 130px;
+  height: 60px;
+  right: 29vw;
+  position: absolute;
+  font-size: 30px;
+  font-family: "EF_jejudoldam";
+  border: 3px solid rgb(51, 51, 51);
+  background-color: rgb(250, 101, 101);
+  border-radius: 50px;
 }

@@ -25,6 +25,8 @@ function backNext(sceneNum) {
 }
 
 function changeScene(sceneNum) {
+  document.querySelector("#right_img").classList.remove("houseFlying");
+
   fetchJsonAndDisplayData(sceneNum); // 자막 불러오기
   appendObject(sceneNum); // build-house 씬 오브젝트 추가
   changeImg(sceneNum); // 이미지 변경
@@ -64,8 +66,8 @@ function changeImg(sceneNum) {
       break;
     case 5:
       // 설계도 장면 추가
-      // changeStyle("drawing");
-      // changeJs("drawing");
+      changeStyle("drawing");
+      changeJs("drawing");
       imgLeft.src = "./img/sketchbook.png";
       imgRight.src = "./img/pig3_default.png";
       break;
@@ -87,6 +89,15 @@ function changeImg(sceneNum) {
       changeJs("flyingHouse");
       imgLeft.src = "./img/wolf_blow.png";
       imgRight.src = "./img/house_straw.png";
+      document.querySelector("#right_img").classList.add("houseFlying");
+      break;
+    case 9:
+      // 첫째 돼지 덜덜 떠는 장면
+      changeStyle("pig_tremble1");
+      changeJs("tremble1");
+      imgLeft.src = "./img/wolf_blow.png";
+      imgRight.src = "./img/pig_tremble.png";
+      document.querySelector("#right_img").classList.add("houseFlying");
       break;
     case 12:
       changeStyle("buildHouse");

@@ -9,26 +9,10 @@
     transform: translate(200%, -200%) rotate(45deg);
   }
 }
+.houseFlying {
+  z-index: 10;
+}
 
 .house.flying {
   animation: flyAway 4s ease forwards;
 }
-
-/* button 가려놔서 hidden 해놨는데 수정하기 */
-/* .container {
-  overflow: hidden;
-} */
-
-/* @keyframes moveRightUp {
-  0% {
-    transform: translateX(0) translateY(0) scale(1) rotate(0deg);
-  }
-  100% {
-    transform: translateX(50vw) translateY(-50vh) scale(0.8) rotate(360deg);
-  }
-}
-
-.content .right .house {
-  animation: moveRightUp 5s linear infinite;
-  transform-origin: top right;
-} */
