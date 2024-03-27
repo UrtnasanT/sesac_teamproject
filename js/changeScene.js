@@ -66,8 +66,8 @@ function changeImg(sceneNum) {
       // 설계도 장면 추가
       changeStyle("drawing");
       changeJs("drawing");
-      imgLeft.src = "./img/pig3_default.png";
-      imgRight.src = "./img/sketchbook.png";
+      imgLeft.src = "./img/sketchbook.png";
+      imgRight.src = "./img/pig3_default.png";
       break;
     case 6:
       changeStyle("buildHouse");
