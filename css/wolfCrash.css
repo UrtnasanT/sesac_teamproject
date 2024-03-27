@@ -16,8 +16,8 @@
   }
   100% {
     /* left: calc(100% - 50px); */
-    left: 700px;
-    bottom: 200px;
+    left: 800px;
+    bottom: 300px;
   }
   /* 100% {
     left: 200px; /* Move the object back to the left }*/
