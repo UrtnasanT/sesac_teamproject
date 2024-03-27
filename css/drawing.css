@@ -1,3 +1,11 @@
+@font-face {
+  font-family: "EF_jejudoldam";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2210-EF@1.0/EF_jejudoldam.woff2")
+    format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -7,10 +15,19 @@ body {
   display: none;
 }
 
-div {
-  background-color: blue;
+#canvas_container {
+  width: 100vw;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
+}
+
+#text {
+  font-size: 50px;
+  position: absolute;
+  top: 9vh;
+  font-family: "EF_jejudoldam";
+  color: rgb(241, 141, 74);
+  animation: 
 }
