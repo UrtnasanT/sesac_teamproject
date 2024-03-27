@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>미로 게임</title>
+    <script src="https://cdn.jsdelivr.net/npm/js-confetti@latest/dist/js-confetti.browser.js"></script>
+  </head>
+  <body>
+    <style>
+      .build {
+        position: absolute
+        outline: 0;
+        border: 0;
+        cursor: pointer;
+        font-weight: 600;
+        color: #fff;
+        font-size: 14px;
+        height: 38px;
+        padding: 8px 24px;
+        border-radius: 50px;
+        background-image: linear-gradient(180deg, #2ca681, #5de03c);
+        box-shadow: 0 4px 11px 0 rgb(37 44 97 / 15%),
+          0 1px 3px 0 rgb(93 100 148 / 20%);
+        transition: all 0.2s ease-out;
+        :hover {
+          box-shadow: 0 8px 22px 0 rgb(37 44 97 / 15%),
+            0 4px 6px 0 rgb(93 100 148 / 20%);
+        }
+      }
+    </style>
+    <div class="container">
+      <button class="build">You won!</button>
+    </div>
+    <script>
+      const jsConfetti = new JSConfetti();
+      document.querySelector(".build").addEventListener("click", async () => {
+        await jsConfetti.addConfetti({
+          emojis: ["🌾", "🪵", "🧱"],
+          emojiSize: 80,
+          confettiNumber: 80,
+          confettiColors: [
+            "#ff0a54",
+            "#ff477e",
+            "#ff7096",
+            "#ff85a1",
+            "#fbb1bd",
+            "#f9bec7",
+          ],
+        });
+        window.location.reload();
+      });
+    </script>
+  </body>
+</html>
