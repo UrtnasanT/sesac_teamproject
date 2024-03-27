@@ -95,9 +95,13 @@ function changeImg(sceneNum) {
       // 첫째 돼지 덜덜 떠는 장면
       changeStyle("pig_tremble1");
       changeJs("tremble1");
-      imgLeft.src = "./img/wolf_blow.png";
+      imgLeft.src = "./img/wolf_default.png";
       imgRight.src = "./img/pig_tremble.png";
-      document.querySelector("#right_img").classList.add("houseFlying");
+      break;
+    case 10:
+      changeStyle("buildHouse");
+      imgLeft.src = "./img/pig3_birck_no.png";
+      imgRight.src = "./img/house_bric.png";
       break;
     case 12:
       changeStyle("buildHouse");
@@ -126,32 +130,55 @@ function changeImg(sceneNum) {
   }
 }
 
-// css 파일 변경
+let currentCssLink = null;
+
 function changeStyle(css) {
-  let css_link = document.getElementById('changeStyle');
-  if (css_link) {
-    css_link.href = './css/' + css + '.css';
+  const cssUrl = "./css/" + css + ".css";
+
+  if (currentCssLink) {
+    // 이전에 추가한 CSS 링크가 있다면 제거합니다.
+    currentCssLink.remove();
   }
+
+  // 새로운 CSS 링크를 생성하고 추가합니다.
+  const newCssLink = document.createElement("link");
+  newCssLink.rel = "stylesheet";
+  newCssLink.type = "text/css";
+  newCssLink.href = cssUrl;
+  document.head.appendChild(newCssLink);
+
+  // 현재 CSS 링크를 저장합니다.
+  currentCssLink = newCssLink;
 }
 
-// js 파일 변경
-// function changeJs(js) {
-//   console.log('changeJS');
-//   let js_link = document.getElementById('changeJS');
-//   if (js_link) {
-//     js_link.src = './js/' + js + '.js';
-//   }
-// }
-function changeJs(js) {
-  console.log('changeJS');
-  let jsUrl = './' + js + '.js';
 
-  import(jsUrl)
-    .then(() => {
-      console.log(jsUrl + ' loaded successfully');
+let currentJsModule = null;
+
+function changeJs(js) {
+  console.log("changeJS");
+  let jsUrl = "./" + js + ".js";
+
+  if (currentJsModule) {
+  // 현재 모듈이 있다면 언로드합니다.
+  currentJsModule
+    .then((module) => {
+      if (module && module.default) {
+        module.default.unmount();
+      }
     })
     .catch((error) => {
-      console.error('Error loading ' + jsUrl + ':', error);
+      console.error("Error unloading current JS module:", error);
+    });
+}
+
+  // 새로운 모듈을 로딩합니다.
+  currentJsModule = import(jsUrl)
+    .then((module) => {
+      console.log(jsUrl + " loaded successfully");
+      return module;
+    })
+    .catch((error) => {
+      console.error("Error loading " + jsUrl + ":", error);
     });
 }
 
