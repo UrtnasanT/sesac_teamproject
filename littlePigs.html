@@ -11,6 +11,7 @@
     <!-- <script src="/js/TheThreeLittlePigs.json"></script> -->
     <!-- <script type="module" src="/js/fetch.js"></script> -->
     <script type="module" src="./js/fetch.js"></script>
+    <script type="module" src="./js/tts.js"></script>
     <script type="module" src="./js/changeScene.js"></script>
     <script type="module" src="./js/buildHouse.js"></script>
     <script type="module" src="./js/burntWolf.js"></script>
@@ -24,9 +25,7 @@
 
       <!-- 자막 -->
       <div class="text">
-
         <span id="json-data"></span>
-
       </div>
 
       <!-- content -->
@@ -46,10 +45,23 @@
           <img src="./img/background_2.png" alt="" />
         </div>
       </div>
-      <button type="button" id="btn_back">이전</button>
-      <button type="button" id="btn_next">다음</button>
+
+      <!-- tts 제어 버튼 -->
+        <div class="tts-botton">
+          <button type="button" class="previous" id="btn_back">이전</button>
+          <button class="play-pause-button" id="play-pause">
+            <i>P</i>
+            <i>l</i>
+            <i>a</i>
+            <i>y</i>
+            <i>use</i>
+          </button>
+          <button type="button" class="next" id="btn_next">다음</button>
+        </div>
+      
     </div>
     <script src="./js/index.js"></script>
     <script src="./js/flying-house.js"></script>
+    <script src="./js/tts-play-pause.js"></script>
   </body>
 </html>

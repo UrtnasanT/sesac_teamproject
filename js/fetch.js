@@ -15,7 +15,8 @@ function filterDataBySceneNumber(data, sceneNumber) {
 }
 
 function displayDataWithLineBreaks(data) {
-  const jsonDataDiv = document.getElementById('json-data');
+  const jsonDataDiv = document.getElementById("json-data");
+
   jsonDataDiv.innerHTML = ''; // 초기화
 
   data.forEach((item) => {
