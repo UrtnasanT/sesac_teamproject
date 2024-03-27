@@ -1,6 +1,7 @@
 var voices = [];
 var isPaused = false; // 음성 재생이 일시정지되었는지 여부를 나타내는 변수
 var utterThis = new SpeechSynthesisUtterance();
+var volumeRange = document.getElementById("volumeRange");
 
 function setVoiceList() {
   voices = window.speechSynthesis.getVoices();
@@ -69,7 +70,7 @@ if (jsonDataElement) {
   var observer = new MutationObserver(function (mutations) {
     mutations.forEach(function (mutation) {
       if (mutation.type === "childList") {
-        tts();
+        tts(); // 변경된 내용이 있을 때마다 음성 실행
       }
     });
   });
@@ -95,3 +96,11 @@ if (jsonDataElement) {
     window.speechSynthesis.cancel();
   });
 }
+
+// 볼륨 조절 이벤트 처리
+volumeRange.addEventListener("input", function (event) {
+  var volume = parseFloat(event.target.value);
+  utterThis.volume = volume;
+  window.speechSynthesis.cancel();
+  window.speechSynthesis.speak(utterThis);
+});

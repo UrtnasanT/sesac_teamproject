@@ -64,8 +64,8 @@ function changeImg(sceneNum) {
       break;
     case 5:
       // 설계도 장면 추가
-      changeStyle("drawing");
-      changeJs("drawing");
+      // changeStyle("drawing");
+      // changeJs("drawing");
       imgLeft.src = "./img/sketchbook.png";
       imgRight.src = "./img/pig3_default.png";
       break;
