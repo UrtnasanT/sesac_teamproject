@@ -1,0 +1,5 @@
+.content .left .wolf {
+  transform: scaleX(-1);
+  left: 450px;
+  bottom: 100px;
+}
