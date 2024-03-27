@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>미로 게임</title>
+    <link rel="stylesheet" href="./style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/js-confetti@latest/dist/js-confetti.browser.js"></script>
+  </head>
+  <body onload="createMaze()">
+    <h1>미로를 풀고 돼지에게 도와 주세요</h1>
+    <br />
+
+    <div id="maze-container">
+      <img
+        src="/img/pig1_default.png"
+        id="pig"
+        width="50px"
+        height="50px"
+        alt="pig"
+      />
+      <img
+        src="/img/house_tree.png"
+        id="house"
+        alt="house"
+        width="50px"
+        height="50px"
+      />
+    </div>
+  </body>
+  <script>
+    let level1 = [
+      [1, 0, 1, 0],
+      [1, 1, 1, 1],
+      [1, 0, 1, 0],
+      [1, 0, 1, 1],
+    ];
+
+    let mazearray = level1;
+
+    let maze = document.getElementById("maze-container");
+    let pig = document.getElementById("pig");
+    let house_tree = document.getElementById("house");
+    function setpigposition(x, y) {
+      pig.style.top = x + "px";
+      pig.style.left = y + "px";
+    }
+    function sethouseposition(x, y) {
+      house.style.bottom = x + "px";
+      house.style.right = y + "px";
+    }
+
+    function createMaze() {
+      for (let i = 0; i < mazearray.length; i++) {
+        let row = document.createElement("div");
+        row.classList.add("row");
+
+        for (let j = 0; j < mazearray[i].length; j++) {
+          let cell = document.createElement("div");
+          cell.classList.add("cell");
+
+          if (mazearray[i][j] == 0) {
+            cell.classList.add("wall");
+          }
+
+          if (i == 0 && j == 0) {
+            mazearray[i][j] = 2;
+          }
+          row.appendChild(cell);
+        }
+        maze.appendChild(row);
+      }
+
+      setpigposition(0, 0);
+      sethouseposition(0, 0);
+      getpigposition();
+      // console.log(mazearray);
+    }
+
+    function getpigposition() {
+      // find 2 in mazearray and return its position
+      let position = [-1, -1];
+      for (let i = 0; i < mazearray.length; i++) {
+        for (let j = 0; j < mazearray[i].length; j++) {
+          if (mazearray[i][j] == 2) {
+            position[0] = i;
+            position[1] = j;
+          }
+        }
+      }
+      console.log(position);
+      return position;
+    }
+    document.addEventListener("keydown", function (e) {
+      let pig = document.getElementById("pig");
+      let house = document.getElementById("house");
+      let pigleft = pig.offsetLeft;
+      let pigtop = pig.offsetTop;
+      let houseleft = house.offsetLeft;
+      let housetop = house.offsetTop;
+      let pigposition = getpigposition();
+
+      if (
+        e.key == "ArrowRight" &&
+        pigleft < (mazearray.length - 1) * 50 &&
+        mazearray[pigposition[0]][pigposition[1] + 1] == 1
+      ) {
+        pigleft += 50;
+        pig.style.left = pigleft + "px";
+        mazearray[pigposition[0]][pigposition[1]] = 1;
+        mazearray[pigposition[0]][pigposition[1] + 1] = 2;
+      }
+
+      if (
+        e.key == "ArrowLeft" &&
+        pigleft > 0 &&
+        mazearray[pigposition[0]][pigposition[1] - 1] == 1
+      ) {
+        pigleft -= 50;
+        pig.style.left = pigleft + "px";
+        mazearray[pigposition[0]][pigposition[1]] = 1;
+        mazearray[pigposition[0]][pigposition[1] - 1] = 2;
+      }
+
+      if (
+        e.key == "ArrowUp" &&
+        pigtop > 0 &&
+        mazearray[pigposition[0] - 1][pigposition[1]] == 1
+      ) {
+        pigtop -= 50;
+        pig.style.top = pigtop + "px";
+        mazearray[pigposition[0]][pigposition[1]] = 1;
+        mazearray[pigposition[0] - 1][pigposition[1]] = 2;
+      }
+
+      if (
+        e.key == "ArrowDown" &&
+        pigtop < (mazearray.length - 1) * 50 &&
+        mazearray[pigposition[0] + 1][pigposition[1]] == 1
+      ) {
+        pigtop += 50;
+        pig.style.top = pigtop + "px";
+        mazearray[pigposition[0]][pigposition[1]] = 1;
+        mazearray[pigposition[0] + 1][pigposition[1]] = 2;
+      }
+      if (
+        Math.abs(pigleft - houseleft) < 10 &&
+        Math.abs(pigtop - housetop) < 10
+      ) {
+        const jsConfetti = new JSConfetti();
+        jsConfetti.addConfetti({
+          emojis: ["🌾", "🪵", "🧱"],
+          emojiSize: 90,
+          confettiNumber: 90,
+          confettiColors: [
+            "#ff0a54",
+            "#ff477e",
+            "#ff7096",
+            "#ff85a1",
+            "#fbb1bd",
+            "#f9bec7",
+          ],
+        });
+      }
+    });
+    //
+  </script>
+</html>
