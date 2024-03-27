@@ -1,5 +1,6 @@
 var voices = [];
 var isPaused = false; // 음성 재생이 일시정지되었는지 여부를 나타내는 변수
+var utterThis = new SpeechSynthesisUtterance();
 
 function setVoiceList() {
   voices = window.speechSynthesis.getVoices();
@@ -10,8 +11,6 @@ setVoiceList();
 if (window.speechSynthesis.onvoiceschanged !== undefined) {
   window.speechSynthesis.onvoiceschanged = setVoiceList;
 }
-
-var utterThis = new SpeechSynthesisUtterance();
 
 function speech(txt) {
   if (!window.speechSynthesis) {
@@ -67,13 +66,15 @@ if (jsonDataElement) {
   tts(); // 초기 음성 실행
 
   // MutationObserver 추가
-  new MutationObserver(function (mutations) {
+  var observer = new MutationObserver(function (mutations) {
     mutations.forEach(function (mutation) {
       if (mutation.type === "childList") {
         tts();
       }
     });
-  }).observe(jsonDataElement, { childList: true });
+  });
+
+  observer.observe(jsonDataElement, { childList: true });
 
   // 재생/일시정지 버튼 클릭 이벤트 처리
   var playPauseButton = document.getElementById("play-pause");

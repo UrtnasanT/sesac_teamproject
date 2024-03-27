@@ -2,7 +2,7 @@ import { fetchJsonAndDisplayData } from './fetch.js';
 import { appendObject } from './buildHouse.js';
 
 window.onload = function () {
-  let sceneNum = 1;
+  let sceneNum = 0;
   changeScene(sceneNum);
   backNext(sceneNum);
 };
@@ -18,7 +18,7 @@ function backNext(sceneNum) {
     changeScene(sceneNum);
   };
 
-  btn_next.onclick = function changeNexkScene() {
+  btn_next.onclick = function changeNextScene() {
     sceneNum++;
     changeScene(sceneNum);
   };
@@ -39,6 +39,10 @@ function changeImg(sceneNum) {
   console.log('씬넘버', sceneNum);
 
   switch (sceneNum) {
+    case 0:
+      changeStyle("firstScene");
+      imgLeft.src = "./img/pigs_default.png";
+      break;
     case 1:
       changeStyle("firstScene");
       imgLeft.src = "./img/pigs_default.png";
