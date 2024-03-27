@@ -144,13 +144,26 @@
         mazearray[pigposition[0]][pigposition[1]] = 1;
         mazearray[pigposition[0] + 1][pigposition[1]] = 2;
       }
-
       if (
         Math.abs(pigleft - houseleft) < 10 &&
         Math.abs(pigtop - housetop) < 10
       ) {
-        alert("You won!");
+        const jsConfetti = new JSConfetti();
+        jsConfetti.addConfetti({
+          emojis: ["🌾", "🪵", "🧱"],
+          emojiSize: 90,
+          confettiNumber: 90,
+          confettiColors: [
+            "#ff0a54",
+            "#ff477e",
+            "#ff7096",
+            "#ff85a1",
+            "#fbb1bd",
+            "#f9bec7",
+          ],
+        });
       }
     });
+    //
   </script>
 </html>
