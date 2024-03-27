@@ -1,5 +1,5 @@
 // Play/Pause Button
-document.querySelectorAll(".play-pause-button").forEach((button) => {
+document.querySelectorAll(".playPauseButton").forEach((button) => {
   button.addEventListener("click", (e) => {
     if (button.classList.contains("playing")) {
       button.classList.remove("paused", "playing");

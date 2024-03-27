@@ -62,6 +62,13 @@ function changeImg(sceneNum) {
       imgLeft.src = "./img/pig2_tree_no.png";
       imgRight.src = "./img/house_tree.png";
       break;
+    case 5:
+      // 설계도 장면 추가
+      changeStyle("drawing");
+      changeJs("drawing");
+      imgLeft.src = "./img/pig3_default.png";
+      imgRight.src = "./img/sketchbook.png";
+      break;
     case 6:
       changeStyle("buildHouse");
       imgLeft.src = "./img/pig3_birck_no.png";

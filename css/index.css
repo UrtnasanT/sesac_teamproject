@@ -130,7 +130,7 @@ p {
 }
 
 /* ---- play-pause-button ------ */
-.play-pause-button {
+.playPauseButton {
     --play: #6D58FF;
     --play-shadow: #{rgba(#6D58FF, .24)};
     --pause: #2B3044;
@@ -312,12 +312,10 @@ p {
         --shadow: var(--play-shadow);
         animation: var(--name, background-paused) .8s ease forwards;
     }
-    &.active {
-        --y: 0;
-        --shadow-y: 6px;
-        --shadow-b: 16px;
-        --shadow: var(--pause-shadow);
-        animation: none; /* 클릭 후에는 애니메이션 제거 */
+    &:active {
+        --y: 1px;
+        --shadow-y: 4px;
+        --shadow-b: 12px;
     }
 }
 

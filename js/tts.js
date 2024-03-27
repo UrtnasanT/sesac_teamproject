@@ -77,7 +77,7 @@ if (jsonDataElement) {
   observer.observe(jsonDataElement, { childList: true });
 
   // 재생/일시정지 버튼 클릭 이벤트 처리
-  var playPauseButton = document.getElementById("play-pause");
+  var playPauseButton = document.getElementById("playPause");
   playPauseButton.addEventListener("click", function () {
     if (!isPaused) {
       // 현재 재생 중이라면 일시정지
