@@ -9,7 +9,7 @@ const vibration = (target) => {
 let container = document.querySelector(".container");
 // let houseStraw = document.querySelector("right_img");
 let audio = new Audio();
-audio.src = "./sound/sound1.mp3";
+audio.src = "./sound/sound2.mp3";
 container.appendChild(audio);
 
 // 이미지 클릭 시 애니메이션 실행

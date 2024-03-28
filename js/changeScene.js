@@ -99,7 +99,9 @@ function changeImg(sceneNum) {
       imgRight.src = "./img/pig_tremble.png";
       break;
     case 10:
+      // 둘째 돼지 집 노크하는 장면
       changeStyle("buildHouse");
+      changeJs("vibration1");
       imgLeft.src = "./img/wolf_default.png";
       imgRight.src = "./img/house_tree.png";
       break;
