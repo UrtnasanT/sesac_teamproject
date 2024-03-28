@@ -1,4 +1,4 @@
-@import './utils.css';
+@import "./utils.css";
 
 /* body 초기화 */
 body {
@@ -28,6 +28,45 @@ p {
   padding-left: 100px;
 }
 
+.cloud > img {
+  position: absolute;
+  padding-top: 10px;
+  padding-left: 10px;
+  /* animation: motion 3s linear 0s infinite alternate; */
+}
+
+.cloud1 {
+  width: 18.5vw;
+  top: 26vh;
+  margin-left: 1.5vw;
+  z-index: 3;
+  animation: motion1 4s linear 0s infinite alternate;
+}
+
+.cloud2 {
+  width: 19vw;
+  top: 11.5vh;
+  margin-left: 19.2vw;
+  z-index: 3;
+  animation: motion2 4s linear 0s infinite alternate;
+}
+
+.cloud3 {
+  width: 19.8vw;
+  top: 5.4vh;
+  margin-left: 49vw;
+  z-index: 3;
+  animation: motion1 4s linear 0s infinite alternate;
+}
+
+.cloud4 {
+  width: 27.5vw;
+  top: 12vw;
+  margin-left: 68vw;
+  z-index: 3;
+  animation: motion2 4s linear 0s infinite alternate;
+}
+
 /* header 영역 */
 .header {
   background-color: white;
@@ -36,6 +75,11 @@ p {
   position: fixed;
   z-index: 5;
   opacity: 0.3;
+}
+
+.bird {
+  position: relative;
+  top: 0;
 }
 
 /* 자막 영역 */
@@ -52,16 +96,15 @@ p {
 
 /* 자막 안 */
 .text > span {
-  font-family: 'EF_jejudoldam';
+  font-family: "EF_jejudoldam";
   width: 60%;
   /* padding-top: 16vh; */
-  font-size: 44px;
+  font-size: 36px;
   line-height: 7vh;
-  z-index:  999;
+  z-index: 999;
   position: fixed;
-  top: 10%;
+  top: 12%;
   text-align: center;
-
 }
 
 /* ---- content ------ */
@@ -108,11 +151,11 @@ p {
 }
 
 .content .grass > img {
-  width: 100%;
+  width: 100vw;
+  height: 100vh;
   vertical-align: bottom;
   z-index: 0;
 }
-
 
 /* #btn_back {
 }
@@ -132,283 +175,317 @@ p {
   transition: opacity 0.5s ease-in-out;
 
   &:hover {
-  opacity: 1;
+    opacity: 1;
   }
 }
 
 /* ---- play-pause-button ------ */
 .playPauseButton {
-    --play: #6D58FF;
-    --play-shadow: #{rgba(#6D58FF, .24)};
-    --pause: #2B3044;
-    --pause-shadow: #{rgba(#2B3044, .24)};
-    --color: #fff;
-    --icon: var(--color);
-    margin: 0;
-    line-height: 20px;
-    font-size: 14px;
-    padding: 11px 12px 11px 36px;
-    border-radius: 22px;
-    border: none;
-    background: none;
-    outline: none;
-    cursor: pointer;
-    display: flex;
-    position: relative;
+  --play: #6d58ff;
+  --play-shadow: #{rgba(#6d58ff, 0.24)};
+  --pause: #2b3044;
+  --pause-shadow: #{rgba(#2b3044, 0.24)};
+  --color: #fff;
+  --icon: var(--color);
+  margin: 0;
+  line-height: 20px;
+  font-size: 14px;
+  padding: 11px 12px 11px 36px;
+  border-radius: 22px;
+  border: none;
+  background: none;
+  outline: none;
+  cursor: pointer;
+  display: flex;
+  position: relative;
+  backface-visibility: hidden;
+  -webkit-appearance: none;
+  -webkit-tap-highlight-color: transparent;
+  transform: translateY(var(--y, 0)) translateZ(0);
+  color: var(--color);
+  box-shadow: 0 var(--shadow-y, 6px) var(--shadow-b, 16px)
+    var(--shadow, var(--pause-shadow));
+  background: radial-gradient(
+    circle,
+    var(--play) 0%,
+    var(--play) 50%,
+    var(--pause) 50.5%,
+    var(--pause) 100%
+  );
+  background-size: 400% 400%;
+  background-position: 0% 0%;
+  transition: background 0.8s, box-shadow 0.3s, transform 0.3s;
+  &:hover {
+    --y: -1px;
+    --shadow-y: 8px;
+    --shadow-b: 20px;
+  }
+  &:active {
+    --y: 1px;
+    --shadow-y: 4px;
+    --shadow-b: 12px;
+  }
+  &:before,
+  &:after {
+    content: "";
+    background: var(--icon);
+    width: var(--width, 16px);
+    height: 12px;
+    position: absolute;
+    left: 18px;
+    top: 15px;
     backface-visibility: hidden;
-    -webkit-appearance: none;
-    -webkit-tap-highlight-color: transparent;
-    transform: translateY(var(--y, 0)) translateZ(0);
-    color: var(--color);
-    box-shadow: 0 var(--shadow-y, 6px) var(--shadow-b, 16px) var(--shadow, var(--pause-shadow));
-    background: radial-gradient(circle, var(--play) 0%, var(--play) 50%, var(--pause) 50.5%, var(--pause) 100%);
-    background-size: 400% 400%;
-    background-position: 0% 0%;
-    transition: background .8s, box-shadow .3s, transform .3s;
-    &:hover {
-        --y: -1px;
-        --shadow-y: 8px;
-        --shadow-b: 20px;
+    transform-origin: 50% 100%;
+    transform: translateX(var(--x, 0)) translateZ(0);
+    -webkit-clip-path: polygon(0 0, 3px 0, 3px 12px, 0 12px);
+    clip-path: polygon(0 0, 3px 0, 3px 12px, 0 12px);
+    transition: clip-path 0.6s ease;
+  }
+  &:after {
+    --width: 3px;
+    --x: 6px;
+  }
+  i {
+    display: block;
+    font-weight: bold;
+    font-style: normal;
+    backface-visibility: hidden;
+    opacity: var(--o, 1);
+    transform: translateX(var(--x, 0));
+    transition: transform 0.6s, opacity 0.6s;
+    &:nth-child(2) {
+      --o: 0;
+      --x: 0;
     }
-    &:active {
-        --y: 1px;
-        --shadow-y: 4px;
-        --shadow-b: 12px;
+    &:nth-child(3) {
+      --x: -50%;
     }
-    &:before,
+    &:nth-child(4) {
+      --o: 0;
+    }
+    &:last-child {
+      --x: -50%;
+    }
+  }
+  &.paused {
+    --shadow: var(--play-shadow);
+    animation: var(--name, background-paused) 0.8s ease forwards;
+    i {
+      &:first-child {
+        --x: 40%;
+      }
+      &:nth-child(2) {
+        --o: 1;
+        --x: 100%;
+      }
+      &:nth-child(3) {
+        --x: 50%;
+      }
+      &:nth-child(4) {
+        --o: 1;
+        --x: 50%;
+      }
+      &:last-child {
+        --x: 0;
+        --o: 0;
+      }
+    }
+    &:before {
+      -webkit-clip-path: polygon(0 0, 11px 6px, 11px 6px, 0 12px);
+      clip-path: polygon(0 0, 11px 6px, 11px 6px, 0 12px);
+      transition-delay: 0.9s;
+    }
     &:after {
-        content: '';
-        background: var(--icon);
-        width: var(--width, 16px);
-        height: 12px;
-        position: absolute;
-        left: 18px;
-        top: 15px;
-        backface-visibility: hidden;
-        transform-origin: 50% 100%;
-        transform: translateX(var(--x, 0)) translateZ(0);
+      animation: to-play 0.9s ease forwards;
+    }
+    &.playing {
+      --shadow: var(--pause-shadow);
+      --name: background-playing;
+      &:before {
         -webkit-clip-path: polygon(0 0, 3px 0, 3px 12px, 0 12px);
         clip-path: polygon(0 0, 3px 0, 3px 12px, 0 12px);
-        transition: clip-path .6s ease;
-    }
-    &:after {
-        --width: 3px;
-        --x: 6px;
-    }
-    i {
-        display: block;
-        font-weight: bold;
-        font-style: normal;
-        backface-visibility: hidden;
-        opacity: var(--o, 1);
-        transform: translateX(var(--x, 0));
-        transition: transform .6s, opacity .6s;
+        transition-delay: 0s;
+      }
+      &:after {
+        animation: to-pause 1.3s ease forwards;
+      }
+      i {
+        &:first-child {
+          --x: 0;
+        }
         &:nth-child(2) {
-            --o: 0;
-            --x: 0;
+          --o: 0;
+          --x: 0;
         }
         &:nth-child(3) {
-            --x: -50%;
+          --x: -50%;
+          --o: 1;
         }
         &:nth-child(4) {
-            --o: 0;
+          --o: 0;
+          --x: 0;
         }
         &:last-child {
-            --x: -50%;
+          --x: -50%;
+          --o: 1;
         }
+      }
     }
-    &.paused {
-        --shadow: var(--play-shadow);
-        animation: var(--name, background-paused) .8s ease forwards;
-        i {
-            &:first-child {
-                --x: 40%;
-            }
-            &:nth-child(2) {
-                --o: 1;
-                --x: 100%;
-            }
-            &:nth-child(3) {
-                --x: 50%;
-            }
-            &:nth-child(4) {
-                --o: 1;
-                --x: 50%;
-            }
-            &:last-child {
-                --x: 0;
-                --o: 0;
-            }
-        }
-        &:before {
-            -webkit-clip-path: polygon(0 0, 11px 6px, 11px 6px, 0 12px);
-            clip-path: polygon(0 0, 11px 6px, 11px 6px, 0 12px);
-            transition-delay: .9s;
-        }
-        &:after {
-            animation: to-play .9s ease forwards;
-        }
-        &.playing {
-            --shadow: var(--pause-shadow);
-            --name: background-playing;
-            &:before {
-                -webkit-clip-path: polygon(0 0, 3px 0, 3px 12px, 0 12px);
-                clip-path: polygon(0 0, 3px 0, 3px 12px, 0 12px);
-                transition-delay: 0s;
-            }
-            &:after {
-                animation: to-pause 1.3s ease forwards;
-            }
-            i {
-                &:first-child {
-                    --x: 0;
-                }
-                &:nth-child(2) {
-                    --o: 0;
-                    --x: 0;
-                }
-                &:nth-child(3) {
-                    --x: -50%;
-                    --o: 1;
-                }
-                &:nth-child(4) {
-                    --o: 0;
-                    --x: 0;
-                }
-                &:last-child {
-                    --x: -50%;
-                    --o: 1;
-                }
-            }
-        }
-    }
+  }
 }
 
-
-.previous, .next {
-    --play: #6D58FF;
-    --play-shadow: #{rgba(#6D58FF, .24)};
-    --pause: #2B3044;
-    --pause-shadow: #{rgba(#2B3044, .24)};
-    --color: #fff;
-    margin: 0;
-    line-height: 20px;
-    font-size: 14px;
-    padding: 11px 12px;
-    border-radius: 22px;
-    border: none;
-    background: none;
-    outline: none;
-    cursor: pointer;
-    display: flex;
-    position: relative;
-    backface-visibility: hidden;
-    -webkit-appearance: none;
-    -webkit-tap-highlight-color: transparent;
-    transform: translateY(var(--y, 0)) translateZ(0);
-    color: var(--color);
-    box-shadow: 0 var(--shadow-y, 6px) var(--shadow-b, 16px) var(--shadow, var(--pause-shadow));
-    background: radial-gradient(circle, var(--play) 0%, var(--play) 50%, var(--pause) 50.5%, var(--pause) 100%);
-    background-size: 400% 400%;
-    background-position: 0% 0%;
-    transition: background .8s, box-shadow .3s, transform .3s;
-    &:hover {
-        --y: -1px;
-        --shadow-y: 8px;
-        --shadow-b: 20px;
-        --shadow: var(--play-shadow);
-        animation: var(--name, background-paused) .8s ease forwards;
-    }
-    &:active {
-        --y: 1px;
-        --shadow-y: 4px;
-        --shadow-b: 12px;
-    }
+.previous,
+.next {
+  --play: #6d58ff;
+  --play-shadow: #{rgba(#6d58ff, 0.24)};
+  --pause: #2b3044;
+  --pause-shadow: #{rgba(#2b3044, 0.24)};
+  --color: #fff;
+  margin: 0;
+  line-height: 20px;
+  font-size: 14px;
+  padding: 11px 12px;
+  border-radius: 22px;
+  border: none;
+  background: none;
+  outline: none;
+  cursor: pointer;
+  display: flex;
+  position: relative;
+  backface-visibility: hidden;
+  -webkit-appearance: none;
+  -webkit-tap-highlight-color: transparent;
+  transform: translateY(var(--y, 0)) translateZ(0);
+  color: var(--color);
+  box-shadow: 0 var(--shadow-y, 6px) var(--shadow-b, 16px)
+    var(--shadow, var(--pause-shadow));
+  background: radial-gradient(
+    circle,
+    var(--play) 0%,
+    var(--play) 50%,
+    var(--pause) 50.5%,
+    var(--pause) 100%
+  );
+  background-size: 400% 400%;
+  background-position: 0% 0%;
+  transition: background 0.8s, box-shadow 0.3s, transform 0.3s;
+  &:hover {
+    --y: -1px;
+    --shadow-y: 8px;
+    --shadow-b: 20px;
+    --shadow: var(--play-shadow);
+    animation: var(--name, background-paused) 0.8s ease forwards;
+  }
+  &:active {
+    --y: 1px;
+    --shadow-y: 4px;
+    --shadow-b: 12px;
+  }
 }
-
 
 @keyframes to-play {
-    15% {
-        transform: translateX(6px) scaleY(1.1);
-    }
-    30% {
-        transform: translateX(6px) scaleY(.9);
-    }
-    45% {
-        transform: translateX(6px) scaleY(1.15);
-        -webkit-clip-path: polygon(0 0, 3px 0, 3px 12px, 0 12px);
-        clip-path: polygon(0 0, 3px 0, 3px 12px, 0 12px);
-        transform-origin: 50% 100%;
-    }
-    60%,
-    100% {
-        -webkit-clip-path: polygon(0 9px, 3px 9px, 3px 12px, 0 12px);
-        clip-path: polygon(0 9px, 3px 9px, 3px 12px, 0 12px);
-        transform-origin: 50% 10.5px;
-    }
-    60% {
-        transform: translateX(6px);
-    }
-    99% {
-        transform: translateX(0) rotate(-270deg);
-    }
-    100% {
-        transform: translateX(0) rotate(-270deg) scale(0);
-    }
+  15% {
+    transform: translateX(6px) scaleY(1.1);
+  }
+  30% {
+    transform: translateX(6px) scaleY(0.9);
+  }
+  45% {
+    transform: translateX(6px) scaleY(1.15);
+    -webkit-clip-path: polygon(0 0, 3px 0, 3px 12px, 0 12px);
+    clip-path: polygon(0 0, 3px 0, 3px 12px, 0 12px);
+    transform-origin: 50% 100%;
+  }
+  60%,
+  100% {
+    -webkit-clip-path: polygon(0 9px, 3px 9px, 3px 12px, 0 12px);
+    clip-path: polygon(0 9px, 3px 9px, 3px 12px, 0 12px);
+    transform-origin: 50% 10.5px;
+  }
+  60% {
+    transform: translateX(6px);
+  }
+  99% {
+    transform: translateX(0) rotate(-270deg);
+  }
+  100% {
+    transform: translateX(0) rotate(-270deg) scale(0);
+  }
 }
 
 @keyframes to-pause {
-    0%,
-    50% {
-        -webkit-clip-path: polygon(0 9px, 3px 9px, 3px 12px, 0 12px);
-        clip-path: polygon(0 9px, 3px 9px, 3px 12px, 0 12px);
-        transform-origin: 50% 10.5px;
-    }
-    0%,
-    39% {
-        transform: translateX(0) rotate(-270deg) scale(0);
-    }
-    40% {
-        transform: translateX(0) rotate(-270deg);
-    }
-    50% {
-        transform: translateX(6px) rotate(0deg);
-    }
-    60%,
-    100% {
-        transform: translateX(6px);
-        -webkit-clip-path: polygon(0 0, 3px 0, 3px 12px, 0 12px);
-        clip-path: polygon(0 0, 3px 0, 3px 12px, 0 12px);
-        transform-origin: 50% 100%;
-    }
-    70% {
-        transform: translateX(6px) scaleY(1.15);
-    }
-    80% {
-        transform: translateX(6px) scaleY(.9);
-    }
-    90% {
-        transform: translateX(6px) scaleY(1.05);
-    }
-    100% {
-        transform: translateX(6px);
-    }
+  0%,
+  50% {
+    -webkit-clip-path: polygon(0 9px, 3px 9px, 3px 12px, 0 12px);
+    clip-path: polygon(0 9px, 3px 9px, 3px 12px, 0 12px);
+    transform-origin: 50% 10.5px;
+  }
+  0%,
+  39% {
+    transform: translateX(0) rotate(-270deg) scale(0);
+  }
+  40% {
+    transform: translateX(0) rotate(-270deg);
+  }
+  50% {
+    transform: translateX(6px) rotate(0deg);
+  }
+  60%,
+  100% {
+    transform: translateX(6px);
+    -webkit-clip-path: polygon(0 0, 3px 0, 3px 12px, 0 12px);
+    clip-path: polygon(0 0, 3px 0, 3px 12px, 0 12px);
+    transform-origin: 50% 100%;
+  }
+  70% {
+    transform: translateX(6px) scaleY(1.15);
+  }
+  80% {
+    transform: translateX(6px) scaleY(0.9);
+  }
+  90% {
+    transform: translateX(6px) scaleY(1.05);
+  }
+  100% {
+    transform: translateX(6px);
+  }
 }
 
 @keyframes background-paused {
-    from {
-        background-position: 0 0;
-    }
-    to {
-        background-position: 50% 50%;
-    }
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 50% 50%;
+  }
 }
 
 @keyframes background-playing {
-    from {
-        background-position: 50% 50%;
-    }
-    to {
-        background-position: 100% 100%;
-    }
+  from {
+    background-position: 50% 50%;
+  }
+  to {
+    background-position: 100% 100%;
+  }
+}
+
+/* 떠다니는 구름 */
+@keyframes motion1 {
+  0% {
+    margin-top: 0px;
+    transition-timing-function: cubic-bezier(1, 0.2, 0.8, 0.2, 1);
+  }
+  100% {
+    margin-top: 12px;
+  }
+}
+
+@keyframes motion2 {
+  0% {
+    margin-top: 12px;
+    transition-timing-function: cubic-bezier(1, 0.2, 0.8, 0.2, 1);
+  }
+  100% {
+    margin-top: 0px;
+  }
 }

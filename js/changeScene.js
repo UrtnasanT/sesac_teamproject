@@ -43,6 +43,7 @@ function changeImg(sceneNum) {
   switch (sceneNum) {
     case 0:
       changeStyle("firstScene");
+      changeJs("flyingBird");
       imgLeft.src = "./img/pigs_default.png";
       break;
     case 1:
@@ -50,6 +51,7 @@ function changeImg(sceneNum) {
       imgLeft.src = "./img/pigs_default.png";
       break;
     case 2:
+      document.querySelector(".bird").remove();
       changeStyle("momAppear");
       imgLeft.src = "./img/pig_mom.png";
       imgRight.src = "./img/house_straw.png";
