@@ -100,8 +100,8 @@ function changeImg(sceneNum) {
       break;
     case 10:
       changeStyle("buildHouse");
-      imgLeft.src = "./img/pig3_birck_no.png";
-      imgRight.src = "./img/house_bric.png";
+      imgLeft.src = "./img/wolf_default.png";
+      imgRight.src = "./img/house_tree.png";
       break;
     case 12:
       changeStyle("buildHouse");
