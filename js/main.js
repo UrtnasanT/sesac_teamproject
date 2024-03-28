@@ -71,7 +71,7 @@ const books = document.querySelectorAll(".book");
 
 books.forEach((book) => {
   const title = book.querySelector(".title");
-  const synopsys = book.querySelector(".synopsys");
+  const synopsys = book.querySelector(".synopsys-text");
 
   book.addEventListener("mouseenter", () => {
     contentTitle.textContent = title.textContent;
