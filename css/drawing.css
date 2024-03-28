@@ -13,7 +13,7 @@ body {
 
 #left_img {
   width: 22vw;
-  bottom: 20.5vh;
+  bottom: 18vh;
   left: 30.6vw;
 }
 
@@ -24,23 +24,24 @@ body {
 }
 
 #canvas_container {
-  width: 100vw;
   position: absolute;
-  top: 14vw;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, 0);
   z-index: 5;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  visibility: hidden; /* 초기에는 숨겨진 상태로 설정 */
 }
+
 
 #text {
   font-size: 28px;
-  position: absolute;
-  top: 21vh;
-  margin-left: 6vw;
   font-family: "EF_jejudoldam";
   color: rgb(0, 0, 0);
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  transform: translate(-50%, 0);
+  color: coral;
 }
 
 #complete_btn {
@@ -48,9 +49,11 @@ body {
   height: 60px;
   right: 29vw;
   position: absolute;
+  bottom: -5%;
   font-size: 30px;
   font-family: "EF_jejudoldam";
   border: 3px solid rgb(51, 51, 51);
   background-color: rgb(250, 101, 101);
   border-radius: 50px;
+  cursor: pointer;
 }

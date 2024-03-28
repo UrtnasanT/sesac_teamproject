@@ -9,8 +9,8 @@ window.onload = function () {
 
 
 function backNext(sceneNum) {
-  const btn_back = document.getElementById('btn_back');
-  const btn_next = document.getElementById('btn_next');
+  const btn_back = document.getElementById("btn_back");
+  const btn_next = document.getElementById("btn_next");
 
   btn_back.onclick = function changeBackScene() {
     // console.log('back_btn');
