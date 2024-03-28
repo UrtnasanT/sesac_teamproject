@@ -41,22 +41,27 @@ p {
 /* 자막 영역 */
 .text {
   width: 100%;
-  padding-top: 50px;
+  /* padding-top: 50px; */
   height: calc(30vh - 50px);
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  /* text-align: center; */
 }
 
 /* 자막 안 */
 .text > span {
   font-family: 'EF_jejudoldam';
-  width: 50%;
-  padding-top: 16vh;
+  width: 60%;
+  /* padding-top: 16vh; */
   font-size: 44px;
   line-height: 7vh;
   z-index:  999;
+  position: fixed;
+  top: 10%;
+  text-align: center;
+
 }
 
 /* ---- content ------ */
