@@ -12,7 +12,7 @@ setTimeout(function () {
   // 애니메이션을 시작하기 전에 'flying' 클래스를 추가합니다.
   document.querySelector(".houseFlying").classList.add("flying");
 
-}, 1000);
+}, 1500);
 
 // 새 이미지 요소를 생성합니다.
 var newImage = document.createElement("img");

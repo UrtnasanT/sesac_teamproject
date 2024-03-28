@@ -1,5 +1,7 @@
+const container = document.querySelector(".container");
+
 // leftImg 요소를 가져옴
-const leftImg = document.querySelector("#left_img");
+const leftImg = document.querySelector(".sketch");
 
 let canvasCreated = false; // canvas가 생성되었는지 여부를 추적하는 변수
 
@@ -9,13 +11,6 @@ function createCanvas() {
     return;
   }
 
-  // 기존 캔버스를 제거합니다.
-  const existingCanvas = document.getElementById("canvas_container");
-  if (existingCanvas) {
-    existingCanvas.remove();
-  }
-
-  const container = document.querySelector(".container");
   const canvasContainer = document.createElement("div");
   const text = document.createElement("div");
   const canvas = document.createElement("canvas");
@@ -89,8 +84,6 @@ function createCanvas() {
     const targetElement = document.getElementById("btn_next");
     targetElement.click();
     canvasContainer.remove();
-    // canvas가 생성되었음을 표시
-    canvasCreated = false;
   });
   // canvas가 생성되었음을 표시
   canvasCreated = true;

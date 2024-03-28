@@ -1,5 +1,8 @@
-import { fetchJsonAndDisplayData } from './fetch.js';
-import { appendObject } from './buildHouse.js';
+import { fetchJsonAndDisplayData } from "./fetch.js";
+import { appendObject } from "./buildHouse.js";
+
+let currentCssLink = null;
+let currentJsModule = null;
 
 window.onload = function () {
   let sceneNum = 0;
@@ -7,13 +10,11 @@ window.onload = function () {
   backNext(sceneNum);
 };
 
-
 function backNext(sceneNum) {
   const btn_back = document.getElementById("btn_back");
   const btn_next = document.getElementById("btn_next");
 
   btn_back.onclick = function changeBackScene() {
-    // console.log('back_btn');
     sceneNum--;
     changeScene(sceneNum);
   };
@@ -24,8 +25,26 @@ function backNext(sceneNum) {
   };
 }
 
-function changeScene(sceneNum) {
+export function changeScene(sceneNum) {
   document.querySelector("#right_img").classList.remove("houseFlying");
+
+  // CSS 및 JS 초기화
+  if (currentCssLink) {
+    currentCssLink.remove();
+    currentCssLink = null;
+  }
+  if (currentJsModule) {
+    currentJsModule
+      .then((module) => {
+        if (module && module.default) {
+          module.default.unmount();
+        }
+        currentJsModule = null;
+      })
+      .catch((error) => {
+        console.error("Error unloading current JS module:", error);
+      });
+  }
 
   fetchJsonAndDisplayData(sceneNum); // 자막 불러오기
   appendObject(sceneNum); // build-house 씬 오브젝트 추가
@@ -34,11 +53,11 @@ function changeScene(sceneNum) {
 
 // 이미지 바꾸는 함수
 function changeImg(sceneNum) {
-  let imgLeft = document.querySelector('.left img');
-  let imgRight = document.querySelector('.right img');
+  let imgLeft = document.querySelector(".left img");
+  let imgRight = document.querySelector(".right img");
 
-  imgLeft.src = '';
-  console.log('씬넘버', sceneNum);
+  imgLeft.src = "";
+  console.log("씬넘버", sceneNum);
 
   switch (sceneNum) {
     case 0:
@@ -63,7 +82,6 @@ function changeImg(sceneNum) {
       imgRight.src = "./img/house_straw.png";
       break;
     case 4:
-      document.getElementById("right_img").style.opacity = "0.6";
       changeStyle("buildHouse");
       changeJs("buildHouse");
       imgLeft.src = "./img/pig2_tree_no.png";
@@ -77,7 +95,7 @@ function changeImg(sceneNum) {
       imgRight.src = "./img/pig3_default.png";
       break;
     case 6:
-      document.getElementById("right_img").style.opacity = "0.6";
+      document.querySelector(".container #canvas_container").remove();
       changeStyle("buildHouse");
       changeJs("buildHouse");
       imgLeft.src = "./img/pig3_birck_no.png";
@@ -108,24 +126,27 @@ function changeImg(sceneNum) {
       imgLeft.src = "./img/wolf_default.png";
       imgRight.src = "./img/pig_tremble.png";
       break;
-    // 둘째 돼지 집 노크
     case 10:
+      // 둘째 돼지 집 노크
       changeStyle("knock");
       changeJs("vibration");
       imgLeft.src = "./img/wolf_default.png";
       imgRight.src = "./img/house_tree.png";
       break;
-    // 둘째 집 날리기
     case 11:
+      // 둘째 집 날리기
       changeStyle("flyingHouse");
       changeJs("flyingHouse");
       imgLeft.src = "./img/wolf_default.png";
       imgRight.src = "./img/house_tree.png";
+      document.querySelector("#left_img").classList.add("wolf-wind");
       document.querySelector("#right_img").classList.add("houseFlying");
       document.querySelector("#left_img").classList.add("blowAnimation");
       break;
     case 12:
-      // 첫째 돼지 덜덜 떠는 장면
+      // 첫째, 둘째 돼지 덜덜 떠는 장면
+      document.querySelector("#left_img").classList.remove("wolf-wind");
+      document.querySelector("#right_img").classList.remove("hidePig");
       changeStyle("pig_tremble2");
       changeJs("tremble2");
       imgLeft.src = "./img/wolf_default.png";
@@ -153,14 +174,13 @@ function changeImg(sceneNum) {
   }
 }
 
-let currentCssLink = null;
-
 function changeStyle(css) {
   const cssUrl = "./css/" + css + ".css";
 
+  // 현재 CSS 링크가 있다면 제거합니다.
   if (currentCssLink) {
-    // 이전에 추가한 CSS 링크가 있다면 제거합니다.
     currentCssLink.remove();
+    currentCssLink = null; // 현재 CSS 링크를 초기화합니다.
   }
 
   // 새로운 CSS 링크를 생성하고 추가합니다.
@@ -174,25 +194,22 @@ function changeStyle(css) {
   currentCssLink = newCssLink;
 }
 
-
-let currentJsModule = null;
-
 function changeJs(js) {
   console.log("changeJS");
   let jsUrl = "./" + js + ".js";
 
-  if (currentJsModule) {
   // 현재 모듈이 있다면 언로드합니다.
-  currentJsModule
-    .then((module) => {
-      if (module && module.default) {
-        module.default.unmount();
-      }
-    })
-    .catch((error) => {
-      console.error("Error unloading current JS module:", error);
-    });
-}
+  if (currentJsModule) {
+    currentJsModule
+      .then((module) => {
+        if (module && module.default) {
+          module.default.unmount();
+        }
+      })
+      .catch((error) => {
+        console.error("Error unloading current JS module:", error);
+      });
+  }
 
   // 새로운 모듈을 로딩합니다.
   currentJsModule = import(jsUrl)
@@ -204,5 +221,3 @@ function changeJs(js) {
       console.error("Error loading " + jsUrl + ":", error);
     });
 }
-
-changeScene();

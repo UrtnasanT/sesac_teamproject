@@ -33,18 +33,22 @@ function appendObject(sceneNum) {
       newImg.id = "object";
       leftDiv.appendChild(newImg); // 이미지 삽입
       dragEvent(newImg, document.getElementById("right_img"));
+      document.getElementById("right_img").style.opacity = "0.6";
       break;
     case 4:
       newImg.src = "./img/tree.png";
       newImg.id = "object";
       leftDiv.appendChild(newImg); // 이미지 삽입
       dragEvent(newImg, document.getElementById("right_img"));
+      document.getElementById("right_img").style.opacity = "0.6";
+
       break;
     case 6:
       newImg.src = "./img/brick.png";
       newImg.id = "object";
       leftDiv.appendChild(newImg); // 이미지 삽입
       dragEvent(newImg, document.getElementById("right_img"));
+      document.getElementById("right_img").style.opacity = "0.6";
       break;
     case 16:
       newImg.src = "./img/fire.png";
