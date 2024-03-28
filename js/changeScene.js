@@ -106,7 +106,7 @@ function changeImg(sceneNum) {
       // 노크하는 장면
       changeStyle("knock");
       changeJs("vibration");
-      imgLeft.src = "./img/wolf_default.png";
+      imgLeft.src = "./img/wolf_drooling.png";
       imgRight.src = "./img/house_straw.png";
       break;
     case 8:
@@ -131,7 +131,7 @@ function changeImg(sceneNum) {
       // 둘째 돼지 집 노크
       changeStyle("knock");
       changeJs("vibration");
-      imgLeft.src = "./img/wolf_default.png";
+      imgLeft.src = "./img/wolf_drooling.png";
       imgRight.src = "./img/house_tree.png";
       break;
     case 11:
@@ -154,16 +154,19 @@ function changeImg(sceneNum) {
       imgRight.src = "./img/pig_tremble.png";
       break;
     case 13:
+      // 셋째 돼지 집 노크
       changeStyle("knock");
-      imgLeft.src = "./img/wolf_default.png";
+      imgLeft.src = "./img/wolf_drooling.png";
       imgRight.src = "./img/house_bric.png";
       break;
     case 14:
-      changeStyle("rideSmokeStack");
-      imgLeft.src = "./img/wolf_default.png";
+      // 늑대 몸통 박치기
+      changeStyle("wolfCrash");
+      imgLeft.src = "./img/wolf_crash.png";
       imgRight.src = "./img/house_bric.png";
       break;
     case 15:
+      // 늑대 지붕 타기
       changeStyle("rideSmokeStack");
       imgLeft.src = "./img/wolf_default.png";
       imgRight.src = "./img/house_bric.png";
@@ -171,9 +174,10 @@ function changeImg(sceneNum) {
     case 16:
       changeStyle("burntWolf");
       imgLeft.src = "./img/pig_back2.png";
-      imgRight.src = "./img/boil_pot1.png";
+      imgRight.src = "./img/boil_pot.png";
       break;
     case 17:
+      document.querySelector("#object_wolf").style.display = "none";
       changeStyle("finalScene");
       changeJs("finalScene");
       imgLeft.src = "./img/house_bric.png";

@@ -1,6 +1,6 @@
 .wolf {
   position: absolute;
-  animation: rideSmokeStack 8s linear;
+  animation: rideSmokeStack 8s ease-in-out;
 }
 
 @keyframes rideSmokeStack {
@@ -9,17 +9,18 @@
   }
   25% {
     left: 50vw;
+    bottom: 45vh;
   }
   50% {
     left: 60vw;
-    bottom: 50vh;
   }
   75% {
     left: 60vw;
-    bottom: 30vh;
+    bottom: 20vh;
   }
   100% {
     left: 60vw;
     bottom: 5vh;
+    transform: scale(0.5)
   }
 }
