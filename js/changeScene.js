@@ -57,12 +57,15 @@ function changeImg(sceneNum) {
       imgRight.src = "./img/house_straw.png";
       break;
     case 3:
+      changeJs("buildHouse");
       changeStyle("buildHouse");
       imgLeft.src = "./img/pig1_straw_no.png";
       imgRight.src = "./img/house_straw.png";
       break;
     case 4:
+      document.getElementById("right_img").style.opacity = "0.6";
       changeStyle("buildHouse");
+      changeJs("buildHouse");
       imgLeft.src = "./img/pig2_tree_no.png";
       imgRight.src = "./img/house_tree.png";
       break;
@@ -74,7 +77,9 @@ function changeImg(sceneNum) {
       imgRight.src = "./img/pig3_default.png";
       break;
     case 6:
+      document.getElementById("right_img").style.opacity = "0.6";
       changeStyle("buildHouse");
+      changeJs("buildHouse");
       imgLeft.src = "./img/pig3_birck_no.png";
       imgRight.src = "./img/house_bric.png";
       break;
@@ -86,16 +91,18 @@ function changeImg(sceneNum) {
       imgRight.src = "./img/house_straw.png";
       break;
     case 8:
-      // 돼지 집 날리는 장면
+      // 첫째 돼지 집 날리는 장면
       changeStyle("flyingHouse");
       changeJs("flyingHouse");
       imgLeft.src = "./img/wolf_default.png";
       imgRight.src = "./img/house_straw.png";
       document.querySelector("#right_img").classList.add("houseFlying");
-      document.querySelector("#left_img").classList.add("blowAnimation");
+      document.querySelector(".wolf-wind").classList.add("blowAnimation");
       break;
     case 9:
       // 첫째 돼지 덜덜 떠는 장면
+      document.querySelector("#left_img").classList.remove("wolf-wind");
+      document.querySelector("#right_img").classList.remove("hidePig");
       changeStyle("pig_tremble1");
       changeJs("tremble1");
       imgLeft.src = "./img/wolf_default.png";
