@@ -67,6 +67,7 @@ function changeImg(sceneNum) {
       break;
     case 1:
       changeStyle("firstScene");
+      changeJs("flyingBird");
       imgLeft.src = "./img/pigs_default.png";
       break;
     case 2:
@@ -148,9 +149,19 @@ function changeImg(sceneNum) {
       document.querySelector("#left_img").classList.remove("wolf-wind");
       document.querySelector("#right_img").classList.remove("hidePig");
       changeStyle("pig_tremble2");
-      changeJs("tremble2");
+      // changeJs("tremble2");
       imgLeft.src = "./img/wolf_default.png";
       imgRight.src = "./img/pig_tremble.png";
+      break;
+    case 13:
+      changeStyle("knock");
+      imgLeft.src = "./img/wolf_default.png";
+      imgRight.src = "./img/house_bric.png";
+      break;
+    case 14:
+      changeStyle("rideSmokeStack");
+      imgLeft.src = "./img/wolf_default.png";
+      imgRight.src = "./img/house_bric.png";
       break;
     case 15:
       changeStyle("rideSmokeStack");
