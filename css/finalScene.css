@@ -27,6 +27,7 @@
   bottom: 10%;
   transform: translate(0%, -20%);
   animation: danceAnimation 1s infinite ease-in-out;
+  z-index: 99;
 }
 
 @keyframes danceAnimation {
