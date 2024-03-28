@@ -1,25 +1,40 @@
-@import './utils.css';
+@import "./utils.css";
 
 /* 구름(임시)  */
-.container > img {
+/* .cloud > img {
   position: absolute;
-  width: 15vw;
-  padding-top: 100px;
-  padding-left: 140px;
-  animation: motion 2s linear 0s infinite alternate;
+  padding-top: 10px;
+  padding-left: 10px;
+  animation: motion 3s linear 0s infinite alternate;
+}
+
+.cloud1 {
+  width: 18.5vw;
+  top: 26vh;
+  margin-left: 1.5vw;
+  z-index: 3;
 }
 
 .cloud2 {
-  top: 10vw;
-  margin-left: 39vw;
-  z-index: -3;
+  width: 19vw;
+  top: 11.5vh;
+  margin-left: 19.2vw;
+  z-index: 3;
 }
 
 .cloud3 {
-  top: 3vw;
-  margin-left: 70vw;
-  z-index: -3;
+  width: 19.8vw;
+  top: 5.4vh;
+  margin-left: 49vw;
+  z-index: 3;
 }
+
+.cloud4 {
+  width: 27.5vw;
+  top: 12vw;
+  margin-left: 68vw;
+  z-index: 3;
+} */
 
 /* content안의 left, right */
 .left,
@@ -91,6 +106,6 @@
     transition-timing-function: cubic-bezier(1, 0.2, 0.8, 0.2, 1);
   }
   100% {
-    margin-top: 14px;
+    margin-top: 12px;
   }
 }
