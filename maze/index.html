@@ -16,16 +16,16 @@
       <img
         src="/img/pig1_default.png"
         id="pig"
-        width="50px"
-        height="50px"
+        width="80px"
+        height="80px"
         alt="pig"
       />
       <img
         src="/img/house_tree.png"
         id="house"
         alt="house"
-        width="50px"
-        height="50px"
+        width="80px"
+        height="80px"
       />
     </div>
   </body>
@@ -79,19 +79,26 @@
     }
 
     function getpigposition() {
-      // find 2 in mazearray and return its position
-      let position = [-1, -1];
-      for (let i = 0; i < mazearray.length; i++) {
+    // find 2 in mazearray and return its position
+    let position = [-1, -1];
+    for (let i = 0; i < mazearray.length; i++) {
         for (let j = 0; j < mazearray[i].length; j++) {
-          if (mazearray[i][j] == 2) {
-            position[0] = i;
-            position[1] = j;
-          }
+            if (mazearray[i][j] == 2) {
+                position[0] = i;
+                position[1] = j;
+            }
         }
-      }
-      console.log(position);
-      return position;
     }
+    console.log(position);
+
+    // 만약 돼지가 집 위치에 도달하면 부모 창에게 메시지를 보내어 창을 닫는다.
+    if (position[0] === 3 && position[1] === 2) {
+        window.parent.postMessage("finish", "*");
+    }
+
+    return position;
+}
+
     document.addEventListener("keydown", function (e) {
       let pig = document.getElementById("pig");
       let house = document.getElementById("house");
@@ -103,10 +110,10 @@
 
       if (
         e.key == "ArrowRight" &&
-        pigleft < (mazearray.length - 1) * 50 &&
+        pigleft < (mazearray.length - 1) * 80 &&
         mazearray[pigposition[0]][pigposition[1] + 1] == 1
       ) {
-        pigleft += 50;
+        pigleft += 80;
         pig.style.left = pigleft + "px";
         mazearray[pigposition[0]][pigposition[1]] = 1;
         mazearray[pigposition[0]][pigposition[1] + 1] = 2;
@@ -117,7 +124,7 @@
         pigleft > 0 &&
         mazearray[pigposition[0]][pigposition[1] - 1] == 1
       ) {
-        pigleft -= 50;
+        pigleft -= 80;
         pig.style.left = pigleft + "px";
         mazearray[pigposition[0]][pigposition[1]] = 1;
         mazearray[pigposition[0]][pigposition[1] - 1] = 2;
@@ -128,7 +135,7 @@
         pigtop > 0 &&
         mazearray[pigposition[0] - 1][pigposition[1]] == 1
       ) {
-        pigtop -= 50;
+        pigtop -= 80;
         pig.style.top = pigtop + "px";
         mazearray[pigposition[0]][pigposition[1]] = 1;
         mazearray[pigposition[0] - 1][pigposition[1]] = 2;
@@ -136,10 +143,10 @@
 
       if (
         e.key == "ArrowDown" &&
-        pigtop < (mazearray.length - 1) * 50 &&
+        pigtop < (mazearray.length - 1) * 80 &&
         mazearray[pigposition[0] + 1][pigposition[1]] == 1
       ) {
-        pigtop += 50;
+        pigtop += 80;
         pig.style.top = pigtop + "px";
         mazearray[pigposition[0]][pigposition[1]] = 1;
         mazearray[pigposition[0] + 1][pigposition[1]] = 2;
@@ -164,6 +171,6 @@
         });
       }
     });
-    //
+
   </script>
 </html>

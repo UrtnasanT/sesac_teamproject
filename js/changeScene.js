@@ -77,7 +77,7 @@ function changeImg(sceneNum) {
       imgRight.src = "./img/house_bric.png";
       break;
     case 7:
-      // 노트하는 장면
+      // 노크하는 장면
       changeStyle("knock");
       changeJs("vibration");
       imgLeft.src = "./img/wolf_default.png";
@@ -87,9 +87,10 @@ function changeImg(sceneNum) {
       // 돼지 집 날리는 장면
       changeStyle("flyingHouse");
       changeJs("flyingHouse");
-      imgLeft.src = "./img/wolf_blow.png";
+      imgLeft.src = "./img/wolf_default.png";
       imgRight.src = "./img/house_straw.png";
       document.querySelector("#right_img").classList.add("houseFlying");
+      document.querySelector("#left_img").classList.add("blowAnimation");
       break;
     case 9:
       // 첫째 돼지 덜덜 떠는 장면
@@ -98,15 +99,28 @@ function changeImg(sceneNum) {
       imgLeft.src = "./img/wolf_default.png";
       imgRight.src = "./img/pig_tremble.png";
       break;
+    // 둘째 돼지 집 노크
     case 10:
-      changeStyle("buildHouse");
+      changeStyle("knock");
+      changeJs("vibration");
       imgLeft.src = "./img/wolf_default.png";
       imgRight.src = "./img/house_tree.png";
       break;
+    // 둘째 집 날리기
+    case 11:
+      changeStyle("flyingHouse");
+      changeJs("flyingHouse");
+      imgLeft.src = "./img/wolf_default.png";
+      imgRight.src = "./img/house_tree.png";
+      document.querySelector("#right_img").classList.add("houseFlying");
+      document.querySelector("#left_img").classList.add("blowAnimation");
+      break;
     case 12:
-      changeStyle("buildHouse");
-      imgLeft.src = "./img/pig3_birck_no.png";
-      imgRight.src = "./img/house_bric.png";
+      // 첫째 돼지 덜덜 떠는 장면
+      changeStyle("pig_tremble2");
+      changeJs("tremble2");
+      imgLeft.src = "./img/wolf_default.png";
+      imgRight.src = "./img/pig_tremble.png";
       break;
     case 15:
       changeStyle("rideSmokeStack");

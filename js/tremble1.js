@@ -17,11 +17,34 @@ function appendObject() {
 
   // 버튼 클릭 이벤트 리스너 추가
   newBtn.addEventListener("click", function () {
-    // 페이지 이동
-    window.location.href = "./maze/index.html";
+    // 새로운 iframe 요소를 생성합니다.
+    let iframe = document.createElement("iframe");
+    iframe.src = "./maze/index.html";
+    iframe.style.position = "absolute";
+    iframe.style.top = "60%";
+    iframe.style.left = "50%";
+    iframe.style.transform = "translate(-50%, -60%)";
+    iframe.style.width = "80vw";
+    iframe.style.height = "60vh";
+    iframe.style.border = "none";
+    iframe.style.zIndex = "10";
+    iframe.style.borderRadius = "25px";
+
+    // 현재 페이지의 container 요소에 iframe을 추가합니다.
+    let container = document.querySelector(".container");
+    container.appendChild(iframe);
+
+    window.addEventListener("message", function (event) {
+      if (event.data === "finish") {
+        // 현재 창 종료
+        window.parent.postMessage("finish", "*");
+      }
+    });
+
+    // 클릭된 버튼 제거
+    newBtn.remove();
   });
 }
-
 
 function tremblePig() {
   // # fadein으로 늑대와 돼지 등장, 3초 후 떠는 돼지
@@ -29,7 +52,7 @@ function tremblePig() {
   // const pigTremble = document.getElementById("right_img");
   const pigTremble = document.querySelector(".pig_right");
 
-  setTimeout(() => pigTremble.classList.add("vibration"));
+  setTimeout(() => pigTremble.classList.add("vibration"), 3000);
 }
 
 // appendObject 함수 호출

@@ -1,12 +1,23 @@
+setTimeout(function () {
+  // 이미지 요소를 선택합니다.
+  var wolfImage = document.querySelector("#left_img");
+
+  // 이미지를 wolf_blow로 변경합니다.
+  wolfImage.src = "./img/wolf_blow.png";
+
+}, 2000);
+
 document.querySelector(".houseFlying").addEventListener("click", function () {
-  // 집 이미지 요소를 선택합니다.
-  var houseImage = document.querySelector("img");
-  // .right 클래스에 overflow: hidden;을 추가합니다.
-  document.querySelector(".right").style.overflow = "hidden";
+  setTimeout(() => {
+    // 집 이미지 요소를 선택합니다.
+    var houseImage = document.querySelector("img");
+    // .right 클래스에 overflow: hidden;을 추가합니다.
+    document.querySelector(".right").style.overflow = "hidden";
 
-  // 애니메이션을 시작하기 전에 'flying' 클래스를 추가합니다.
-  this.classList.add("flying");
-
+    // 애니메이션을 시작하기 전에 'flying' 클래스를 추가합니다.
+    this.classList.add("flying");
+  }, 2000); // 2초 뒤에 실행
+  
   // 새 이미지 요소를 생성합니다.
   var newImage = document.createElement("img");
   newImage.src = "./img/pig_tremble.png";
@@ -18,12 +29,8 @@ document.querySelector(".houseFlying").addEventListener("click", function () {
 
   // 이미지를 추가합니다.
   document.querySelector(".right").appendChild(newImage);
-});
 
-document.getElementById("btn_next").addEventListener("click", function () {
-  // hidePig 클래스를 가진 요소를 선택하여 제거합니다.
-  var hidePigElement = document.querySelector(".hidePig");
-  if (hidePigElement) {
-    hidePigElement.remove();
-  }
+  document.querySelector("#btn_next").addEventListener("click", function() {
+    newImage.remove();
+  });
 });
