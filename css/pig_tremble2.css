@@ -17,26 +17,37 @@
 
 .content .left .wolf {
   position: absolute;
-  width: 24vw;
-  right: 18vw;
-  bottom: 5vh;
-
+  bottom: 2vh;
+  width: 26vw;
+  left: 18vw;
   /* fadein animation */
   animation: fadein 1s;
 }
 
-.content .right .pig_right {
+.pig_right {
+  display: none;
+}
+
+#pig_right1 {
   position: absolute;
-  bottom: 5vh;
-  width: 15vw;
-  right: 20vw;
+  bottom: 4vh;
+  width: 16vw;
+  right: 19.5vw;
+}
+
+#pig_right2 {
+  display: none;
+  position: absolute;
+  bottom: 4vh;
+  left: 22vw;
+  width: 16vw;
 }
 
 /* ----  /content ------ */
 
 /* 떨리는 효과 애니메이션 */
 .vibration {
-  animation: vibration .1s infinite;
+  animation: vibration 0.1s infinite;
 }
 
 @keyframes vibration {
@@ -67,7 +78,8 @@
   box-shadow: 0 5px 16px -10px rgba(0, 0, 0, 1);
   /* background: #3d4c53; */
   background: rgb(163, 123, 53);
-  bottom: -5vh;
+  margin: 20px auto;
+  bottom: 5vh;
   right: 2vw;
   width: 190px;
   height: 70px;
@@ -91,6 +103,7 @@
 .btnText {
   color: black;
   font-size: 24px;
+  margin-top: 22px;
   transition: 0.3s;
 }
 .btnText2 {
