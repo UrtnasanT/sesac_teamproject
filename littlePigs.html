@@ -17,7 +17,17 @@
   <body>
     <div class="container">
       <!-- header -->
-      <div class="header">header</div>
+      <header class="header">
+        <div>
+          <img
+            id="hoverImage"
+            src="./img/main/logo.gif"
+            onmouseover="changeImage()"
+            onmouseout="restoreImage()"
+            alt=""
+          />
+        </div>
+      </header>
       <div class="cloud">
         <img class="cloud1" src="../img/cloud_1.png" alt="" />
         <img class="cloud2" src="../img/cloud_2.png" alt="" />
@@ -69,6 +79,7 @@
         </div>
       
     </div>
+    <script src="./js/headerLogo.js"></script>
     <script src="./js/ttsPlayPause.js"></script>
     <Script src="./js/closeMazeGame.js"></Script>
 

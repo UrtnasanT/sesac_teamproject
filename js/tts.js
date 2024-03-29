@@ -35,7 +35,7 @@ function speech(txt) {
   utterThis.onend = function (event) {};
 
   utterThis.onerror = function (event) {
-    console.log("error", event);
+    // console.log("error", event);
   };
 
   var voiceFound = false;

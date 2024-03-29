@@ -74,27 +74,27 @@ function appendObject(sceneNum) {
 }
 
 function dragEvent(objectImg, rightImg) {
-  console.log("dragEvent 함수가 호출되었습니다.");
+  // console.log("dragEvent 함수가 호출되었습니다.");
   objectImg.addEventListener("dragstart", function (event) {
-    console.log("dragstart 이벤트가 발생하였습니다.");
+    // console.log("dragstart 이벤트가 발생하였습니다.");
     event.dataTransfer.setData("text", event.target.id);
   });
 
   rightImg.addEventListener("dragover", function (event) {
-    console.log("dragover 이벤트가 발생하였습니다.");
+    // console.log("dragover 이벤트가 발생하였습니다.");
     event.preventDefault();
   });
 
   rightImg.addEventListener("drop", function (event) {
-    console.log("drop 이벤트가 발생하였습니다.");
+    // console.log("drop 이벤트가 발생하였습니다.");
     event.preventDefault();
     var data = event.dataTransfer.getData("text");
     var draggedElement = document.getElementById(data);
 
     if (draggedElement && draggedElement.id === "object") {
-      console.log(
-        "드래그된 요소가 object이므로 right_img의 opacity를 변경합니다."
-      );
+      // console.log(
+      //   "드래그된 요소가 object이므로 right_img의 opacity를 변경합니다."
+      // );
       rightImg.style.opacity = 1;
     }
   });

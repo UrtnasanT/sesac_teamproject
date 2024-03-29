@@ -362,6 +362,9 @@ header {
   width: 43px;
   margin-left: 20px;
 }
+#hoverImage img{
+  width: 43px;
+}
 
 .about_title {
   font-size: 24px;

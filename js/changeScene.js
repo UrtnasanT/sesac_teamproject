@@ -42,7 +42,7 @@ export function changeScene(sceneNum) {
         currentJsModule = null;
       })
       .catch((error) => {
-        console.error("Error unloading current JS module:", error);
+        // console.error("Error unloading current JS module:", error);
       });
   }
 
@@ -57,7 +57,7 @@ function changeImg(sceneNum) {
   let imgRight = document.querySelector(".right img");
 
   imgLeft.src = "";
-  console.log("씬넘버", sceneNum);
+  // console.log("씬넘버", sceneNum);
 
   switch (sceneNum) {
     case 0:
@@ -129,6 +129,8 @@ function changeImg(sceneNum) {
       break;
     case 10:
       // 둘째 돼지 집 노크
+      document.querySelector(".button").remove();
+      document.querySelector("#right_img").classList.remove("vibration");
       changeStyle("knock");
       changeJs("vibration");
       imgLeft.src = "./img/wolf_drooling.png";
@@ -137,7 +139,7 @@ function changeImg(sceneNum) {
     case 11:
       // 둘째 집 날리기
       changeStyle("flyingHouse");
-      changeJs("flyingHouse");
+      changeJs("flyingHouse2");
       imgLeft.src = "./img/wolf_default.png";
       imgRight.src = "./img/house_tree.png";
       document.querySelector("#left_img").classList.add("wolf-wind");
@@ -148,8 +150,8 @@ function changeImg(sceneNum) {
       // 첫째, 둘째 돼지 덜덜 떠는 장면
       document.querySelector("#left_img").classList.remove("wolf-wind");
       document.querySelector("#right_img").classList.remove("hidePig");
-      changeStyle("pig_tremble2");
-      // changeJs("tremble2");
+      changeStyle("pig_tremble1");
+      changeJs("tremble1");
       imgLeft.src = "./img/wolf_default.png";
       imgRight.src = "./img/pig_tremble.png";
       break;
@@ -184,7 +186,13 @@ function changeImg(sceneNum) {
       imgRight.src = "./img/house_bric.png";
       break;
 
-    default:
+    case 18:
+      document.querySelector("#object_wolf").style.display = "none";
+      changeStyle("finalScene");
+      changeJs("finalScene");
+      imgLeft.src = "./img/house_bric.png";
+      imgRight.src = "./img/house_bric.png";
+      window.close(); // 현재 창을 닫습니다.
       break;
   }
 }
@@ -210,7 +218,7 @@ function changeStyle(css) {
 }
 
 function changeJs(js) {
-  console.log("changeJS");
+  // console.log("changeJS");
   let jsUrl = "./" + js + ".js";
 
   // 현재 모듈이 있다면 언로드합니다.
@@ -222,17 +230,17 @@ function changeJs(js) {
         }
       })
       .catch((error) => {
-        console.error("Error unloading current JS module:", error);
+        // console.error("Error unloading current JS module:", error);
       });
   }
 
   // 새로운 모듈을 로딩합니다.
   currentJsModule = import(jsUrl)
     .then((module) => {
-      console.log(jsUrl + " loaded successfully");
+      // console.log(jsUrl + " loaded successfully");
       return module;
     })
     .catch((error) => {
-      console.error("Error loading " + jsUrl + ":", error);
+      // console.error("Error loading " + jsUrl + ":", error);
     });
 }

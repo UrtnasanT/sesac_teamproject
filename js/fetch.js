@@ -6,7 +6,7 @@ function fetchJsonAndDisplayData(sceneNumber) {
       const filteredData = filterDataBySceneNumber(data, sceneNumber);
       displayDataWithLineBreaks(filteredData);
     })
-    .catch((err) => console.error('err : ', err));
+    // .catch((err) => console.error('err : ', err));
 }
 
 // 원하는 scene을 가져오기

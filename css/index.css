@@ -69,13 +69,22 @@ p {
 
 /* header 영역 */
 .header {
-  background-color: white;
+  /* background-color: white; */
   width: 100%;
   height: 50px;
   position: fixed;
   z-index: 5;
-  opacity: 0.3;
 }
+
+#hoverImage {
+  width: 43px;
+  margin-left: 20px;
+}
+
+#hoverImage img{
+  width: 43px;
+}
+
 
 /* 자막 영역 */
 .text {

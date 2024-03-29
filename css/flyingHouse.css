@@ -14,6 +14,12 @@
   z-index: 10;
 }
 
+.wolf {
+  position: absolute;
+  width: 15%;
+  bottom: 10vh;
+}
+
 .house.flying {
   animation: flyAway 4s ease forwards;
 }
