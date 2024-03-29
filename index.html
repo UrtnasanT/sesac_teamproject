@@ -1,3 +1,4 @@
+
 <!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
@@ -8,7 +9,40 @@
     <link rel="stylesheet" href="./css/main/index.css" />
   </head>
   <body>
-    <header>키토리</header>
+    <header>
+      <div>
+        <img
+          id="hoverImage"
+          src="./img/main/logo.gif"
+          onmouseover="changeImage()"
+          onmouseout="restoreImage()"
+          alt=""
+        />
+      </div>
+      <button id="openModal">ABOUT</button>
+    </header>
+
+    <div id="myModal" class="modal">
+      <div class="modal-content">
+        <span class="closeBtn">&times;</span>
+        <p class="about_title"><span> * &nbsp;</span>About Kitory&nbsp; *</p>
+        <p class="about_content">
+          키토리는
+          <span id="hover-text" style="color: #ff0020; font-weight: 600"
+            >클릭 ( Click! ) </span
+          >이벤트와
+          <span style="color: #009e43; font-weight: 600">CSS 애니메이션</span
+          >을<br />
+          활용한 온라인 동화책 입니다 ! 중간중간 나타나는 <br />
+          동화 속 친구들과 함께 게임을 즐겨보세요 ='ω'= ~
+          <span style="color: #ffd900; font-weight: 600">☆</span><br />
+          <span style="color: #036ec1">자막</span>을 읽어주는
+          <span style="color: #036ec1; font-weight: 600">음성 서비스</span>도
+          이용할 수 있어요 &nbsp;› ᴗ ‹⋆
+        </p>
+      </div>
+    </div>
+
     <div class="content">
       <h2 class="contentTitle"></h2>
       <div class="contentSynopsys"></div>
@@ -21,14 +55,24 @@
         </div>
         <div class="page6">
           <span class="synopsys-text">
-            벽돌로 튼튼하게 지은 셋째 돼지의 집을 늑대가 날려 버릴 수 있을까요?
-            각기 다른 재료로 집을 지은 아기 돼지 삼 형제의 이야기를 읽어 보세요.
+            고양이가 되고 별이 되는 엉뚱한 상상을 하는 밤, 일기를 쓰듯 그린
+            그림들을 모아 작은 책으로 만들었습니다.
           </span>
-          <img class="synopsys" src="./img/main/inside_page2.png" alt="" style="border-radius: 20px;"/>
+          <img
+            class="synopsys"
+            src="./img/main/inside_page2.png"
+            alt=""
+            style="border-radius: 20px"
+          />
         </div>
         <div class="page5">
           <h3 class="title">밤의 모양</h3>
-          <img class="inside_page" src="./img/main/inside_page1.png" alt="" style="border-radius: 20px;"/>
+          <img
+            class="inside_page"
+            src="./img/main/inside_page1.png"
+            alt=""
+            style="border-radius: 20px"
+          />
         </div>
         <div class="page4"></div>
         <div class="page3"></div>
@@ -46,12 +90,8 @@
         <div class="page6">
           <img class="synopsys" src="./img/main/inside_page4.png" alt="" />
           <span class="synopsys-text">
-            벽돌로 튼튼하게 지은 셋째 돼지의 집을 늑대가 날려 버릴 수 있을까요?
-            각기 다른 재료로 집을 지은 아기 돼지 삼 형제의 이야기를 읽어 보세요.
-            첫째 돼지는 지푸라기, 둘째 돼지는 나무로 대충 집을 짓고, 셋째 돼지는
-            벽돌로 튼튼하게 집을 지었어요. 어느 날, 늑대가 입김으로 집을 날려
-            버리자 첫째 돼지는 둘째 돼지네 집으로 도망쳤지요. 둘째 돼지와 셋째
-            돼지네 집은 무사할 수 있을까요?
+            초록색 공간을 탐험한 기록을 모은 책입니다. 숲과 새를 보며 남긴 짧은
+            글과 작은 그림들을 모아 엮었습니다.
           </span>
         </div>
         <div class="page5">
@@ -63,7 +103,7 @@
         <div class="page2"></div>
         <div class="page1"></div>
         <div class="front">
-          <img src="./img/main/book2.png" alt=""  />
+          <img src="./img/main/book2.png" alt="" />
         </div>
       </div>
 
@@ -73,14 +113,10 @@
         </div>
         <div class="page6">
           <img class="synopsys" src="./img/main/inside_page6.png" alt="" />
-          <!-- <span class="synopsys">
-            벽돌로 튼튼하게 지은 셋째 돼지의 집을 늑대가 날려 버릴 수 있을까요?
-            각기 다른 재료로 집을 지은 아기 돼지 삼 형제의 이야기를 읽어 보세요.
-            첫째 돼지는 지푸라기, 둘째 돼지는 나무로 대충 집을 짓고, 셋째 돼지는
-            벽돌로 튼튼하게 집을 지었어요. 어느 날, 늑대가 입김으로 집을 날려
-            버리자 첫째 돼지는 둘째 돼지네 집으로 도망쳤지요. 둘째 돼지와 셋째
-            돼지네 집은 무사할 수 있을까요?
-          </span> -->
+          <span class="synopsys-text">
+            한 발짝, 한 발짝 느리지만 확실히 나아가는 걸음처럼 켜켜이 쌓여가는
+            시간들을 수채화로 기록했습니다.
+          </span>
         </div>
         <div class="page5">
           <h3 class="title">산책</h3>
@@ -95,22 +131,20 @@
         </div>
       </div>
 
-      <div class="book" onclick="window.open('littlePigs.html', '_blank');">
+      <div class="book">
         <div class="back">
           <img src="./img/main/긴긴밤.jpeg" alt="" />
         </div>
         <div class="page6">
-          <span class="synopsys">
-            벽돌로 튼튼하게 지은 셋째 돼지의 집을 늑대가 날려 버릴 수 있을까요?
-            각기 다른 재료로 집을 지은 아기 돼지 삼 형제의 이야기를 읽어 보세요.
-            첫째 돼지는 지푸라기, 둘째 돼지는 나무로 대충 집을 짓고, 셋째 돼지는
-            벽돌로 튼튼하게 집을 지었어요. 어느 날, 늑대가 입김으로 집을 날려
-            버리자 첫째 돼지는 둘째 돼지네 집으로 도망쳤지요. 둘째 돼지와 셋째
-            돼지네 집은 무사할 수 있을까요?
+          <img class="synopsys" src="./img/main/book4.jpeg" alt="" />
+          <span class="synopsys-text">
+            벽돌로 튼튼하게 지은 집을 늑대가 날려 버릴 수 있을까요? 아기 돼지
+            삼형제의 이야기를 지금 만나보세요 !
           </span>
         </div>
         <div class="page5">
           <h3 class="title">아기 돼지 삼형제</h3>
+          <img class="inside_page" src="./img/main/book_5.jpeg" alt="" />
         </div>
         <div class="page4"></div>
         <div class="page3"></div>
@@ -127,14 +161,10 @@
         </div>
         <div class="page6">
           <img class="synopsys" src="./img/main/inside_page8.png" alt="" />
-          <!-- <span class="synopsys">
-            벽돌로 튼튼하게 지은 셋째 돼지의 집을 늑대가 날려 버릴 수 있을까요?
-            각기 다른 재료로 집을 지은 아기 돼지 삼 형제의 이야기를 읽어 보세요.
-            첫째 돼지는 지푸라기, 둘째 돼지는 나무로 대충 집을 짓고, 셋째 돼지는
-            벽돌로 튼튼하게 집을 지었어요. 어느 날, 늑대가 입김으로 집을 날려
-            버리자 첫째 돼지는 둘째 돼지네 집으로 도망쳤지요. 둘째 돼지와 셋째
-            돼지네 집은 무사할 수 있을까요?
-          </span> -->
+          <span class="synopsys-text">
+            파레트 위에 고스란히 포개어진 물감들의 레이어는 어린 시절 귀여운
+            만남의 기억들을 떠올리게 합니다.
+          </span>
         </div>
         <div class="page5">
           <h3 class="title">오늘은 어떤색 ?</h3>
@@ -155,14 +185,10 @@
         </div>
         <div class="page6">
           <img class="synopsys" src="./img/main/inside_page10.png" alt="" />
-          <!-- <span class="synopsys">
-            벽돌로 튼튼하게 지은 셋째 돼지의 집을 늑대가 날려 버릴 수 있을까요?
-            각기 다른 재료로 집을 지은 아기 돼지 삼 형제의 이야기를 읽어 보세요.
-            첫째 돼지는 지푸라기, 둘째 돼지는 나무로 대충 집을 짓고, 셋째 돼지는
-            벽돌로 튼튼하게 집을 지었어요. 어느 날, 늑대가 입김으로 집을 날려
-            버리자 첫째 돼지는 둘째 돼지네 집으로 도망쳤지요. 둘째 돼지와 셋째
-            돼지네 집은 무사할 수 있을까요?
-          </span> -->
+          <span class="synopsys-text">
+            들판에 떨어진 검은콩 두 알. 초대받지 않은 수많은 먼지와 그림자.
+            잊혀졌던 것들이 모여 인형으로 태어납니다.
+          </span>
         </div>
         <div class="page5">
           <h3 class="title">마이 비 데이</h3>
@@ -183,14 +209,10 @@
         </div>
         <div class="page6">
           <img class="synopsys" src="./img/main/inside_page12.png" alt="" />
-          <!-- <span class="synopsys">
-            벽돌로 튼튼하게 지은 셋째 돼지의 집을 늑대가 날려 버릴 수 있을까요?
-            각기 다른 재료로 집을 지은 아기 돼지 삼 형제의 이야기를 읽어 보세요.
-            첫째 돼지는 지푸라기, 둘째 돼지는 나무로 대충 집을 짓고, 셋째 돼지는
-            벽돌로 튼튼하게 집을 지었어요. 어느 날, 늑대가 입김으로 집을 날려
-            버리자 첫째 돼지는 둘째 돼지네 집으로 도망쳤지요. 둘째 돼지와 셋째
-            돼지네 집은 무사할 수 있을까요?
-          </span> -->
+          <span class="synopsys-text">
+            하루하루 평범한 일상을 보내던 소녀의 동네에 한 모자 가게가 문을
+            엽니다. '운명의 모자'를 찾을 수 있을까요?
+          </span>
         </div>
         <div class="page5">
           <h3 class="title">모자의 숲</h3>
@@ -211,14 +233,10 @@
         </div>
         <div class="page6">
           <img class="synopsys" src="./img/main/inside_page14.png" alt="" />
-          <!-- <span class="synopsys">
-            벽돌로 튼튼하게 지은 셋째 돼지의 집을 늑대가 날려 버릴 수 있을까요?
-            각기 다른 재료로 집을 지은 아기 돼지 삼 형제의 이야기를 읽어 보세요.
-            첫째 돼지는 지푸라기, 둘째 돼지는 나무로 대충 집을 짓고, 셋째 돼지는
-            벽돌로 튼튼하게 집을 지었어요. 어느 날, 늑대가 입김으로 집을 날려
-            버리자 첫째 돼지는 둘째 돼지네 집으로 도망쳤지요. 둘째 돼지와 셋째
-            돼지네 집은 무사할 수 있을까요?
-          </span> -->
+          <span class="synopsys-text">
+            “검은 숲에는 곰이 살고 있어! 곰은 아주 크고 무서우니 조심해야 해!”
+            아기 고양이 모의 숲속 탐험이 시작됩니다.
+          </span>
         </div>
         <div class="page5">
           <h3 class="title">모 이야기</h3>
@@ -239,14 +257,10 @@
         </div>
         <div class="page6">
           <img class="synopsys" src="./img/main/inside_page16.png" alt="" />
-          <!-- <span class="synopsys">
-            벽돌로 튼튼하게 지은 셋째 돼지의 집을 늑대가 날려 버릴 수 있을까요?
-            각기 다른 재료로 집을 지은 아기 돼지 삼 형제의 이야기를 읽어 보세요.
-            첫째 돼지는 지푸라기, 둘째 돼지는 나무로 대충 집을 짓고, 셋째 돼지는
-            벽돌로 튼튼하게 집을 지었어요. 어느 날, 늑대가 입김으로 집을 날려
-            버리자 첫째 돼지는 둘째 돼지네 집으로 도망쳤지요. 둘째 돼지와 셋째
-            돼지네 집은 무사할 수 있을까요?
-          </span> -->
+          <span class="synopsys-text">
+            우연히 만난 친구를 통해 처음 만나서 인사하는 법, 마음을 나누는 법,
+            힘을 모아 문제를 해결하는 법을 알게 된다.
+          </span>
         </div>
         <div class="page5">
           <h3 class="title">친구의 친구에게</h3>
@@ -388,7 +402,7 @@
           <img src="./img/main/1400000311240.jpg" alt="" />
         </div>
       </div> -->
-    </div> 
+    </div>
 
     <div class="scrollInfo"></div>
 
