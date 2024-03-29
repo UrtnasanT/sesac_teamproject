@@ -20,7 +20,7 @@ function addImage() {
     );
     rightImgElement.parentNode.insertBefore(
       newImgElement2,
-      newImgElement.nextSibling
+      rightImgElement.nextSibling
     );
     // 새 이미지를 right 클래스의 첫 번째 자식으로 이동
     var rightElement = document.querySelector(".right"); // right 클래스 요소 가져오기

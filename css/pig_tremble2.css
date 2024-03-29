@@ -20,34 +20,30 @@
   width: 24vw;
   right: 18vw;
   bottom: 5vh;
+
   /* fadein animation */
   animation: fadein 1s;
 }
 
-.pig_right {
-  display: none;
+.content .right .pig_right1 {
+  position: absolute;
+  bottom: 5vh;
+  width: 15vw;
+  right: 16vw;
 }
 
-#pig_right1 {
+.content .right .pig_right2 {
   position: absolute;
-  bottom: 4vh;
-  width: 16vw;
-  right: 19.5vw;
-}
-
-#pig_right2 {
-  display: none;
-  position: absolute;
-  bottom: 4vh;
-  left: 22vw;
-  width: 16vw;
+  bottom: 5vh;
+  width: 15vw;
+  right: 25vw;
 }
 
 /* ----  /content ------ */
 
 /* 떨리는 효과 애니메이션 */
 .vibration {
-  animation: vibration 0.1s infinite;
+  animation: vibration .1s infinite;
 }
 
 @keyframes vibration {

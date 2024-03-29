@@ -1,3 +1,6 @@
+document.querySelector("#left_img").classList.remove("wolf-wind");
+document.querySelector("#right_img").classList.remove("hidePig");
+
 document.addEventListener("DOMContentLoaded", function () {
   appendObject();
 });
@@ -40,11 +43,20 @@ function appendObject() {
         window.parent.postMessage("finish", "*");
       }
     });
-
+    
     // 클릭된 버튼 제거
     newBtn.remove();
   });
 }
+document.querySelector("#btn_next").addEventListener("click", function () {
+  // 버튼 클래스가 존재하는지 확인합니다.
+  var buttonElement = document.querySelector(".button");
+
+  // 버튼 클래스가 존재한다면 해당 요소를 제거합니다.
+  if (buttonElement !== null) {
+    buttonElement.remove();
+  }
+});
 
 function tremblePig() {
   // # fadein으로 늑대와 돼지 등장, 3초 후 떠는 돼지
@@ -52,10 +64,11 @@ function tremblePig() {
   // const pigTremble = document.getElementById("right_img");
   const pigTremble = document.querySelector(".pig_right");
 
-  setTimeout(() => pigTremble.classList.add("vibration"), 3000);
+  pigTremble.classList.add("vibration");
 }
 
 // appendObject 함수 호출
 appendObject();
 // tremblePig 함수 호출
 tremblePig();
+

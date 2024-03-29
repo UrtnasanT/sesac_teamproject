@@ -1,4 +1,13 @@
 
+.content .left .wolf {
+  position: absolute;
+  bottom: 4vh;
+  width: 24vw;
+  left: 16vw;
+  /* animation: fadein 2.5s; */
+  animation: fadeInLeft 1s;
+}
+
 @keyframes flyAway {
   0% {
     transform: translate(0, 0) rotate(0deg);

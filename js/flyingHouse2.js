@@ -1,7 +1,7 @@
 document.getElementById("right_img").style.opacity = "1";
 document.querySelector("#right_img").classList.add("houseFlying");
 document.querySelector("#left_img").classList.add("wolf-wind");
-document.querySelector(".wolf-wind").classList.add("blowAnimation");
+
 
 setTimeout(function () {
   // 이미지 요소를 선택합니다.
@@ -20,15 +20,24 @@ setTimeout(function () {
 
 // 새 이미지 요소를 생성합니다.
 var newImage = document.createElement("img");
+var newImage2 = document.createElement("img");
+
 newImage.src = "./img/pig_tremble.png";
 newImage.style.position = "absolute";
 newImage.style.bottom = "5vh";
 newImage.style.width = "15vw";
-newImage.style.right = "20vw";
+newImage.style.right = "16vw";
 newImage.classList.add("hidePig");
 
+newImage2.src = "./img/pig_tremble.png";
+newImage2.style.position = "absolute";
+newImage2.style.bottom = "5vh";
+newImage2.style.width = "15vw";
+newImage2.style.right = "25vw";
+newImage2.classList.add("hidePig");
 // 이미지를 추가합니다.
 document.querySelector(".right").appendChild(newImage);
+document.querySelector(".right").appendChild(newImage2);
 
 document.querySelector("#btn_next").addEventListener("click", function () {
   // hidePig 클래스가 존재하는지 확인합니다.

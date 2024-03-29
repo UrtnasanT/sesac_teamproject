@@ -25,8 +25,7 @@ function backNext(sceneNum) {
   };
 }
 
-export function changeScene(sceneNum) {
-  document.querySelector("#right_img").classList.remove("houseFlying");
+function changeScene(sceneNum) {
 
   // CSS 및 JS 초기화
   if (currentCssLink) {
@@ -71,7 +70,10 @@ function changeImg(sceneNum) {
       imgLeft.src = "./img/pigs_default.png";
       break;
     case 2:
-      document.querySelector(".bird").remove();
+      let birdElement = document.querySelector(".bird");
+      if (birdElement) {
+        birdElement.remove();
+      }
       changeStyle("momAppear");
       imgLeft.src = "./img/pig_mom.png";
       imgRight.src = "./img/house_straw.png";
@@ -96,7 +98,6 @@ function changeImg(sceneNum) {
       imgRight.src = "./img/pig3_default.png";
       break;
     case 6:
-      document.querySelector(".container #canvas_container").remove();
       changeStyle("buildHouse");
       changeJs("buildHouse");
       imgLeft.src = "./img/pig3_birck_no.png";
@@ -115,13 +116,9 @@ function changeImg(sceneNum) {
       changeJs("flyingHouse");
       imgLeft.src = "./img/wolf_default.png";
       imgRight.src = "./img/house_straw.png";
-      document.querySelector("#right_img").classList.add("houseFlying");
-      document.querySelector(".wolf-wind").classList.add("blowAnimation");
       break;
     case 9:
       // 첫째 돼지 덜덜 떠는 장면
-      document.querySelector("#left_img").classList.remove("wolf-wind");
-      document.querySelector("#right_img").classList.remove("hidePig");
       changeStyle("pig_tremble1");
       changeJs("tremble1");
       imgLeft.src = "./img/wolf_default.png";
@@ -137,24 +134,20 @@ function changeImg(sceneNum) {
     case 11:
       // 둘째 집 날리기
       changeStyle("flyingHouse");
-      changeJs("flyingHouse");
+      changeJs("flyingHouse2");
       imgLeft.src = "./img/wolf_default.png";
       imgRight.src = "./img/house_tree.png";
-      document.querySelector("#left_img").classList.add("wolf-wind");
-      document.querySelector("#right_img").classList.add("houseFlying");
-      document.querySelector("#left_img").classList.add("blowAnimation");
       break;
     case 12:
       // 첫째, 둘째 돼지 덜덜 떠는 장면
-      document.querySelector("#left_img").classList.remove("wolf-wind");
-      document.querySelector("#right_img").classList.remove("hidePig");
       changeStyle("pig_tremble2");
-      // changeJs("tremble2");
+      changeJs("tremble2");
       imgLeft.src = "./img/wolf_default.png";
       imgRight.src = "./img/pig_tremble.png";
       break;
     case 13:
       // 셋째 돼지 집 노크
+      document.querySelector("#right_img")
       changeStyle("knock");
       imgLeft.src = "./img/wolf_drooling.png";
       imgRight.src = "./img/house_bric.png";
@@ -183,8 +176,8 @@ function changeImg(sceneNum) {
       imgLeft.src = "./img/house_bric.png";
       imgRight.src = "./img/house_bric.png";
       break;
-
-    default:
+    case 18:
+      window.close(); // 창 종료
       break;
   }
 }
