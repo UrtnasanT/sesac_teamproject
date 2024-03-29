@@ -28,5 +28,4 @@
 function startAnimation() {
   let box = document.getElementById('object_wolf');
   box.classList.add('animate'); // 애니메이션을 시작하는 클래스 추가
-  
 }

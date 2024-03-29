@@ -45,7 +45,6 @@ p {
   z-index: 3;
 }
 
-
 /* .content img {
   width: 70%;
 } */
@@ -86,11 +85,11 @@ p {
 
 /* 떨리는 효과 애니메이션 */
 
-.vibration2 {
-  animation: vibration2 0.1s infinite;
+.vibration {
+  animation: vibration 0.1s infinite;
 }
 
-@keyframes vibration2 {
+@keyframes vibration {
   from {
     transform: rotate(1deg);
   }

@@ -1,21 +1,17 @@
-document.getElementById("right_img").style.opacity = "1";
-document.querySelector("#right_img").classList.add("houseFlying");
-document.querySelector("#left_img").classList.add("wolf-wind");
-document.querySelector(".wolf-wind").classList.add("blowAnimation");
-
 setTimeout(function () {
   // 이미지 요소를 선택합니다.
   var wolfImage = document.querySelector(".wolf-wind");
 
   // 이미지를 wolf_blow로 변경합니다.
   wolfImage.src = "./img/wolf_blow.png";
-
+  
   var houseImage = document.querySelector("img");
   // .right 클래스에 overflow: hidden;을 추가합니다.
   document.querySelector(".right").style.overflow = "hidden";
 
   // 애니메이션을 시작하기 전에 'flying' 클래스를 추가합니다.
   document.querySelector(".houseFlying").classList.add("flying");
+
 }, 1500);
 
 // 새 이미지 요소를 생성합니다.
@@ -30,12 +26,6 @@ newImage.classList.add("hidePig");
 // 이미지를 추가합니다.
 document.querySelector(".right").appendChild(newImage);
 
-document.querySelector("#btn_next").addEventListener("click", function () {
-  // hidePig 클래스가 존재하는지 확인합니다.
-  var hidePigElement = document.querySelector(".hidePig");
-
-  // hidePig 클래스가 존재한다면 해당 요소를 제거합니다.
-  if (hidePigElement !== null) {
-    hidePigElement.remove();
-  }
+document.querySelector("#btn_next").addEventListener("click", function() {
+  newImage.remove();
 });

@@ -1,5 +1,3 @@
-document.getElementById("right_img").style.opacity = "1";
-
 const container = document.querySelector(".container");
 
 // leftImg 요소를 가져옴
