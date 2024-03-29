@@ -35,20 +35,16 @@ document.addEventListener("mouseup", () => {
 });
 
 // 마우스 휠로 스크롤
-document.addEventListener(
-  "wheel",
-  (e) => {
-    if (!isHovering) {
-      e.preventDefault();
-      targetScrollLeft += Math.sign(e.deltaY) * 60; // 스크롤 속도를 느리게 조정
-      startSmoothScroll();
-    } else {
-      // 호버 중일 때는 contentSynopsys의 스크롤 동작
-      contentSynopsys.scrollTop += Math.sign(e.deltaY) * 10;
-    }
-  },
-  { passive: false }
-); // passive 속성을 false로 설정
+document.addEventListener("wheel", (e) => {
+  if (!isHovering) {
+    e.preventDefault();
+    targetScrollLeft += Math.sign(e.deltaY) * 60; // 스크롤 속도를 느리게 조정
+    startSmoothScroll();
+  } else {
+    // 호버 중일 때는 contentSynopsys의 스크롤 동작
+    contentSynopsys.scrollTop += Math.sign(e.deltaY) * 10;
+  }
+}, { passive: false }); // passive 속성을 false로 설정
 
 // 부드러운 스크롤 실행
 function startSmoothScroll() {
@@ -89,6 +85,7 @@ books.forEach((book) => {
     isHovering = false; // 호버 해제됨을 표시
   });
 });
+
 
 window.onload = function () {
   // book 클래스를 가진 요소들을 모두 선택
@@ -163,47 +160,3 @@ window.onload = function () {
     });
   });
 };
-
-// 모달 열기
-document.getElementById("openModal").addEventListener("click", function () {
-  document.getElementById("myModal").style.display = "block";
-});
-
-// 모달 닫기
-document
-  .getElementsByClassName("closeBtn")[0]
-  .addEventListener("click", function () {
-    document.getElementById("myModal").style.display = "none";
-  });
-
-// 모달 바깥을 클릭하면 모달 닫기
-window.addEventListener("click", function (event) {
-  var modal = document.getElementById("myModal");
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
-});
-
-// 이미지 변경 함수
-function changeImage(newImageUrl) {
-  document.getElementById("hoverImage").src = newImageUrl;
-}
-
-// 이미지 원래대로 복원 함수
-function restoreImage() {
-  document.getElementById("hoverImage").src = "기본이미지URL";
-}
-
-// 이미지 경로 변경 함수
-function changeImage() {
-  let image = document.getElementById("hoverImage");
-  image.src = "./img/main/logo_lg.gif";
-  document.getElementById("hoverImage").style.width = "230px";
-}
-
-// 이미지 경로 복원 함수
-function restoreImage() {
-  let image = document.getElementById("hoverImage");
-  image.src = "./img/main/logo.gif";
-  document.getElementById("hoverImage").style.width = "43px";
-}
